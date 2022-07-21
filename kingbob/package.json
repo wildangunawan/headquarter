@@ -9,13 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.4",
+    "@chakra-ui/react": "^2.2.4",
+    "@chakra-ui/system": "^2.2.2",
+    "@chakra-ui/theme-tools": "^2.0.5",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "apexcharts": "^3.35.3",
+    "framer-motion": "^6",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-apexcharts": "^1.4.0",
+    "react-calendar": "^3.7.0",
+    "react-custom-scrollbars-2": "^4.5.0",
+    "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.2",
+    "react-icons": "^4.4.0",
+    "react-table": "^7.8.0",
+    "stylis": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
+    "@types/react-calendar": "^3.5.1",
     "@types/react-dom": "18.0.6",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",
