@@ -1,4 +1,3 @@
-import React from "react";
 import NavLink from "next/link";
 import { useRouter } from "next/router";
 
@@ -11,8 +10,9 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Menu } from "types/menu";
 
-export function SidebarLinks(props: any) {
+export function SidebarLinks({ routes }: { routes: Menu[] }) {
   //   Chakra color mode
   let location = useRouter();
   let activeColor = useColorModeValue("gray.700", "white");
@@ -24,17 +24,15 @@ export function SidebarLinks(props: any) {
   let textColor = useColorModeValue("secondaryGray.500", "white");
   let brandColor = useColorModeValue("brand.500", "brand.400");
 
-  const { routes } = props;
-
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
     return location.pathname.includes(routeName);
   };
 
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
-  const createLinks = (routes: any) => {
-    return routes.map((route, index: number) => {
-      if (route.category) {
+  const createLinks: any = (routes: Menu[]) => {
+    return routes.map((route: Menu, index: number) => {
+      if (route.category || route.dropdown) {
         return (
           <>
             <Text
@@ -63,69 +61,31 @@ export function SidebarLinks(props: any) {
         return (
           <NavLink key={index} href={route.layout + route.path} passHref>
             <Link>
-              {route.icon ? (
-                <Box>
-                  <HStack
-                    spacing={
-                      activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                    }
-                    py="5px"
-                    ps="10px"
-                  >
-                    <Flex w="100%" alignItems="center" justifyContent="center">
-                      <Box
-                        color={
-                          activeRoute(route.path.toLowerCase())
-                            ? activeIcon
-                            : textColor
-                        }
-                        me="18px"
-                      >
-                        {route.icon}
-                      </Box>
-                      <Text
-                        me="auto"
-                        color={
-                          activeRoute(route.path.toLowerCase())
-                            ? activeColor
-                            : textColor
-                        }
-                        fontWeight={
-                          activeRoute(route.path.toLowerCase())
-                            ? "bold"
-                            : "normal"
-                        }
-                      >
-                        {route.name}
-                      </Text>
-                    </Flex>
-                    <Box
-                      h="36px"
-                      w="4px"
-                      bg={
+              <Box>
+                <HStack
+                  spacing={
+                    activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                  }
+                  py="5px"
+                  ps="10px"
+                >
+                  <Flex w="100%" alignItems="center" justifyContent="center">
+                    {route.icon && <Box
+                      color={
                         activeRoute(route.path.toLowerCase())
-                          ? brandColor
-                          : "transparent"
+                          ? activeIcon
+                          : textColor
                       }
-                      borderRadius="5px"
-                    />
-                  </HStack>
-                </Box>
-              ) : (
-                <Box>
-                  <HStack
-                    spacing={
-                      activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                    }
-                    py="5px"
-                    ps="10px"
-                  >
+                      me="18px"
+                    >
+                      {route.icon}
+                    </Box>}
                     <Text
                       me="auto"
                       color={
                         activeRoute(route.path.toLowerCase())
                           ? activeColor
-                          : inactiveColor
+                          : textColor
                       }
                       fontWeight={
                         activeRoute(route.path.toLowerCase())
@@ -135,10 +95,19 @@ export function SidebarLinks(props: any) {
                     >
                       {route.name}
                     </Text>
-                    <Box h="36px" w="4px" bg="brand.400" borderRadius="5px" />
-                  </HStack>
-                </Box>
-              )}
+                  </Flex>
+                  <Box
+                    h="36px"
+                    w="4px"
+                    bg={
+                      activeRoute(route.path.toLowerCase())
+                        ? brandColor
+                        : "transparent"
+                    }
+                    borderRadius="5px"
+                  />
+                </HStack>
+              </Box>
             </Link>
           </NavLink>
         );

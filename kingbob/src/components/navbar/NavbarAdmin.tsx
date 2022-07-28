@@ -51,7 +51,7 @@ export default function AdminNavbar(props: any) {
 
   return (
     <Box
-      position={navbarPosition}
+      position="fixed"
       boxShadow={navbarShadow}
       bg={navbarBg}
       borderColor={navbarBorder}

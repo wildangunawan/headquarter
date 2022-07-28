@@ -17,24 +17,22 @@ export function SearchBar(props: any) {
   const inputText = useColorModeValue("gray.700", "gray.100");
   return (
     <InputGroup w={{ base: "100%", md: "200px" }} {...rest}>
-      <InputLeftElement
-        children={
-          <IconButton
-            bg="inherit"
-            borderRadius="inherit"
-            _hover="none"
-            _active={{
-              bg: "inherit",
-              transform: "none",
-              borderColor: "transparent",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-            icon={<SearchIcon color={searchIconColor} w="15px" h="15px" />}
-          ></IconButton>
-        }
-      />
+      <InputLeftElement>
+        <IconButton
+          bg="inherit"
+          borderRadius="inherit"
+          _active={{
+            bg: "inherit",
+            transform: "none",
+            borderColor: "transparent",
+          }}
+          _focus={{
+            boxShadow: "none",
+          }}
+          icon={<SearchIcon color={searchIconColor} w="15px" h="15px" />}
+          aria-label={""}
+        />
+      </InputLeftElement>
       <Input
         variant="search"
         fontSize="sm"

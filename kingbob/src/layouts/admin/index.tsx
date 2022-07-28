@@ -1,16 +1,16 @@
 // Chakra imports
 import { Portal, Box, useDisclosure } from "@chakra-ui/react";
 import Footer from "components/footer/FooterAdmin";
+
 // Layout components
 import Navbar from "components/navbar/NavbarAdmin";
 import Sidebar from "components/sidebar/Sidebar";
-import React, { useState } from "react";
-import { Redirect, Route, Switch } from "next/link";
-import routes from "routes.ts";
+import { useState } from "react";
+import routes from "menu";
 
 // Custom Chakra theme
 export default function AdminLayout(props: any) {
-  const { ...rest } = props;
+  const { children, ...rest } = props;
   // states and functions
   const [fixed] = useState(false);
 
@@ -37,9 +37,9 @@ export default function AdminLayout(props: any) {
             <Navbar
               onOpen={onOpen}
               logoText={"Horizon UI Dashboard PRO"}
-              brandText={getActiveRoute(routes)}
-              secondary={getActiveNavbar(routes)}
-              message={getActiveNavbarText(routes)}
+              brandText={"Horizon UI Dashboard PRO"}
+              secondary={false}
+              message={"ABC"}
               fixed={fixed}
               {...rest}
             />
@@ -53,10 +53,7 @@ export default function AdminLayout(props: any) {
           minH="100vh"
           pt="50px"
         >
-          <Switch>
-            {getRoutes(routes)}
-            <Redirect from="/" href="/admin/default" />
-          </Switch>
+          {children}
         </Box>
         <Box>
           <Footer />
