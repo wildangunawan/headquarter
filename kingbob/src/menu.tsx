@@ -6,6 +6,9 @@ import {
   MdHome,
   MdLock,
   MdOutlineShoppingCart,
+  MdSchool,
+  MdSupportAgent,
+  MdLayers
 } from "react-icons/md";
 
 /**
@@ -24,7 +27,29 @@ import {
  */
 const routes: Menu[] = [
   {
-    name: "Tes aja",
+    name: "Dashboard",
+    layout: "/admin",
+    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+    path: "/default",
+  },
+  {
+    name: "Admin",
+    dropdown: true,
+    items: [
+      {
+        name: "Main Dashboard",
+        layout: "/admin",
+        path: "/default",
+      },
+      {
+        name: "NFT Marketplace",
+        layout: "/admin",
+        path: "/marketplace",
+      },
+    ],
+  },
+  {
+    name: "Membership",
     dropdown: true,
     items: [
       {
@@ -49,8 +74,8 @@ const routes: Menu[] = [
     ],
   },
   {
-    name: "Tes aja 2",
-    category: true,
+    name: "vACC Staff",
+    dropdown: true,
     items: [
       {
         name: "Data Tables",
@@ -71,6 +96,138 @@ const routes: Menu[] = [
         icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
       },
     ],
+  },
+  {
+    name: "Divisional Staff",
+    dropdown: true,
+    items: [
+      {
+        name: "Data Tables",
+        layout: "/admin",
+        icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+        path: "/datatables",
+      },
+      {
+        name: "Profile",
+        layout: "/admin",
+        path: "/profile",
+        icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+      },
+      {
+        name: "Sign In",
+        layout: "/auth",
+        path: "/sign-in",
+        icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+      },
+    ],
+  },
+  {
+    name: "Regional Staff",
+    dropdown: true,
+    items: [
+      {
+        name: "General",
+        dropdown: true,
+        items: [
+          {
+            name: "Data Tables",
+            layout: "/admin",
+            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+            path: "/datatables",
+          },
+          {
+            name: "Profile",
+            layout: "/admin",
+            path: "/profile",
+            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+          },
+          {
+            name: "Sign In",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+          },
+        ],
+      },
+      {
+        name: "Policy Center",
+        dropdown: true,
+        items: [
+          {
+            name: "Data Tables",
+            layout: "/admin",
+            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+            path: "/datatables",
+          },
+          {
+            name: "Profile",
+            layout: "/admin",
+            path: "/profile",
+            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+          },
+          {
+            name: "Sign In",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+          },
+        ],
+      },
+      {
+        name: "Tasks",
+        dropdown: true,
+        items: [
+          {
+            name: "Data Tables",
+            layout: "/admin",
+            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+            path: "/datatables",
+          },
+          {
+            name: "Profile",
+            layout: "/admin",
+            path: "/profile",
+            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+          },
+          {
+            name: "Sign In",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Training System - Request",
+    layout: "/admin",
+    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
+    path: "/training/request",
+  },
+  {
+    name: "Training System - ATC Rated",
+    layout: "/admin",
+    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
+    path: "/training",
+  },
+  {
+    name: "Training System - Mentor -> Specific Student View",
+    layout: "/admin",
+    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
+    path: "/training/130014",
+  },
+  {
+    name: "Support Center",
+    layout: "/admin",
+    icon: <Icon as={MdSupportAgent} width='20px' height='20px' color='inherit' />,
+    path: "/support",
+  },
+  {
+    name: "Divisions/vACCs",
+    layout: "/admin",
+    icon: <Icon as={MdLayers} width='20px' height='20px' color='inherit' />,
+    path: "/default",
   },
 ];
 
