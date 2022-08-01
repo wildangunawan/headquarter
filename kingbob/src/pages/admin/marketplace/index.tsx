@@ -287,7 +287,6 @@ export default function Marketplace() {
           </Card>
         </Flex>
       </Grid>
-      {/* Delete Product */}
     </AdminLayout>
   );
 }
