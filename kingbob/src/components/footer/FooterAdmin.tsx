@@ -4,14 +4,13 @@ import {
   List,
   ListItem,
   Text,
-  Button,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
+import NavLink from 'next/link'
 
 export default function Footer() {
   const textColor = useColorModeValue("gray.400", "white");
-  const { toggleColorMode } = useColorMode();
+
   return (
     <Flex
       zIndex='3'
@@ -19,78 +18,71 @@ export default function Footer() {
         base: "column",
         xl: "row",
       }}
-      alignItems={{
-        base: "center",
-        xl: "start",
-      }}
-      justifyContent='space-between'
+      align={"center"}
+      justify='space-between'
       px={{ base: "30px", md: "50px" }}
-      pb='30px'>
-      <Text
+      pb='30px'
+    >
+      <Flex
+        flexDirection='column'
         color={textColor}
         textAlign={{
           base: "center",
           xl: "start",
         }}
-        mb={{ base: "20px", xl: "0px" }}>
-        {" "}
-        &copy; {new Date().getFullYear()}
-        <Text as='span' fontWeight='500' ms='4px'>
-          Horizon UI. All Rights Reserved. Made with love by
-          <Link
-            mx='3px'
-            color={textColor}
-            href='https://www.simmmple.com'
-            target='_blank'
-            fontWeight='700'>
-            Simmmple!
-          </Link>
+        mb={{ base: "20px", xl: "0px" }}
+      >
+        <Text as='span' ms='4px'>
+          &copy; {new Date().getFullYear()} VATSIM South East Asia. All Rights Reserved.
         </Text>
-      </Text>
-      <List display='flex'>
-        <ListItem
-          me={{
-            base: "20px",
-            md: "44px",
-          }}>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            href='mailto:hello@simmmple.com'>
-            Support
-          </Link>
-        </ListItem>
-        <ListItem
-          me={{
-            base: "20px",
-            md: "44px",
-          }}>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            href='https://www.simmmple.com/licenses'>
-            License
-          </Link>
-        </ListItem>
-        <ListItem
-          me={{
-            base: "20px",
-            md: "44px",
-          }}>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            href='https://simmmple.com/terms-of-service'>
-            Terms of Use
-          </Link>
+        <Text as='span' ms='4px'>
+          HQ made by <NavLink href='/admin/profile/1300014' passHref>
+            <Link color={'brand.400'}>
+              Wildan Gunawan
+            </Link>
+          </NavLink> and <NavLink href='/admin/profile/1300014' passHref>
+            <Link color={'brand.400'}>
+              Frederick Arisandi
+            </Link>
+          </NavLink>.
+        </Text>
+      </Flex>
+
+      <List display='flex' gap={{ base: "20px", md: "44px" }}>
+        <ListItem>
+          <NavLink href='https://vat-sea.com' passHref>
+            <Link color={textColor}>
+              VATSEA Website
+            </Link>
+          </NavLink>
         </ListItem>
         <ListItem>
-          <Link
-            fontWeight='500'
-            color={textColor}
-            href='https://www.blog.simmmple.com/'>
-            Blog
-          </Link>
+          <NavLink href='/admin/support' passHref>
+            <Link color={textColor}>
+              Support
+            </Link>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink href='https://docs.vat-sea.com' passHref>
+            <Link color={textColor}>
+              Docs
+            </Link>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink href='https://docs.vat-sea.com/api' passHref>
+            <Link color={textColor}>
+              API
+            </Link>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink href='https://github.com/wildangunawan/headquarter' passHref>
+            <Link color={textColor}>
+              Contribute
+            </Link>
+          </NavLink>
         </ListItem>
       </List>
     </Flex>
