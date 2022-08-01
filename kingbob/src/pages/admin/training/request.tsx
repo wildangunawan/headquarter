@@ -99,7 +99,7 @@ const Training = () => {
                             </AlertDescription>
                         </Alert>
                         : <>
-                            <Text maxW="50ch" textAlign={"center"}>You&lsquo;re not registered as ATC in any vACC under any vACC. To start controlling, you can register using button below.</Text>
+                            <Text maxW="50ch" textAlign={"center"}>You&apos;re not registered as ATC in any vACC under any vACC. To start controlling, you can register using button below.</Text>
                             <Button colorScheme={"blue"} p={6} onClick={onOpen}>Register now</Button>
                         </>
                 }
@@ -131,7 +131,6 @@ const Training = () => {
                         <Button
                             colorScheme='blue'
                             p={6}
-                            mr={3}
                             onClick={submitApplication}
                             isLoading={loading}
                             loadingText="Submitting"

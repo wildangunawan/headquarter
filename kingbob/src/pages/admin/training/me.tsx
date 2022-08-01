@@ -6,13 +6,15 @@ import SoloHistory from "@components/training/SoloHistory";
 import StudentInformation from "@components/training/StudentInformation";
 import TrainingHistory from "@components/training/TrainingHistory";
 import AdminLayout from "@layouts/admin";
-import router from 'next/router'
+import { useRouter } from 'next/router'
 
 const StudentSpecificView = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
+    const router = useRouter()
 
     return (
         <AdminLayout title="Training Detail - Mel (1000005)">
+            {/* My own training */}
             <VStack spacing={"20px"} align="stretch">
                 {/* Header */}
                 <Flex align="center" justify="space-between">
@@ -29,10 +31,10 @@ const StudentSpecificView = () => {
 
                 {/* Data */}
                 <StudentInformation />
-                <TrainingHistory />
-                <MentorNotes />
-                <SoloHistory />
-                <CPTHistory />
+                <TrainingHistory viewingMyself />
+                <MentorNotes viewingMyself />
+                <SoloHistory viewingMyself />
+                <CPTHistory viewingMyself />
             </VStack>
         </AdminLayout >
     );

@@ -5,36 +5,40 @@ import {
     Tr,
     Th,
     Td,
-    TableContainer,
     Text,
     useColorModeValue,
     Link,
-    Button,
-    ButtonGroup,
+    Box,
     Flex,
+    Button,
     Center,
+    Input,
     Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
     useDisclosure,
     useToast,
-    Input,
+    Textarea,
+    Select,
+    Checkbox,
+    Switch,
+    FormControl,
+    FormLabel,
 } from '@chakra-ui/react'
 import Card from "@components/card/Card";
 import NavLink from "next/link"
 import { useState } from 'react';
 
-const MyStudent = () => {
+const MentorNotes = ({ viewingMyself = false }: { viewingMyself?: boolean }) => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
+    const [showMePls, setShowMePls] = useState(false);
+
     const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure()
-
-    // State
-    const [showMePls, setShowMePls] = useState(false);
     const [loading, setLoading] = useState(false)
 
     const submitApplication = () => {
@@ -52,8 +56,7 @@ const MyStudent = () => {
 
             // Show toast that application was submitted
             toast({
-                title: 'Solo for Bob (1000004) issued',
-                description: "We have notified Bob via email as well about this",
+                title: 'Note added',
                 status: 'success',
                 position: 'bottom-right',
                 duration: 5000,
@@ -84,79 +87,54 @@ const MyStudent = () => {
                         lineHeight="100%"
                         px="15px" py="10px"
                     >
-                        My Student
+                        Mentor Notes
                     </Text>
+                    <Button colorScheme={"blue"} onClick={onOpen}>Add note</Button>
                     <Button colorScheme={"blue"} onClick={() => setShowMePls(true)}>Show example pls.</Button>
                 </Flex>
-
                 {
                     showMePls
-                        ? <TableContainer>
+                        ? <Box>
                             <Table variant='simple'>
                                 <Thead>
                                     <Tr>
-                                        <Th>Name (CID)</Th>
-                                        <Th>Rating</Th>
-                                        <Th>Solo Validation</Th>
-                                        <Th>Actions</Th>
+                                        <Th>Mentor</Th>
+                                        <Th>Comment / Note</Th>
+                                        <Th>For training</Th>
+                                        <Th>Added at</Th>
                                     </Tr>
                                 </Thead>
                                 <Tbody>
                                     <Tr>
                                         <Td>
                                             <NavLink href="/profile/1000000" passHref>
-                                                <Link color="brand.500">Kevin (1000000)</Link>
+                                                <Link color="brand.500">Otto (1000004)</Link>
                                             </NavLink>
                                         </Td>
-                                        <Td>Student 1 (S1)</Td>
-                                        <Td>WIII_TWR until 30 Aug 2022</Td>
                                         <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
-                                            </ButtonGroup>
+                                            <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus praesentium optio harum laudantium ipsam earum! Dolore esse magnam sint quasi! Enim facilis aperiam laboriosam sit amet explicabo iusto, natus perspiciatis.</Text>
                                         </Td>
+                                        <Td>#123 at 25 Aug 2022</Td>
+                                        <Td>31 Aug 2022 13:00 UTC</Td>
                                     </Tr>
-                                    <Tr>
+                                    <Tr height={"auto"}>
                                         <Td>
-                                            <NavLink href="/profile/1000001" passHref>
-                                                <Link color="brand.500">Stuart (1000001)</Link>
+                                            <NavLink href="/profile/1000000" passHref>
+                                                <Link color="brand.500">Otto (1000004)</Link>
                                             </NavLink>
                                         </Td>
-                                        <Td>Student 2 (S2)</Td>
+                                        <Td>
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, possimus?
+                                        </Td>
                                         <Td>-</Td>
-                                        <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
-                                            </ButtonGroup>
-                                        </Td>
-                                    </Tr>
-                                    <Tr>
-                                        <Td>
-                                            <NavLink href="/profile/1000002" passHref>
-                                                <Link color="brand.500">King Bob (1000002)</Link>
-                                            </NavLink>
-                                        </Td>
-                                        <Td>Student 1 (S1)</Td>
-                                        <Td>-</Td>
-                                        <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
-                                            </ButtonGroup>
-                                        </Td>
+                                        <Td>31 Aug 2022 13:00 UTC</Td>
                                     </Tr>
                                 </Tbody>
                             </Table>
-                        </TableContainer>
-                        : <Center h={"100%"} w={"100%"} my="2em">You don&apos;t have any student assigned to you yet.</Center>
+                        </Box>
+                        : <Center height={"100%"} width={"100%"} my="2em">
+                            No one has ever said anything about {viewingMyself ? "you" : "this student"}.
+                        </Center>
                 }
             </Card>
 
@@ -167,21 +145,25 @@ const MyStudent = () => {
                     <ModalCloseButton />
                     <ModalBody>
                         <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Position</Text>
-                            <Input placeholder='WIII_TWR' />
+                            <Text>Comment / note</Text>
+                            <Textarea />
                         </Flex>
                         <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Start</Text>
-                            <Input
-                                type="date"
-                            />
+                            <Text>For training</Text>
+                            <Select>
+                                <option>None</option>
+                                <option>#123 at 25 Aug 2022</option>
+                                <option>#124 at 26 Aug 2022</option>
+                            </Select>
+                            <Text fontSize={"xs"}>If this note is not about any training, select &quot;None&quot;</Text>
                         </Flex>
-                        <Flex direction={"column"} gap={2}>
-                            <Text>End</Text>
-                            <Input
-                                type="date"
-                            />
-                        </Flex>
+
+                        <FormControl display='flex' alignItems='center' gap={2}>
+                            <Switch id='email-alerts' colorScheme='green' />
+                            <FormLabel htmlFor='email-alerts' mb='0' fontSize={"sm"} fontWeight={400}>
+                                Student can see this note
+                            </FormLabel>
+                        </FormControl>
                     </ModalBody>
 
                     <ModalFooter>
@@ -201,4 +183,4 @@ const MyStudent = () => {
     );
 };
 
-export default MyStudent;
+export default MentorNotes;

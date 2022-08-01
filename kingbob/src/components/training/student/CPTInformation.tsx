@@ -14,14 +14,12 @@ import {
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton,
     useDisclosure,
     useToast,
-    Select,
-    Textarea,
-    Input,
+    ButtonGroup,
+    Badge,
+    useColorModeValue
 } from '@chakra-ui/react';
-import { useColorModeValue } from '@chakra-ui/system';
 import Card from '@components/card/Card';
 import NavLink from 'next/link';
 import { useState } from 'react';
@@ -76,7 +74,7 @@ const CPTInformation = () => {
     return (
         <>
             <Card>
-                <Flex>
+                <Flex align="center">
                     <Text
                         me="auto"
                         color={textColor}
@@ -94,7 +92,7 @@ const CPTInformation = () => {
                         !haveCPT && <Button colorScheme={"blue"} onClick={() => setHaveCPT(true)}>Show example pls.</Button>
                     }
                 </Flex>
-                <Center h={"100%"} w={"100%"}>
+                <Center h={"100%"} w={"100%"} my="2em">
                     {
                         haveCPT
                             ? <VStack
@@ -102,13 +100,13 @@ const CPTInformation = () => {
                                 spacing={4}
                             >
                                 <VStack textAlign={"center"} spacing={1}>
-                                    <Text>You&lsquo;re going to have your</Text>
-                                    <Button colorScheme={"blue"} as="p" p={6}>S2 CPT</Button>
+                                    <Text>You&apos;re going to have your</Text>
+                                    <Badge colorScheme={"blue"}>S2 CPT</Badge>
                                     <Text>as</Text>
                                     <HStack>
-                                        <Button colorScheme={"blue"} as="p" p={6}>WIII_TWR</Button>
+                                        <Badge colorScheme={"blue"}>WIII_TWR</Badge>
                                         <Text>at</Text>
-                                        <Button colorScheme={"blue"} as="p" p={6}>30 Aug 2022</Button>
+                                        <Badge colorScheme={"blue"}>30 Aug 2022</Badge>
                                     </HStack>
                                 </VStack>
                                 <NavLink href={"/event/s2-cpt-wiii-twr"} passHref>
@@ -119,8 +117,8 @@ const CPTInformation = () => {
                                 </NavLink>
                             </VStack>
                             : CPTRequested
-                                ? <Center height={"100%"} width={"100%"} my="2em">We have received your request. We will let you know ASAP {`(●'◡'●)`}</Center>
-                                : <Center height={"100%"} width={"100%"} my="2em">You don&lsquo;t have any CPT planned yet.</Center>
+                                ? <Center height={"100%"} width={"100%"}>We have received your request. We will let you know ASAP {`(●'◡'●)`}</Center>
+                                : <Center height={"100%"} width={"100%"}>You don&apos;t have any CPT planned yet.</Center>
                     }
                 </Center>
             </Card>
@@ -128,31 +126,29 @@ const CPTInformation = () => {
             <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Request CPT</ModalHeader>
-                    <ModalCloseButton />
+                    <ModalHeader>Confirmation - Request CPT</ModalHeader>
                     <ModalBody>
-                        <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Position</Text>
-                            <Input disabled value={"WIII_TWR"} />
-                        </Flex>
-                        <Flex direction={"column"} gap={2}>
-                            <Text>Free text area</Text>
-                            <Textarea placeholder={`1. Why do you choose us?\n2. Do you have any real aviation experiences?`}></Textarea>
-                            <Text fontSize={"sm"}>Some vACC may request you to put your reason and/or reasons why you choose them. Use this free text area to answer that.</Text>
-                        </Flex>
+                        Are you sure that you want to proceed with your request? Once you submit your request, respective staff will process the request and you will be notified by email.
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button
-                            colorScheme='blue'
-                            p={6}
-                            mr={3}
-                            onClick={submitApplication}
-                            isLoading={loading}
-                            loadingText="Submitting"
-                        >
-                            Submit
-                        </Button>
+                        <ButtonGroup spacing={3} size={"md"}>
+                            <Button
+                                colorScheme='red'
+                                variant={'outline'}
+                                onClick={onClose}
+                            >
+                                Cancel, I&apos;m not ready yet
+                            </Button>
+                            <Button
+                                colorScheme='green'
+                                onClick={submitApplication}
+                                isLoading={loading}
+                                loadingText="Submitting"
+                            >
+                                Yes, I&apos;m fully ready. LFG.
+                            </Button>
+                        </ButtonGroup>
                     </ModalFooter>
                 </ModalContent>
             </Modal>

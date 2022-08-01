@@ -1,6 +1,5 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Flex, Button, Text, Link, VStack, StackDivider, Center } from '@chakra-ui/react';
-import { useColorModeValue } from '@chakra-ui/system';
+import { Flex, Button, Text, Link, VStack, StackDivider, Center, Badge, useColorModeValue } from '@chakra-ui/react';
 import Card from '@components/card/Card';
 import NavLink from 'next/link';
 import { useState } from 'react';
@@ -25,7 +24,7 @@ const SoloInformation = () => {
                 <Button colorScheme={"blue"} onClick={() => setShowMePls(true)}>Show example pls.</Button>
             </Flex>
 
-            <Center h={"100%"} w={"100%"}>
+            <Center h={"100%"} w={"100%"} my="2em">
                 {
                     showMePls
                         ? <VStack
@@ -33,8 +32,8 @@ const SoloInformation = () => {
                             spacing={4}
                         >
                             <VStack textAlign={"center"} spacing={2}>
-                                <Text>You&lsquo;re approved for</Text>
-                                <Button colorScheme={"blue"} as="p" p={6}>WIII_TWR</Button>
+                                <Text>You&apos;re approved for</Text>
+                                <Badge colorScheme={"blue"}>WIII_TWR</Badge>
                                 <Text>until 30 Aug 2022</Text>
                             </VStack>
                             <NavLink href={"/training/solo/history"} passHref>
@@ -44,7 +43,7 @@ const SoloInformation = () => {
                                 </Link>
                             </NavLink>
                         </VStack>
-                        : <Center height={"100%"} width={"100%"} my="2em">You don&lsquo;t have any solo approval yet.</Center>
+                        : <Text>You don&apos;t have any solo approval yet.</Text>
                 }
             </Center>
         </Card>

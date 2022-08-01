@@ -38,6 +38,7 @@ const FutureTraining = () => {
                 </Text>
                 <Button colorScheme={"blue"} onClick={() => setShowMePls(true)}>Show example pls.</Button>
             </Flex>
+
             {
                 showMePls
                     ? <TableContainer>
