@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card";
-import React from "react";
+
 // Assets
 import { MdUpload } from "react-icons/md";
 import Dropzone from "./Dropzone";

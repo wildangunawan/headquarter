@@ -1,10 +1,9 @@
 import { Box } from "@chakra-ui/react";
 
-import React from "react";
-
-export const renderTrack = ({ style, ...props }) => {
+export const renderTrack = ({ style, ...props }: { style: React.CSSProperties }) => {
   const trackStyle = {
-    position: "absolute",
+    // https://github.com/microsoft/TypeScript/issues/11465#issuecomment-252453037
+    position: "absolute" as "absolute",
     maxWidth: "100%",
     width: 6,
     transition: "opacity 200ms ease 0s",
@@ -17,14 +16,14 @@ export const renderTrack = ({ style, ...props }) => {
   };
   return <div style={{ ...style, ...trackStyle }} {...props} />;
 };
-export const renderThumb = ({ style, ...props }) => {
+export const renderThumb = ({ style, ...props }: { style: React.CSSProperties }) => {
   const thumbStyle = {
     borderRadius: 15,
     background: "rgba(222, 222, 222, .1)",
   };
   return <div style={{ ...style, ...thumbStyle }} {...props} />;
 };
-export const renderView = ({ style, ...props }) => {
+export const renderView = ({ style, ...props }: { style: React.CSSProperties }) => {
   const viewStyle = {
     marginBottom: -22,
   };

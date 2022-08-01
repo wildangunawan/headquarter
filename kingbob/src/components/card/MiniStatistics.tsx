@@ -11,7 +11,6 @@ import {
 // Custom components
 import Card from "components/card/Card";
 // Custom icons
-import React from "react";
 
 export default function Default(props: any) {
   const { startContent, endContent, name, growth, value } = props;

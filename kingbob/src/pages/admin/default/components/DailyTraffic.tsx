@@ -1,5 +1,3 @@
-import React from "react";
-
 // Chakra imports
 import { Box, Flex, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import BarChart from "components/charts/BarChart";

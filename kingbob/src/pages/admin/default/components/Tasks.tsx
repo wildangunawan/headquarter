@@ -14,7 +14,6 @@ import IconBox from "components/icons/IconBox";
 
 // Assets
 import { MdCheckBox, MdDragIndicator } from "react-icons/md";
-import React from "react";
 
 export default function Conversion(props: any) {
   const { ...rest } = props;

@@ -11,7 +11,7 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -119,19 +119,19 @@ export default function ColumnsTable(props: any) {
                             cell.value === "Approved"
                               ? "green.500"
                               : cell.value === "Disable"
-                              ? "red.500"
-                              : cell.value === "Error"
-                              ? "orange.500"
-                              : null
+                                ? "red.500"
+                                : cell.value === "Error"
+                                  ? "orange.500"
+                                  : null
                           }
                           as={
                             cell.value === "Approved"
                               ? MdCheckCircle
                               : cell.value === "Disable"
-                              ? MdCancel
-                              : cell.value === "Error"
-                              ? MdOutlineError
-                              : null
+                                ? MdCancel
+                                : cell.value === "Error"
+                                  ? MdOutlineError
+                                  : null
                           }
                         />
                         <Text color={textColor} fontSize="sm" fontWeight="700">

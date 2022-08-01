@@ -14,33 +14,31 @@ import tableDataDevelopment from "./variables/tableDataDevelopment.json";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataColumns from "./variables/tableDataColumns.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
-import AdminLayout from "@layouts/admin";
+import AdminLayout from "layouts/admin";
 
 export default function Settings() {
   // Chakra Color Mode
   return (
-    <AdminLayout>
-      <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-        <SimpleGrid
-          mb="20px"
-          columns={{ sm: 1, md: 2 }}
-          spacing={{ base: "20px", xl: "20px" }}
-        >
-          <DevelopmentTable
-            columnsData={columnsDataDevelopment}
-            tableData={tableDataDevelopment}
-          />
-          <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
-          <ColumnsTable
-            columnsData={columnsDataColumns}
-            tableData={tableDataColumns}
-          />
-          <ComplexTable
-            columnsData={columnsDataComplex}
-            tableData={tableDataComplex}
-          />
-        </SimpleGrid>
-      </Box>
+    <AdminLayout title="Datatables">
+      <SimpleGrid
+        mb="20px"
+        columns={{ sm: 1, md: 2 }}
+        spacing={{ base: "20px", xl: "20px" }}
+      >
+        <DevelopmentTable
+          columnsData={columnsDataDevelopment}
+          tableData={tableDataDevelopment}
+        />
+        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
+        <ColumnsTable
+          columnsData={columnsDataColumns}
+          tableData={tableDataColumns}
+        />
+        <ComplexTable
+          columnsData={columnsDataComplex}
+          tableData={tableDataComplex}
+        />
+      </SimpleGrid>
     </AdminLayout>
   );
 }

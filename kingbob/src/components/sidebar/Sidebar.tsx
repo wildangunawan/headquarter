@@ -1,5 +1,3 @@
-import React from "react";
-
 // chakra imports
 import {
   Box,
@@ -20,14 +18,13 @@ import {
   renderView,
 } from "components/scrollbar/Scrollbar";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import PropTypes from "prop-types";
 
 // Assets
 import { IoMenuOutline } from "react-icons/io5";
+import { Menu } from "types/menu";
+import { useRef } from "react";
 
-function Sidebar(props: any) {
-  const { routes } = props;
-
+function Sidebar({ routes }: { routes: Menu[] }) {
   let variantChange = "0.2s linear";
   let shadow = useColorModeValue(
     "14px 17px 40px 4px rgba(112, 144, 176, 0.08)",
@@ -39,7 +36,7 @@ function Sidebar(props: any) {
 
   // SIDEBAR
   return (
-    <Box display={{ sm: "none", xl: "block" }} position="fixed" minH="100%">
+    <Box display={{ base: "none", xl: "block" }} position="fixed" minH="100%">
       <Box
         bg={sidebarBg}
         transition={variantChange}
@@ -64,16 +61,13 @@ function Sidebar(props: any) {
 }
 
 // FUNCTIONS
-export function SidebarResponsive(props: any) {
+export function SidebarResponsive({ routes }: { routes: Menu[] }) {
   let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.400", "white");
-  // // SIDEBAR
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
 
-  const { routes } = props;
-  // let isWindows = navigator.platform.startsWith("Win");
-  //  BRAND
+  // SIDEBAR
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef<HTMLDivElement>(null);
 
   return (
     <Flex display={{ sm: "flex", xl: "none" }} alignItems="center">
@@ -91,14 +85,13 @@ export function SidebarResponsive(props: any) {
       <Drawer
         isOpen={isOpen}
         onClose={onClose}
-        placement={document.documentElement.dir === "rtl" ? "right" : "left"}
+        placement="left"
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent w="285px" maxW="285px" bg={sidebarBackgroundColor}>
           <DrawerCloseButton
             zIndex="3"
-            onClose={onClose}
             _focus={{ boxShadow: "none" }}
             _hover={{ boxShadow: "none" }}
           />
@@ -117,12 +110,5 @@ export function SidebarResponsive(props: any) {
     </Flex>
   );
 }
-// PROPS
-
-Sidebar.propTypes = {
-  logoText: PropTypes.string,
-  routes: PropTypes.arrayOf(PropTypes.object),
-  variant: PropTypes.string,
-};
 
 export default Sidebar;

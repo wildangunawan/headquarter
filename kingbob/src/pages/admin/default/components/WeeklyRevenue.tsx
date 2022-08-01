@@ -10,7 +10,6 @@ import {
 import Card from "components/card/Card";
 // Custom components
 import BarChart from "components/charts/BarChart";
-import React from "react";
 import {
   barChartDataConsumption,
   barChartOptionsConsumption,

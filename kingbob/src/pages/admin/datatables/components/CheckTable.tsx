@@ -10,7 +10,7 @@ import {
   Tr,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   useGlobalFilter,
   usePagination,
@@ -27,7 +27,14 @@ export default function CheckTable(props: any) {
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
-  const tableInstance = useTable(
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    initialState,
+  } = useTable(
     {
       columns,
       data,
@@ -37,14 +44,6 @@ export default function CheckTable(props: any) {
     usePagination
   );
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    page,
-    prepareRow,
-    initialState,
-  } = tableInstance;
   initialState.pageSize = 11;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -97,7 +96,7 @@ export default function CheckTable(props: any) {
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
-                  let data = "";
+                  let data;
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Flex align="center">

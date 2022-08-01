@@ -1,16 +1,7 @@
 // Chakra Imports
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Flex,
-  Link,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Text, useColorModeValue } from "@chakra-ui/react";
 import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AdminNavbarLinks from "components/navbar/NavbarLinksAdmin";
 
 export default function AdminNavbar(props: any) {
@@ -92,62 +83,16 @@ export default function AdminNavbar(props: any) {
         "2xl": "calc(100vw - 365px)",
       }}
     >
-      <Flex
-        w="100%"
-        flexDirection={{
-          sm: "column",
-          md: "row",
-        }}
-        alignItems={{ xl: "center" }}
-        mb={gap}
-      >
-        <Box mb={{ sm: "8px", md: "0px" }}>
-          <Breadcrumb>
-            <BreadcrumbItem color={secondaryText} fontSize="sm" mb="5px">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                Pages
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem color={secondaryText} fontSize="sm">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                {brandText}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          {/* Here we create navbar brand, based on route name */}
-          <Link
-            color={mainText}
-            href="#"
-            bg="inherit"
-            borderRadius="inherit"
-            fontWeight="bold"
-            fontSize="34px"
-            _hover={{ color: { mainText } }}
-            _active={{
-              bg: "inherit",
-              transform: "none",
-              borderColor: "transparent",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-          >
-            {brandText}
-          </Link>
-        </Box>
-        <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
-          <AdminNavbarLinks
-            onOpen={props.onOpen}
-            logoText={props.logoText}
-            secondary={props.secondary}
-            fixed={props.fixed}
-            scrolled={scrolled}
-          />
-        </Box>
-      </Flex>
-      {secondary ? <Text color="white">{message}</Text> : null}
-    </Box>
+      <Box ms="auto" w="100%">
+        <AdminNavbarLinks
+          onOpen={props.onOpen}
+          secondary={props.secondary}
+          fixed={props.fixed}
+        />
+      </Box>
+      {secondary ? <Text color="white">{message}</Text> : null
+      }
+    </Box >
   );
 }
 

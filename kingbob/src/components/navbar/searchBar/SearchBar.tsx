@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IconButton,
   Input,
@@ -16,7 +15,7 @@ export function SearchBar(props: any) {
   const inputBg = useColorModeValue("secondaryGray.300", "navy.900");
   const inputText = useColorModeValue("gray.700", "gray.100");
   return (
-    <InputGroup w={{ base: "100%", md: "200px" }} {...rest}>
+    <InputGroup w={{ base: "100%" }} {...rest}>
       <InputLeftElement>
         <IconButton
           bg="inherit"

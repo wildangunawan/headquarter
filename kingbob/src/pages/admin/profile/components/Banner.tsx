@@ -1,7 +1,6 @@
 // Chakra imports
 import { Avatar, Box, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import Card from "components/card/Card";
-import React from "react";
 
 export default function Banner(props: any) {
   const { banner, avatar, name, job, posts, followers, following } = props;

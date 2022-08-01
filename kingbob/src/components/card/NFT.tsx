@@ -14,7 +14,7 @@ import {
 // Custom components
 import Card from "components/card/Card";
 // Assets
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 
 export default function NFT(props: any) {
@@ -31,6 +31,7 @@ export default function NFT(props: any) {
             w={{ base: "100%", "3xl": "100%" }}
             h={{ base: "100%", "3xl": "100%" }}
             borderRadius="20px"
+            alt={name}
           />
           <Button
             position="absolute"
@@ -110,7 +111,7 @@ export default function NFT(props: any) {
               }}
               fontSize="12px"
             >
-              {bidders.map((avt, key) => (
+              {bidders.map((avt: string, key: number) => (
                 <Avatar key={key} src={avt} />
               ))}
             </AvatarGroup>

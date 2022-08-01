@@ -6,7 +6,7 @@ import Project2 from "assets/img/profile/Project2.png";
 import Project3 from "assets/img/profile/Project3.png";
 // Custom components
 import Card from "components/card/Card";
-import React from "react";
+
 import Project from "./Project";
 
 export default function Projects() {

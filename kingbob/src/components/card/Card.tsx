@@ -1,4 +1,5 @@
 import { Box, useStyleConfig } from "@chakra-ui/react";
+
 function Card(props: any) {
   const { variant, children, ...rest } = props;
   const styles = useStyleConfig("Card", { variant });

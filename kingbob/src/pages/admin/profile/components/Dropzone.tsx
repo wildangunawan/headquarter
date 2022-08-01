@@ -1,7 +1,6 @@
 // Chakra imports
 import { Button, Flex, Input, useColorModeValue } from "@chakra-ui/react";
 // Assets
-import React from "react";
 import { useDropzone } from "react-dropzone";
 
 function Dropzone(props: any) {

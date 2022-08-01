@@ -8,7 +8,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Custom components
-import React from "react";
 
 export default function Default(props: any) {
   const {
@@ -48,7 +47,7 @@ export default function Default(props: any) {
             ms="15px"
             htmlFor={id}
             _hover={{ cursor: "pointer" }}
-            direction="column"
+            flexDirection="column"
             mb="0px"
             maxW={textWidth ? textWidth : "75%"}
           >
@@ -68,7 +67,7 @@ export default function Default(props: any) {
           <FormLabel
             htmlFor={id}
             _hover={{ cursor: "pointer" }}
-            direction="column"
+            flexDirection="column"
             maxW={textWidth ? textWidth : "75%"}
           >
             <Text color={textColorPrimary} fontSize="md" fontWeight="500">

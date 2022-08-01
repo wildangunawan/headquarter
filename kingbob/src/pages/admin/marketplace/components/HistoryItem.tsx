@@ -1,4 +1,3 @@
-import React from "react";
 // Chakra imports
 import { Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
@@ -26,7 +25,7 @@ export default function NFT(props: any) {
     >
       <Flex direction={{ base: "column" }} justify="center">
         <Flex position="relative" align="center">
-          <Image src={image} w="66px" h="66px" borderRadius="20px" me="16px" />
+          <Image src={image} w="66px" h="66px" borderRadius="20px" me="16px" alt={name} />
           <Flex
             direction="column"
             w={{ base: "70%", md: "100%" }}

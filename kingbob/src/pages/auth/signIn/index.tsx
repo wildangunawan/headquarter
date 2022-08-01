@@ -16,7 +16,7 @@ import {
 
 // Custom components
 import { HSeparator } from "components/separator/Separator";
-import DefaultAuth from "layouts/auth/Default";
+import AuthLayout from "layouts/auth";
 
 // Assets
 import illustration from "assets/img/auth/auth.png";
@@ -43,7 +43,7 @@ function SignIn() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   return (
-    <DefaultAuth image={illustration.src}>
+    <AuthLayout image={illustration.src}>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w="100%"
@@ -187,7 +187,7 @@ function SignIn() {
           </FormControl>
         </Flex>
       </Flex>
-    </DefaultAuth>
+    </AuthLayout>
   );
 }
 

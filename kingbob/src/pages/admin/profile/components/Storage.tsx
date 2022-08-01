@@ -11,7 +11,7 @@ import {
 import Card from "components/card/Card";
 import IconBox from "components/icons/IconBox";
 import Menu from "components/menu/MainMenu";
-import React from "react";
+
 // Assets
 import { MdOutlineCloudDone } from "react-icons/md";
 
@@ -57,7 +57,7 @@ export default function Banner(props: any) {
           </Text>
         </Flex>
         <Progress
-          align="start"
+          alignItems="start"
           colorScheme="brandScheme"
           value={(used / total) * 100}
           w="100%"

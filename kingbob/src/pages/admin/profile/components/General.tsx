@@ -2,7 +2,6 @@
 import { SimpleGrid, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card";
-import React from "react";
 import Information from "./Information";
 
 // Assets

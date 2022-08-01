@@ -5,7 +5,6 @@ import Card from "components/card/Card";
 import PieChart from "components/charts/PieChart";
 import { pieChartData, pieChartOptions } from "variables/charts";
 import { VSeparator } from "components/separator/Separator";
-import React from "react";
 
 export default function Conversion(props: any) {
   const { ...rest } = props;
