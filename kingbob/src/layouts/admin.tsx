@@ -60,9 +60,7 @@ export default function AdminLayout(props: IProps) {
                     >
                         {children}
                     </Box>
-                    <Box>
-                        <Footer />
-                    </Box>
+                    <Footer />
                 </Box>
             </Box>
         </>
