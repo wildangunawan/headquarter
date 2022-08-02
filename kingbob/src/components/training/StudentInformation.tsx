@@ -42,7 +42,7 @@ const StudentInformation = () => {
                             </Text>
                         </SimpleGrid>
                         <SimpleGrid columns={2} alignItems={"center"}>
-                            <Text>Last training at</Text>
+                            <Text>Last training was at</Text>
                             <Text>: 5 Aug 2022 (10 days ago)</Text>
                         </SimpleGrid>
                         <SimpleGrid columns={2} alignItems={"center"}>
