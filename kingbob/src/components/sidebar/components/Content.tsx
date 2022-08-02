@@ -11,7 +11,7 @@ function SidebarContent({ routes }: { routes: Menu[] }) {
     <Flex direction="column" height="100%" pt="25px" borderRadius="30px">
       <Brand />
       <Stack direction="column" mb="auto" mt="8px">
-        <Box ps="20px" pe={{ md: "16px", "2xl": "1px" }}>
+        <Box ps="20px" pe={{ md: "16px", "2xl": "1px" }} mb="2rem">
           <Links routes={routes} />
         </Box>
       </Stack>
