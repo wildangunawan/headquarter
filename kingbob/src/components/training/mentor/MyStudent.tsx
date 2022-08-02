@@ -26,7 +26,7 @@ const MyStudent = () => {
     const [showMePls, setShowMePls] = useState(false);
 
     // Modal
-    const { onOpen, modal } = IssueSolo();
+    const { onOpen, modal, setStudentData } = IssueSolo();
 
     return (
         <>
@@ -71,7 +71,16 @@ const MyStudent = () => {
                                                 <NavLink href="/admin/training/1000000" passHref>
                                                     <Button as="a" colorScheme="blue">View</Button>
                                                 </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
+                                                <Button
+                                                    variant="outline"
+                                                    onClick={() => {
+                                                        onOpen()
+                                                        setStudentData({
+                                                            id: "1000000",
+                                                            name: "Kevin",
+                                                        })
+                                                    }}
+                                                >Issue Solo</Button>
                                             </ButtonGroup>
                                         </Td>
                                     </Tr>
@@ -88,7 +97,16 @@ const MyStudent = () => {
                                                 <NavLink href="/admin/training/1000000" passHref>
                                                     <Button as="a" colorScheme="blue">View</Button>
                                                 </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
+                                                <Button
+                                                    variant="outline"
+                                                    onClick={() => {
+                                                        onOpen()
+                                                        setStudentData({
+                                                            id: "1000001",
+                                                            name: "Stuart",
+                                                        })
+                                                    }}
+                                                >Issue Solo</Button>
                                             </ButtonGroup>
                                         </Td>
                                     </Tr>
@@ -105,7 +123,16 @@ const MyStudent = () => {
                                                 <NavLink href="/admin/training/1000000" passHref>
                                                     <Button as="a" colorScheme="blue">View</Button>
                                                 </NavLink>
-                                                <Button variant="outline" onClick={onOpen}>Issue Solo</Button>
+                                                <Button
+                                                    variant="outline"
+                                                    onClick={() => {
+                                                        onOpen()
+                                                        setStudentData({
+                                                            id: "1000002",
+                                                            name: "King Bob",
+                                                        })
+                                                    }}
+                                                >Issue Solo</Button>
                                             </ButtonGroup>
                                         </Td>
                                     </Tr>

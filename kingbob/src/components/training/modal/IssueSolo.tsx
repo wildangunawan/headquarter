@@ -2,9 +2,15 @@ import { Button, Text, Flex, Input } from "@chakra-ui/react";
 import useModal from "@hooks/useModal";
 import { useState } from "react";
 
+type StudentData = {
+    id: string;
+    name: string;
+}
+
 const IssueSolo = () => {
     // Request state
     const [loading, setLoading] = useState(false);
+    const [studentData, setStudentData] = useState<StudentData>();
 
     const submitApplication = () => {
         // Set loading
@@ -21,7 +27,7 @@ const IssueSolo = () => {
 
             // Show toast that application was submitted
             toast({
-                title: 'Solo for Bob (1000004) issued',
+                title: `Solo for ${studentData?.name} (${studentData?.id}) issued`,
                 description: "We have notified Bob via email as well about this",
                 status: 'success',
                 position: 'bottom-right',
@@ -42,7 +48,7 @@ const IssueSolo = () => {
     }
 
     const { onOpen, onClose, modal, toast } = useModal({
-        title: "Confirmation - Request CPT",
+        title: `Issue solo for ${studentData?.name} (${studentData?.id})`,
         body: <>
             <Flex direction={"column"} gap={2} mb={4}>
                 <Text>Position</Text>
@@ -68,7 +74,7 @@ const IssueSolo = () => {
         </Button>
     })
 
-    return { onOpen, modal };
+    return { onOpen, modal, setStudentData };
 };
 
 export default IssueSolo;

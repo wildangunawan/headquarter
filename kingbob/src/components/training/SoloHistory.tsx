@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 import Card from "@components/card/Card";
 import NavLink from "next/link"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import IssueSolo from './modal/IssueSolo';
 
 const SoloHistory = ({ viewingMyself = false }: { viewingMyself?: boolean }) => {
@@ -25,7 +25,15 @@ const SoloHistory = ({ viewingMyself = false }: { viewingMyself?: boolean }) => 
     const [showMePls, setShowMePls] = useState(false);
 
     // Modal
-    const { onOpen, modal } = IssueSolo();
+    const { onOpen, modal, setStudentData } = IssueSolo();
+
+    // Set student data
+    useEffect(() => {
+        setStudentData({
+            id: "1000006",
+            name: "Mel",
+        })
+    }, [])
 
     return (
         <>
