@@ -17,7 +17,7 @@ const Training = () => {
     return (
         <AdminLayout title="Training System">
             <Flex
-                width={{ base: "90vw", xl: "80vw" }}
+                width={{ base: "90vw", xl: "75vw" }}
                 align="center"
                 height="80vh"
                 justify="center"
