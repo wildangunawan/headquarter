@@ -34,7 +34,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
     return routes.map((route: Menu, index: number) => {
       if (route.category || route.dropdown) {
         return (
-          <>
+          <span key={index}>
             <Text
               fontSize={"md"}
               color={activeColor}
@@ -51,7 +51,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               {route.name}
             </Text>
             {createLinks(route.items)}
-          </>
+          </span>
         );
       } else if (
         route.layout === "/admin" ||
