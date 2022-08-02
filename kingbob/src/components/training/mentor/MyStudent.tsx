@@ -13,64 +13,20 @@ import {
     ButtonGroup,
     Flex,
     Center,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure,
-    useToast,
-    Input,
 } from '@chakra-ui/react'
 import Card from "@components/card/Card";
 import NavLink from "next/link"
 import { useState } from 'react';
+import IssueSolo from '../modal/IssueSolo';
 
 const MyStudent = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
-    const toast = useToast()
-    const { isOpen, onOpen, onClose } = useDisclosure()
 
     // State
     const [showMePls, setShowMePls] = useState(false);
-    const [loading, setLoading] = useState(false)
 
-    const submitApplication = () => {
-        // Set loading
-        setLoading(true)
-
-        // TODO: Make request to API
-        // We'll use setTimeout for now
-        setTimeout(() => {
-            // Reset loading
-            setLoading(false)
-
-            // Close modal
-            onClose()
-
-            // Show toast that application was submitted
-            toast({
-                title: 'Solo for Bob (1000004) issued',
-                description: "We have notified Bob via email as well about this",
-                status: 'success',
-                position: 'bottom-right',
-                duration: 5000,
-                isClosable: true,
-            })
-
-            // Show toast that application was failed to submit
-            toast({
-                title: 'Failed to submit request',
-                description: "There is an error in our system. Please try again.",
-                status: 'error',
-                position: 'bottom-right',
-                duration: 5000,
-                isClosable: true,
-            })
-        }, 2000)
-    }
+    // Modal
+    const { onOpen, modal } = IssueSolo();
 
     return (
         <>
@@ -104,7 +60,7 @@ const MyStudent = () => {
                                 <Tbody>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/profile/1000000" passHref>
+                                            <NavLink href="/admin/profile/1000000" passHref>
                                                 <Link color="brand.500">Kevin (1000000)</Link>
                                             </NavLink>
                                         </Td>
@@ -121,7 +77,7 @@ const MyStudent = () => {
                                     </Tr>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/profile/1000001" passHref>
+                                            <NavLink href="/admin/profile/1000001" passHref>
                                                 <Link color="brand.500">Stuart (1000001)</Link>
                                             </NavLink>
                                         </Td>
@@ -138,7 +94,7 @@ const MyStudent = () => {
                                     </Tr>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/profile/1000002" passHref>
+                                            <NavLink href="/admin/profile/1000002" passHref>
                                                 <Link color="brand.500">King Bob (1000002)</Link>
                                             </NavLink>
                                         </Td>
@@ -160,43 +116,8 @@ const MyStudent = () => {
                 }
             </Card>
 
-            <Modal isOpen={isOpen} onClose={onClose} isCentered size={"xl"}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Position</Text>
-                            <Input placeholder='WIII_TWR' />
-                        </Flex>
-                        <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Start</Text>
-                            <Input
-                                type="date"
-                            />
-                        </Flex>
-                        <Flex direction={"column"} gap={2}>
-                            <Text>End</Text>
-                            <Input
-                                type="date"
-                            />
-                        </Flex>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button
-                            colorScheme='blue'
-                            p={6}
-                            onClick={submitApplication}
-                            isLoading={loading}
-                            loadingText="Submitting"
-                        >
-                            Submit
-                        </Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
+            {/* Show modal */}
+            {modal}
         </>
     );
 };

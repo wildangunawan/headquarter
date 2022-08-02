@@ -1,57 +1,18 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { useDisclosure, useToast, Flex, Button, Center, VStack, StackDivider, HStack, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, Textarea, ModalFooter, Text, Link, Select, Badge } from "@chakra-ui/react";
+import { Flex, Button, Center, VStack, StackDivider, HStack, Text, Link, Badge } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/system";
 import Card from "@components/card/Card";
 import NavLink from "next/link";
 import { useState } from "react";
+import TrainingRequest from "../modal/TrainingRequest";
 
 const NextTraining = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
     const [haveTraining, setHaveTraining] = useState(false);
-    const [trainingRequested, setTrainingRequested] = useState(false);
     const [inQueue, setInQueue] = useState(false);
 
-    // Training request state
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const [loading, setLoading] = useState(false);
-    const toast = useToast()
-
-    const submitApplication = () => {
-        // Set loading
-        setLoading(true);
-
-        // TODO: Submit to API
-        setTimeout(() => {
-            // Close modal
-            onClose();
-
-            // Set loading
-            setLoading(false);
-
-            // Set Training requested to true
-            setTrainingRequested(true);
-
-            // Show toast that application was submitted
-            toast({
-                title: 'Request submitted',
-                description: "Respective staff be in touch with you ASAP",
-                status: 'success',
-                position: 'bottom-right',
-                duration: 5000,
-                isClosable: true,
-            })
-
-            // Show toast that application was failed to submit
-            toast({
-                title: 'Failed to submit request',
-                description: "There is an error in our system. Please try again.",
-                status: 'error',
-                position: 'bottom-right',
-                duration: 5000,
-                isClosable: true,
-            })
-        }, 2000);
-    }
+    // Modal
+    const { onOpen, modal, trainingRequested } = TrainingRequest();
 
     return (
         <>
@@ -105,7 +66,7 @@ const NextTraining = () => {
                                     </HStack>
                                     <Text>
                                         with{" "}
-                                        <NavLink href={"/profile/1000005"} passHref>
+                                        <NavLink href={"/admin/profile/1000005"} passHref>
                                             <Link color={"blue.500"}>
                                                 Gru (1000005)
                                             </Link>
@@ -132,7 +93,7 @@ const NextTraining = () => {
                                             <Badge colorScheme={"blue"}>365 day(s)</Badge>
                                             <Text>
                                                 with{" "}
-                                                <NavLink href={"/profile/1000005"} passHref>
+                                                <NavLink href={"/admin/profile/1000005"} passHref>
                                                     <Link color={"blue.500"}>
                                                         Gru (1000005)
                                                     </Link>
@@ -146,40 +107,8 @@ const NextTraining = () => {
                 </Center>
             </Card>
 
-            <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Request Training</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Flex direction={"column"} gap={2} mb={4}>
-                            <Text>Choose vACC</Text>
-                            <Select>
-                                <option value='option1'>Hong Kong vACC</option>
-                                <option value='option2'>Indonesia vACC</option>
-                                <option value='option3'>Malaysia vACC</option>
-                                <option value='option3'>Any other vACC, I am too tired to write it one by one</option>
-                            </Select>
-                        </Flex>
-                        <Flex direction={"column"} gap={2}>
-                            <Text>Any preferred date?</Text>
-                            <Textarea placeholder={`Tell your mentor when you're able to do the training`}></Textarea>
-                        </Flex>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button
-                            colorScheme='blue'
-                            p={6}
-                            onClick={submitApplication}
-                            isLoading={loading}
-                            loadingText="Submitting"
-                        >
-                            Submit
-                        </Button>
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
+            {/* Show modal */}
+            {modal}
         </>
     );
 };

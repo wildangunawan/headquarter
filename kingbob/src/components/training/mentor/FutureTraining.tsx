@@ -54,7 +54,7 @@ const FutureTraining = () => {
                             <Tbody>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/profile/1000000" passHref>
+                                        <NavLink href="/admin/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
