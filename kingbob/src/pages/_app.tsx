@@ -1,6 +1,10 @@
 import "react-calendar/dist/Calendar.css";
 import "../assets/css/MiniCalendar.css";
 
+// Full calendar CSS
+import '@fullcalendar/common/main.css'
+import '@fullcalendar/daygrid/main.css'
+
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme/theme";

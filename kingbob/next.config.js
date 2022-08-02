@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
+// https://stackoverflow.com/a/68900382/17651741
+const withTM = require('next-transpile-modules')([
+  "@fullcalendar/common",
+  "@fullcalendar/daygrid",
+  "@fullcalendar/react",
+]);
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['static.wixstatic.com'],
+    domains: ['static.wixstatic.com', 'source.unsplash.com'],
   },
 }
 
-module.exports = nextConfig
+module.exports = withTM(nextConfig);
