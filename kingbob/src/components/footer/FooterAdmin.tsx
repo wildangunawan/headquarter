@@ -48,7 +48,17 @@ export default function Footer() {
         </Text>
       </Flex>
 
-      <List display='flex' gap={{ base: "20px", md: "44px" }}>
+      <List
+        display={{
+          base: "grid",
+          md: "flex",
+        }}
+        gridTemplateRows='repeat(2, 1fr)'
+        gridTemplateColumns='repeat(2, 1fr)'
+        gap={{ base: "20px", md: "44px" }}
+        alignItems="center"
+        textAlign="center"
+      >
         <ListItem>
           <NavLink href='https://vat-sea.com' passHref>
             <Link color={textColor}>
