@@ -36,8 +36,8 @@ export default function ColumnsTable(props: any) {
       columns,
       data,
     },
-    useSortBy,
     useGlobalFilter,
+    useSortBy,
     usePagination
   );
 
