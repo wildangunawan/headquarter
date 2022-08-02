@@ -212,12 +212,6 @@ const routes: Menu[] = [
     path: "/training",
   },
   {
-    name: "Training System - Mentor -> Specific Student View",
-    layout: "/admin",
-    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
-    path: "/training/130014",
-  },
-  {
     name: "Support Center",
     layout: "/admin",
     icon: <Icon as={MdSupportAgent} width='20px' height='20px' color='inherit' />,
