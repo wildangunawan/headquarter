@@ -36,8 +36,8 @@ export default function ColumnsTable(props: any) {
       columns,
       data,
     },
-    useGlobalFilter,
     useSortBy,
+    useGlobalFilter,
     usePagination
   );
 
@@ -45,11 +45,10 @@ export default function ColumnsTable(props: any) {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page,
+    rows,
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 5;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -96,12 +95,12 @@ export default function ColumnsTable(props: any) {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
+          {rows.map((row, index) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
-                  let data = "";
+                  let data = <></>;
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
@@ -120,18 +119,14 @@ export default function ColumnsTable(props: any) {
                               ? "green.500"
                               : cell.value === "Disable"
                                 ? "red.500"
-                                : cell.value === "Error"
-                                  ? "orange.500"
-                                  : null
+                                : "orange.500"
                           }
                           as={
                             cell.value === "Approved"
                               ? MdCheckCircle
                               : cell.value === "Disable"
                                 ? MdCancel
-                                : cell.value === "Error"
-                                  ? MdOutlineError
-                                  : null
+                                : MdOutlineError
                           }
                         />
                         <Text color={textColor} fontSize="sm" fontWeight="700">

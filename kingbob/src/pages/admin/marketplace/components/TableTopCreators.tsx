@@ -37,7 +37,7 @@ function TopCreatorTable(props: any) {
     usePagination
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow } =
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
   const textColor = useColorModeValue("navy.700", "white");
@@ -89,12 +89,12 @@ function TopCreatorTable(props: any) {
         </Thead>
 
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
+          {rows.map((row, index) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
-                  let data = "";
+                  let data = <></>;
                   if (cell.column.Header === "Name") {
                     data = (
                       <Flex align="center">

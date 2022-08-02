@@ -30,7 +30,7 @@ export default function ColumnsTable(props: any) {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page,
+    rows,
     prepareRow,
     initialState,
   } = useTable(
@@ -42,8 +42,6 @@ export default function ColumnsTable(props: any) {
     useSortBy,
     usePagination
   );
-
-  initialState.pageSize = 5;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -91,12 +89,12 @@ export default function ColumnsTable(props: any) {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
+          {rows.map((row, index) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
-                  let data = "";
+                  let data = <></>;
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Flex align="center">

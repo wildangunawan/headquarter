@@ -42,11 +42,10 @@ export default function DevelopmentTable(props: any) {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    page,
+    rows,
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 11;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const iconColor = useColorModeValue("secondaryGray.500", "white");
@@ -94,12 +93,12 @@ export default function DevelopmentTable(props: any) {
           ))}
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
+          {rows.map((row, index) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
-                  let data = "";
+                  let data = <></>;
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
@@ -109,7 +108,7 @@ export default function DevelopmentTable(props: any) {
                   } else if (cell.column.Header === "TECH") {
                     data = (
                       <Flex align="center">
-                        {cell.value.map((item, key) => {
+                        {cell.value.map((item: string, key: number) => {
                           if (item === "apple") {
                             return (
                               <AppleLogo
