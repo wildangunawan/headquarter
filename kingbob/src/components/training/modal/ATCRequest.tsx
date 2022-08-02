@@ -64,7 +64,7 @@ const ATCRequest = () => {
         </>,
         footer: <Button
             colorScheme='blue'
-            p={6}
+            size={"md"}
             onClick={submitApplication}
             isLoading={loading}
             loadingText="Submitting"
