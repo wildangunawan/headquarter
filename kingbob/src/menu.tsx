@@ -30,7 +30,7 @@ const routes: Menu[] = [
     name: "Dashboard",
     layout: "/admin",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    path: "/default",
+    path: "/dashboard",
   },
   {
     name: "Admin",
