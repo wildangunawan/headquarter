@@ -16,7 +16,7 @@ const ResolvedTickets = () => {
                     lineHeight="100%"
                     px="15px" py="10px"
                 >
-                    Pending Tickets
+                    Resolved Tickets
                 </Text>
             </Flex>
 
