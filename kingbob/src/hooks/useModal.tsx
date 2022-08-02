@@ -8,7 +8,7 @@ interface IProps {
     size?: string;
 }
 
-const useModal = ({ title, body, footer, withCloseButton, size = "xl" }: IProps) => {
+const useModal = ({ title, body, footer, withCloseButton = true, size = "xl" }: IProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const toast = useToast()
 
