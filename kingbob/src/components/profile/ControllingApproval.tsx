@@ -1,4 +1,4 @@
-import { Flex, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text, useColorModeValue, Checkbox, CheckboxGroup, Highlight } from "@chakra-ui/react";
+import { Flex, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text, useColorModeValue, Checkbox, CheckboxGroup, Highlight, Box } from "@chakra-ui/react";
 import Card from "@components/card/Card";
 
 const ControllingApproval = () => {
@@ -19,7 +19,7 @@ const ControllingApproval = () => {
                 </Text>
             </Flex>
 
-            <TableContainer>
+            <Box overflowX={"auto"}>
                 <Table variant='simple'>
                     <Thead>
                         <Tr>
@@ -69,7 +69,7 @@ const ControllingApproval = () => {
                         </Tr>
                     </Tbody>
                 </Table>
-            </TableContainer>
+            </Box>
         </Card>
     );
 };

@@ -44,7 +44,7 @@ const MentorNotes = ({ viewingMyself = false }: { viewingMyself?: boolean }) => 
                 </Flex>
                 {
                     showMePls
-                        ? <Box>
+                        ? <Box overflowX={"auto"}>
                             <Table variant='simple'>
                                 <Thead>
                                     <Tr>

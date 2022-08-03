@@ -1,4 +1,4 @@
-import { Flex, Table, Thead, Tr, Th, Tbody, Td, Text, useColorModeValue, Box, Link } from "@chakra-ui/react";
+import { Flex, Table, Thead, Tr, Th, Tbody, Td, Text, useColorModeValue, Box, Link, TableContainer } from "@chakra-ui/react";
 import Card from "@components/card/Card";
 import NavLink from "next/link";
 
@@ -20,7 +20,7 @@ const EventBookings = () => {
                 </Text>
             </Flex>
 
-            <Box>
+            <Box overflowX={"auto"}>
                 <Table variant='simple'>
                     <Thead>
                         <Tr>
