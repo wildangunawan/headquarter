@@ -5,12 +5,16 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { useColorModeValue } from "@chakra-ui/system";
 
-const Calendar = () => {
+interface IProps {
+    [x: string]: any;
+}
+
+const Calendar = ({ ...rest }: IProps) => {
     const brandColor = useColorModeValue("brand.500", "white");
     const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
 
     return (
-        <Card>
+        <Card {...rest}>
             <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"

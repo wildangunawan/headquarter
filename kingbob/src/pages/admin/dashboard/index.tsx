@@ -9,6 +9,7 @@ import AdminLayout from "layouts/admin";
 import FeaturedEvents from "@components/dashboard/FeaturedEvents";
 import RecentNews from "@components/dashboard/RecentNews";
 import Calendar from "@components/dashboard/Calendar";
+import FutureEvents from "@components/dashboard/FutureEvents";
 
 export default function UserReports() {
   const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -27,7 +28,10 @@ export default function UserReports() {
           <RecentNews />
         </SimpleGrid>
 
-        <Calendar />
+        {/* Show calendar if screen medium or above */}
+        <Calendar display={{ base: "none", md: "block" }} />
+        {/* Otherwise show 5 (or less) future events */}
+        <FutureEvents display={{ base: "block", md: "none" }} />
       </VStack>
     </AdminLayout>
   );
