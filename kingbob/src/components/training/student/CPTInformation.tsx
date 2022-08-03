@@ -44,7 +44,7 @@ const CPTInformation = () => {
                         !haveCPT && <Button colorScheme={"blue"} onClick={() => setHaveCPT(true)}>Show example pls.</Button>
                     }
                 </Flex>
-                <Center h={"100%"} w={"100%"} my="2em">
+                <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">
                     {
                         haveCPT
                             ? <VStack

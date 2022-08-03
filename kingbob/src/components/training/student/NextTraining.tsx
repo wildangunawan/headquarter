@@ -29,7 +29,11 @@ const NextTraining = () => {
                         Next Training
                     </Text>
                     {
-                        (!haveTraining && !trainingRequested) && <Button colorScheme={"blue"} onClick={onOpen}>Request training</Button>
+                        (!haveTraining && !trainingRequested)
+                        && <Button
+                            colorScheme={"blue"}
+                            onClick={onOpen}
+                        >Request training</Button>
                     }
                     {
                         (!haveTraining && trainingRequested) && <Button colorScheme={"blue"} onClick={() => setInQueue(true)}>Show when on queue</Button>
@@ -38,7 +42,7 @@ const NextTraining = () => {
                         !haveTraining && <Button colorScheme={"blue"} onClick={() => setHaveTraining(true)}>Show example pls.</Button>
                     }
                 </Flex>
-                <Center h={"100%"} w={"100%"} my="2em">
+                <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">
                     {/* 
                     * Apologies for if in another if, here is the logic if translated to non-JSX
                     *   if (haveTraining) { Show training info card }

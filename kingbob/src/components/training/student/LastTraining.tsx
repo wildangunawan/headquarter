@@ -25,7 +25,7 @@ const LastTraining = () => {
                 <Button colorScheme={"blue"} onClick={() => setShowMePls(true)}>Show example pls.</Button>
             </Flex>
 
-            <Center h={"100%"} w={"100%"} my="2em">
+            <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">
                 {
                     showMePls
                         ? <VStack
@@ -44,7 +44,7 @@ const LastTraining = () => {
                                 </Link>
                             </NavLink>
                         </VStack>
-                        : <Center height={"100%"} width={"100%"}>You don&apos;t have any training recorded in the system yet.</Center>
+                        : <Text>You don&apos;t have any training recorded in the system yet.</Text>
                 }
             </Center>
         </Card>

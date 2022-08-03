@@ -17,10 +17,6 @@ export default function Overview() {
           base: "1fr",
           lg: "1.5fr 0.5fr",
         }}
-        templateRows={{
-          base: "repeat(2, 1fr)",
-          lg: "1fr",
-        }}
         gap="20px"
         mb="20px"
       >
@@ -37,10 +33,6 @@ export default function Overview() {
         templateColumns={{
           base: "1fr",
           lg: "1.2fr 0.8fr",
-        }}
-        templateRows={{
-          base: "repeat(2, 1fr)",
-          lg: "1fr",
         }}
         gap="20px"
       >

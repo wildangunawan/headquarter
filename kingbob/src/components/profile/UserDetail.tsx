@@ -40,16 +40,27 @@ export default function UserDetail({ name, rating, atc_hrs, pilot_hrs }: IProps)
         border="4px solid"
         borderColor={borderColor}
       />
-      <Flex align={"center"} justify="center" gap={2}>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        align={"center"}
+        justify={"center"}
+        gap={1}
+      >
         <Badge colorScheme={"yellow"}>Your Student</Badge>
-        <Text color={textColorPrimary} fontWeight="bold" fontSize="xl">
-          {name} (1000001)
-        </Text>
-        <IconButton
-          aria-label={`View ${name}'s email`}
-          icon={<Icon as={MdMailOutline} w={5} h={5} color="blue" />}
-          size="sm"
-        />
+        <Flex
+          align={"center"}
+          justify={"center"}
+          gap={1}
+        >
+          <Text color={textColorPrimary} fontWeight="bold" fontSize="xl">
+            Nolan Liew Boon Xiong (1427462)
+          </Text>
+          <IconButton
+            aria-label={`View ${name}'s email`}
+            icon={<Icon as={MdMailOutline} w={5} h={5} color="blue" />}
+            size="sm"
+          />
+        </Flex>
       </Flex>
       <Text color={textColorSecondary} fontSize="sm">
         {rating}

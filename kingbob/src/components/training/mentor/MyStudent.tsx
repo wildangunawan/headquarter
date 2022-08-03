@@ -139,7 +139,7 @@ const MyStudent = () => {
                                 </Tbody>
                             </Table>
                         </TableContainer>
-                        : <Center h={"100%"} w={"100%"} my="2em">You don&apos;t have any student assigned to you yet.</Center>
+                        : <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">You don&apos;t have any student assigned to you yet.</Center>
                 }
             </Card>
 

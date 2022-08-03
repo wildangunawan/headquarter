@@ -100,7 +100,7 @@ const CPTRequest = () => {
                             </Tbody>
                         </Table>
                     </TableContainer>
-                    : <Center h={"100%"} w={"100%"} my="2em">There is no CPT requested by student.</Center>
+                    : <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">There is no CPT requested by student.</Center>
             }
         </Card>
     );

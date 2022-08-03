@@ -85,7 +85,7 @@ const SoloHistory = ({ viewingMyself = false }: { viewingMyself?: boolean }) => 
                                 </Tbody>
                             </Table>
                         </TableContainer>
-                        : <Center h={"100%"} w={"100%"} my="2em">
+                        : <Center h={"100%"} w={"100%"} my="1em" px="15px" py="10px">
                             {viewingMyself ? "You don't" : "This student doesn't"} have any solo approval yet.
                         </Center>
                 }
