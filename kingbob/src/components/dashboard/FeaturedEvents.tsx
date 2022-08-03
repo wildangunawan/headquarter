@@ -41,8 +41,9 @@ const FeaturedEvents = () => {
                             Jakarta Turn Around 1
                         </Link>
                     </NavLink>
-                    <Text color={'gray.900'}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, fugiat! Repellat, totam. Harum enim perferendis nisi repellendus et? Soluta, enim?</Text>
-                    <Flex align={"center"} justify="space-between">
+                    <Text color={'gray.900'} noOfLines={3}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, fugiat! Repellat, totam. Harum enim perferendis nisi repellendus et? Soluta, enim?</Text>
+
+                    <Flex align={"center"} justify="space-between" mt={3}>
                         <Box>
                             <Highlight
                                 query="3 days!"
