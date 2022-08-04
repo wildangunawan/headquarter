@@ -1,15 +1,28 @@
-import { Icon } from "@chakra-ui/react";
 import { Menu } from "types/menu";
 import {
-  MdBarChart,
   MdPerson,
   MdHome,
-  MdLock,
-  MdOutlineShoppingCart,
   MdSchool,
   MdSupportAgent,
-  MdLayers
+  MdLayers,
+  MdList,
+  MdQueryStats,
+  MdNotifications,
+  MdForum,
+  MdFeedback,
+  MdEvent,
+  MdGroups,
+  MdPlaylistAddCheck,
+  MdComment,
+  MdSettings,
+  MdEmail,
+  MdPolicy,
+  MdTask
 } from "react-icons/md";
+import { IoMdAirplane, IoMdStats } from "react-icons/io";
+import { TbReportAnalytics } from "react-icons/tb";
+import { IoNewspaper } from "react-icons/io5";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 /**
  * Variable below consists routes that's shown in the sidebar menu
@@ -29,198 +42,423 @@ const routes: Menu[] = [
   {
     name: "Dashboard",
     layout: "/admin",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+    icon: MdHome,
     path: "/dashboard",
   },
-  {
-    name: "Admin",
-    dropdown: true,
-    items: [
-      {
-        name: "Main Dashboard",
-        layout: "/admin",
-        path: "/default",
-      },
-      {
-        name: "NFT Marketplace",
-        layout: "/admin",
-        path: "/marketplace",
-      },
-    ],
-  },
+
+  // Membership
   {
     name: "Membership",
     dropdown: true,
     items: [
       {
-        name: "Main Dashboard",
-        layout: "/admin",
-        path: "/default",
-        icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+        name: "ATC",
+        dropdown: true,
+        items: [
+          {
+            name: "Create a booking",
+            layout: "/admin",
+            icon: MdEvent,
+            path: "/datatables",
+          },
+          {
+            name: "Send a feedback",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdFeedback,
+          },
+        ],
       },
       {
-        name: "NFT Marketplace",
+        name: "Pilot",
+        dropdown: true,
+        items: [
+          {
+            name: "Pilot Resource Center",
+            layout: "/admin",
+            icon: IoMdAirplane,
+            path: "https://www.vatsim.net/pilot-resource-centre",
+          },
+        ],
+      },
+      {
+        name: "HQ Changelog",
         layout: "/admin",
-        path: "/marketplace",
-        icon: (
-          <Icon
-            as={MdOutlineShoppingCart}
-            width='20px'
-            height='20px'
-            color='inherit'
-          />
-        ),
+        icon: MdList,
+        path: "/datatables",
+      },
+      {
+        name: "My Profile",
+        layout: "/admin",
+        path: "/profile",
+        icon: MdPerson,
+      },
+      {
+        name: "My Stats",
+        layout: "/auth",
+        path: "/sign-in",
+        icon: MdQueryStats,
+      },
+      {
+        name: "Notifications",
+        layout: "/auth",
+        path: "/sign-in",
+        icon: MdNotifications,
+      },
+      {
+        name: "VATSIM Forum",
+        layout: "/auth",
+        path: "/sign-in",
+        icon: MdForum,
+      },
+      {
+        name: "Staff List",
+        layout: "/auth",
+        path: "/sign-in",
+        icon: MdGroups,
       },
     ],
   },
+
+  // vACC Staff
   {
     name: "vACC Staff",
     dropdown: true,
     items: [
       {
-        name: "Data Tables",
-        layout: "/admin",
-        icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-        path: "/datatables",
+        name: "ATC",
+        dropdown: true,
+        items: [
+          {
+            name: "Feedback List",
+            layout: "/admin",
+            icon: MdComment,
+            path: "/datatables",
+          },
+          {
+            name: "Leave of Absence (LOA)",
+            layout: "/admin",
+            icon: MdList,
+            path: "/profile",
+          },
+        ],
       },
-      {
-        name: "Profile",
-        layout: "/admin",
-        path: "/profile",
-        icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-      },
-      {
-        name: "Sign In",
-        layout: "/auth",
-        path: "/sign-in",
-        icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-      },
-    ],
-  },
-  {
-    name: "Divisional Staff",
-    dropdown: true,
-    items: [
-      {
-        name: "Data Tables",
-        layout: "/admin",
-        icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-        path: "/datatables",
-      },
-      {
-        name: "Profile",
-        layout: "/admin",
-        path: "/profile",
-        icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-      },
-      {
-        name: "Sign In",
-        layout: "/auth",
-        path: "/sign-in",
-        icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-      },
-    ],
-  },
-  {
-    name: "Regional Staff",
-    dropdown: true,
-    items: [
       {
         name: "General",
         dropdown: true,
         items: [
           {
-            name: "Data Tables",
+            name: "Add News",
             layout: "/admin",
-            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+            icon: IoNewspaper,
             path: "/datatables",
           },
           {
-            name: "Profile",
+            name: "Add Event",
             layout: "/admin",
             path: "/profile",
-            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+            icon: MdEvent,
           },
           {
-            name: "Sign In",
+            name: "CharSceCtor",
             layout: "/auth",
             path: "/sign-in",
-            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+            icon: MdList,
+          },
+          {
+            name: "Staff List",
+            layout: "/admin",
+            icon: MdPerson,
+            path: "/datatables",
+          },
+          {
+            name: "System Log",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdList,
+          },
+          {
+            name: "Quarterly Report",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: TbReportAnalytics,
+          },
+          {
+            name: "vACC Settings",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: MdSettings,
           },
         ],
       },
       {
-        name: "Policy Center",
+        name: "Membership",
         dropdown: true,
         items: [
           {
-            name: "Data Tables",
+            name: "Email members",
             layout: "/admin",
-            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+            icon: MdEmail,
             path: "/datatables",
           },
           {
-            name: "Profile",
-            layout: "/admin",
-            path: "/profile",
-            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-          },
-          {
-            name: "Sign In",
+            name: "Visitors",
             layout: "/auth",
             path: "/sign-in",
-            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+            icon: MdGroups,
           },
         ],
+      },
+      {
+        name: "Policies",
+        layout: "/admin",
+        icon: MdPolicy,
+        path: "/datatables",
       },
       {
         name: "Tasks",
-        dropdown: true,
-        items: [
-          {
-            name: "Data Tables",
-            layout: "/admin",
-            icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-            path: "/datatables",
-          },
-          {
-            name: "Profile",
-            layout: "/admin",
-            path: "/profile",
-            icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-          },
-          {
-            name: "Sign In",
-            layout: "/auth",
-            path: "/sign-in",
-            icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-          },
-        ],
+        layout: "/admin",
+        icon: MdTask,
+        path: "/datatables",
       },
     ],
   },
+
+  // Division Staff
   {
-    name: "Training System - Request",
-    layout: "/admin",
-    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
-    path: "/training/request",
+    name: "Division Staff",
+    dropdown: true,
+    items: [
+      {
+        name: "ATC",
+        dropdown: true,
+        items: [
+          {
+            name: "Feedback List",
+            layout: "/admin",
+            icon: MdComment,
+            path: "/datatables",
+          },
+          {
+            name: "Statistics",
+            layout: "/admin",
+            icon: IoMdStats,
+            path: "/profile",
+          },
+        ],
+      },
+      {
+        name: "General",
+        dropdown: true,
+        items: [
+          {
+            name: "Add News",
+            layout: "/admin",
+            icon: IoNewspaper,
+            path: "/datatables",
+          },
+          {
+            name: "Add Event",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdEvent,
+          },
+          {
+            name: "CharSceCtor",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: MdList,
+          },
+          {
+            name: "Staff List",
+            layout: "/admin",
+            icon: MdPerson,
+            path: "/datatables",
+          },
+          {
+            name: "System Log",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdList,
+          },
+        ],
+      },
+      {
+        name: "Membership",
+        dropdown: true,
+        items: [
+          {
+            name: "Email members",
+            layout: "/admin",
+            icon: MdEmail,
+            path: "/datatables",
+          },
+          {
+            name: "Visitors",
+            layout: "/auth",
+            path: "/sign-in",
+            icon: MdGroups,
+          },
+        ],
+      },
+      {
+        name: "Policies",
+        layout: "/admin",
+        icon: MdPolicy,
+        path: "/datatables",
+      },
+      {
+        name: "Tasks",
+        layout: "/admin",
+        icon: MdTask,
+        path: "/datatables",
+      },
+    ],
   },
+
+  // Regional Staff
   {
-    name: "Training System - ATC Rated",
-    layout: "/admin",
-    icon: <Icon as={MdSchool} width='20px' height='20px' color='inherit' />,
-    path: "/training",
+    name: "Division Staff",
+    dropdown: true,
+    items: [
+      {
+        name: "ATC",
+        dropdown: true,
+        items: [
+          {
+            name: "Feedback List",
+            layout: "/admin",
+            icon: MdComment,
+            path: "/datatables",
+          },
+          {
+            name: "Statistics",
+            layout: "/admin",
+            icon: IoMdStats,
+            path: "/profile",
+          },
+        ],
+      },
+      {
+        name: "General",
+        dropdown: true,
+        items: [
+          {
+            name: "Add News",
+            layout: "/admin",
+            icon: IoNewspaper,
+            path: "/datatables",
+          },
+          {
+            name: "Staff List",
+            layout: "/admin",
+            icon: MdPerson,
+            path: "/datatables",
+          },
+          {
+            name: "System Log",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdList,
+          },
+        ],
+      },
+      {
+        name: "Membership",
+        dropdown: true,
+        items: [
+          {
+            name: "Email members",
+            layout: "/admin",
+            icon: MdEmail,
+            path: "/datatables",
+          }
+        ],
+      },
+      {
+        name: "Policies",
+        layout: "/admin",
+        icon: MdPolicy,
+        path: "/datatables",
+      },
+      {
+        name: "Tasks",
+        layout: "/admin",
+        icon: MdTask,
+        path: "/datatables",
+      },
+    ],
   },
+
+  // Training
+  {
+    name: "Training Center",
+    dropdown: true,
+    items: [
+      {
+        name: "Request to be an ATC",
+        layout: "/admin",
+        icon: MdSchool,
+        path: "/training/request",
+      },
+      {
+        name: "My Training",
+        layout: "/admin",
+        icon: MdSchool,
+        path: "/training",
+      },
+      {
+        name: "Solo & Endorsement",
+        layout: "/admin",
+        icon: MdPlaylistAddCheck,
+        path: "/training/solo-and-endorsement",
+      },
+      {
+        name: "FSS Roster",
+        layout: "/admin",
+        icon: MdList,
+        path: "/training/fss",
+      },
+      {
+        name: "Instructors/Mentors & Examiner",
+        layout: "/admin",
+        icon: MdGroups,
+        path: "/training/mentor-and-examiner",
+      },
+      {
+        name: "Staff & Mentor",
+        dropdown: true,
+        items: [
+          {
+            name: "Training Records",
+            layout: "/admin",
+            icon: MdList,
+            path: "/training/records",
+          },
+        ],
+      },
+      {
+        name: "Mentor Center",
+        layout: "/admin",
+        icon: FaChalkboardTeacher,
+        path: "/training/mentor-center",
+      },
+    ],
+  },
+
+  // Support center
   {
     name: "Support Center",
     layout: "/admin",
-    icon: <Icon as={MdSupportAgent} width='20px' height='20px' color='inherit' />,
+    icon: MdSupportAgent,
     path: "/support",
   },
+
+  // List of divisions and vACCs
   {
     name: "Divisions/vACCs",
     layout: "/admin",
-    icon: <Icon as={MdLayers} width='20px' height='20px' color='inherit' />,
+    icon: MdLayers,
     path: "/default",
   },
 ];
