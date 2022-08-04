@@ -318,7 +318,7 @@ const routes: Menu[] = [
 
   // Regional Staff
   {
-    name: "Division Staff",
+    name: "Regional Staff",
     dropdown: true,
     items: [
       {
