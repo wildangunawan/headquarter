@@ -1,10 +1,12 @@
+import { IconType } from "react-icons";
+
 // Type when a menu is an actual item or not
 type IsMenuItem = {
     category?: never;
     dropdown?: never;
     layout: string;
     path: string;
-    icon?: JSX.Element;
+    icon?: IconType;
 }
 
 type IsNotMenuItem = {

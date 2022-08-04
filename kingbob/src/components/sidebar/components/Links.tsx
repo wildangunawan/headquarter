@@ -6,6 +6,7 @@ import {
   Box,
   Flex,
   HStack,
+  Icon,
   Link,
   Text,
   useColorModeValue,
@@ -61,53 +62,56 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
         return (
           <NavLink key={index} href={route.layout + route.path} passHref>
             <Link>
-              <Box>
-                <HStack
-                  spacing={
-                    activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                  }
-                  py="5px"
-                  ps="10px"
-                >
-                  <Flex w="100%" alignItems="center" justifyContent="center">
-                    {route.icon && <Box
+              <HStack
+                spacing={
+                  activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                }
+                py="5px"
+                ps="10px"
+              >
+                <Flex w="100%" align="center" justify="center" gap={2}>
+                  {
+                    route.icon
+                    && <Icon
+                      as={route.icon}
+                      width='20px'
+                      height='20px'
                       color={
                         activeRoute(route.path.toLowerCase())
                           ? activeIcon
                           : textColor
                       }
-                      me="18px"
-                    >
-                      {route.icon}
-                    </Box>}
-                    <Text
-                      me="auto"
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? activeColor
-                          : textColor
-                      }
-                      fontWeight={
-                        activeRoute(route.path.toLowerCase())
-                          ? "bold"
-                          : "normal"
-                      }
-                    >
-                      {route.name}
-                    </Text>
-                  </Flex>
-                  <Box
-                    h="36px"
-                    w="4px"
-                    bg={
+                    />
+                  }
+
+                  <Text
+                    me="auto"
+                    color={
                       activeRoute(route.path.toLowerCase())
-                        ? brandColor
-                        : "transparent"
+                        ? activeColor
+                        : textColor
                     }
-                    borderRadius="5px"
-                  />
-                </HStack>
-              </Box>
+                    fontWeight={
+                      activeRoute(route.path.toLowerCase())
+                        ? "bold"
+                        : "normal"
+                    }
+                  >
+                    {route.name}
+                  </Text>
+                </Flex>
+
+                <Box
+                  h="36px"
+                  w="4px"
+                  bg={
+                    activeRoute(route.path.toLowerCase())
+                      ? brandColor
+                      : "transparent"
+                  }
+                  borderRadius="5px"
+                />
+              </HStack>
             </Link>
           </NavLink>
         );
