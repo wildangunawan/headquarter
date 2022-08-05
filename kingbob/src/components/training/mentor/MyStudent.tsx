@@ -1,3 +1,4 @@
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import {
     Table,
     Thead,
@@ -13,6 +14,10 @@ import {
     ButtonGroup,
     Flex,
     Center,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuList,
 } from '@chakra-ui/react'
 import Card from "@components/card/Card";
 import NavLink from "next/link"
@@ -67,21 +72,27 @@ const MyStudent = () => {
                                         <Td>Student 1 (S1)</Td>
                                         <Td>WIII_TWR until 30 Aug 2022</Td>
                                         <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button
-                                                    variant="outline"
-                                                    onClick={() => {
-                                                        onOpen()
-                                                        setStudentData({
-                                                            id: "1000000",
-                                                            name: "Kevin",
-                                                        })
-                                                    }}
-                                                >Issue Solo</Button>
-                                            </ButtonGroup>
+                                            <Menu>
+                                                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                                                    Actions
+                                                </MenuButton>
+                                                <MenuList>
+                                                    <MenuItem>
+                                                        <NavLink href="/admin/training/1000000" passHref>
+                                                            <Link>View</Link>
+                                                        </NavLink>
+                                                    </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            onOpen()
+                                                            setStudentData({
+                                                                id: "1000000",
+                                                                name: "Kevin",
+                                                            })
+                                                        }}
+                                                    >Issue Solo</MenuItem>
+                                                </MenuList>
+                                            </Menu>
                                         </Td>
                                     </Tr>
                                     <Tr>
@@ -93,21 +104,27 @@ const MyStudent = () => {
                                         <Td>Student 2 (S2)</Td>
                                         <Td>-</Td>
                                         <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button
-                                                    variant="outline"
-                                                    onClick={() => {
-                                                        onOpen()
-                                                        setStudentData({
-                                                            id: "1000001",
-                                                            name: "Stuart",
-                                                        })
-                                                    }}
-                                                >Issue Solo</Button>
-                                            </ButtonGroup>
+                                            <Menu>
+                                                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                                                    Actions
+                                                </MenuButton>
+                                                <MenuList>
+                                                    <MenuItem>
+                                                        <NavLink href="/admin/training/1000001" passHref>
+                                                            <Link>View</Link>
+                                                        </NavLink>
+                                                    </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            onOpen()
+                                                            setStudentData({
+                                                                id: "1000001",
+                                                                name: "Stuart",
+                                                            })
+                                                        }}
+                                                    >Issue Solo</MenuItem>
+                                                </MenuList>
+                                            </Menu>
                                         </Td>
                                     </Tr>
                                     <Tr>
@@ -119,21 +136,27 @@ const MyStudent = () => {
                                         <Td>Student 1 (S1)</Td>
                                         <Td>-</Td>
                                         <Td>
-                                            <ButtonGroup spacing={1}>
-                                                <NavLink href="/admin/training/1000000" passHref>
-                                                    <Button as="a" colorScheme="blue">View</Button>
-                                                </NavLink>
-                                                <Button
-                                                    variant="outline"
-                                                    onClick={() => {
-                                                        onOpen()
-                                                        setStudentData({
-                                                            id: "1000002",
-                                                            name: "King Bob",
-                                                        })
-                                                    }}
-                                                >Issue Solo</Button>
-                                            </ButtonGroup>
+                                            <Menu>
+                                                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                                                    Actions
+                                                </MenuButton>
+                                                <MenuList>
+                                                    <MenuItem>
+                                                        <NavLink href="/admin/training/1000002" passHref>
+                                                            <Link>View</Link>
+                                                        </NavLink>
+                                                    </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            onOpen()
+                                                            setStudentData({
+                                                                id: "1000002",
+                                                                name: "King Bob",
+                                                            })
+                                                        }}
+                                                    >Issue Solo</MenuItem>
+                                                </MenuList>
+                                            </Menu>
                                         </Td>
                                     </Tr>
                                 </Tbody>
