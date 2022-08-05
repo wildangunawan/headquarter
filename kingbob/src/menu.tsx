@@ -151,7 +151,7 @@ const routes: Menu[] = [
             name: "Add News",
             layout: "/admin",
             icon: IoNewspaper,
-            path: "/datatables",
+            path: "/news/add",
           },
           {
             name: "Add Event",
@@ -255,7 +255,7 @@ const routes: Menu[] = [
             name: "Add News",
             layout: "/admin",
             icon: IoNewspaper,
-            path: "/datatables",
+            path: "/news/add",
           },
           {
             name: "Add Event",
@@ -347,7 +347,7 @@ const routes: Menu[] = [
             name: "Add News",
             layout: "/admin",
             icon: IoNewspaper,
-            path: "/datatables",
+            path: "/news/add",
           },
           {
             name: "Staff List",
