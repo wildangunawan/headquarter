@@ -67,7 +67,7 @@ const PromoteAsMentor = () => {
                 <Flex>
                     {/* S1 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s1' colorScheme='green' isChecked={permissions?.s1} />
+                        <Switch id='can-mentor-s1' colorScheme='green' defaultChecked={permissions?.s1} />
                         <FormLabel htmlFor='can-mentor-s1' mb='0' fontSize={"sm"} fontWeight={400}>
                             S1
                         </FormLabel>
@@ -75,7 +75,7 @@ const PromoteAsMentor = () => {
 
                     {/* S2 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s2' colorScheme='green' isChecked={permissions?.s2} />
+                        <Switch id='can-mentor-s2' colorScheme='green' defaultChecked={permissions?.s2} />
                         <FormLabel htmlFor='can-mentor-s2' mb='0' fontSize={"sm"} fontWeight={400}>
                             S2
                         </FormLabel>
@@ -83,7 +83,7 @@ const PromoteAsMentor = () => {
 
                     {/* S3 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s3' colorScheme='green' isChecked={permissions?.s3} />
+                        <Switch id='can-mentor-s3' colorScheme='green' defaultChecked={permissions?.s3} />
                         <FormLabel htmlFor='can-mentor-s3' mb='0' fontSize={"sm"} fontWeight={400}>
                             S3
                         </FormLabel>
@@ -92,7 +92,7 @@ const PromoteAsMentor = () => {
             </Flex>
 
             <FormControl display='flex' alignItems='center' gap={2}>
-                <Switch id='can-issue-solo' colorScheme='green' isChecked={permissions?.solo} />
+                <Switch id='can-issue-solo' colorScheme='green' defaultChecked={permissions?.solo} />
                 <FormLabel htmlFor='can-issue-solo' mb='0' fontSize={"sm"} fontWeight={400}>
                     {memberData?.name} can issue solo
                 </FormLabel>

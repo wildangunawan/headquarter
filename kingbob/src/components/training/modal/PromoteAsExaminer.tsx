@@ -64,7 +64,7 @@ const PromoteAsExaminer = () => {
             <Flex>
                 {/* S2 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-s2' colorScheme='green' isChecked={permissions?.s2} />
+                    <Switch id='can-examine-s2' colorScheme='green' defaultChecked={permissions?.s2} />
                     <FormLabel htmlFor='can-examine-s2' mb='0' fontSize={"sm"} fontWeight={400}>
                         S2 CPT
                     </FormLabel>
@@ -72,7 +72,7 @@ const PromoteAsExaminer = () => {
 
                 {/* S3 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-s3' colorScheme='green' isChecked={permissions?.s3} />
+                    <Switch id='can-examine-s3' colorScheme='green' defaultChecked={permissions?.s3} />
                     <FormLabel htmlFor='can-examine-s3' mb='0' fontSize={"sm"} fontWeight={400}>
                         S3 CPT
                     </FormLabel>
@@ -80,7 +80,7 @@ const PromoteAsExaminer = () => {
 
                 {/* C1 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-c1' colorScheme='green' isChecked={permissions?.c1} />
+                    <Switch id='can-examine-c1' colorScheme='green' defaultChecked={permissions?.c1} />
                     <FormLabel htmlFor='can-examine-c1' mb='0' fontSize={"sm"} fontWeight={400}>
                         C1 CPT
                     </FormLabel>
