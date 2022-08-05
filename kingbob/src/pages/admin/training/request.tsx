@@ -12,7 +12,6 @@ import AdminLayout from "@layouts/admin";
 
 const Training = () => {
     const { onOpen, modal, requestSubmitted } = ATCRequestModal()
-    console.log(ATCRequestModal);
 
     return (
         <AdminLayout title="Training System">
