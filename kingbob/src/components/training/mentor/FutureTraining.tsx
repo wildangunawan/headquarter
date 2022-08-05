@@ -60,7 +60,11 @@ const FutureTraining = () => {
                                     </Td>
                                     <Td>Student 1 (S1)</Td>
                                     <Td>31 Aug 2022 13:00 UTC</Td>
-                                    <Td><Button colorScheme="blue">View</Button></Td>
+                                    <Td>
+                                        <NavLink href={"/admin/training/detail/training-30-aug-2022"} passHref>
+                                            <Button colorScheme="blue" as="a">View</Button>
+                                        </NavLink>
+                                    </Td>
                                 </Tr>
                             </Tbody>
                         </Table>
