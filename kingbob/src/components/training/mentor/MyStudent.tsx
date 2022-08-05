@@ -90,7 +90,7 @@ const MyStudent = () => {
                                                                 name: "Kevin",
                                                             })
                                                         }}
-                                                    >Issue Solo</MenuItem>
+                                                    >Issue solo</MenuItem>
                                                 </MenuList>
                                             </Menu>
                                         </Td>
@@ -122,7 +122,7 @@ const MyStudent = () => {
                                                                 name: "Stuart",
                                                             })
                                                         }}
-                                                    >Issue Solo</MenuItem>
+                                                    >Issue solo</MenuItem>
                                                 </MenuList>
                                             </Menu>
                                         </Td>
@@ -154,7 +154,7 @@ const MyStudent = () => {
                                                                 name: "King Bob",
                                                             })
                                                         }}
-                                                    >Issue Solo</MenuItem>
+                                                    >Issue solo</MenuItem>
                                                 </MenuList>
                                             </Menu>
                                         </Td>
