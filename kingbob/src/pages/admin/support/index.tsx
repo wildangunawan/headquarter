@@ -15,8 +15,8 @@ const Tickets = () => {
                     <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                         Support Center
                     </Text>
-                    <NavLink href="/admin/training/me" passHref>
-                        <Button as="a" colorScheme="blue">Create Ticket</Button>
+                    <NavLink href="/admin/support/add" passHref>
+                        <Button as="a" colorScheme="blue">Create ticket</Button>
                     </NavLink>
                 </Flex>
 
