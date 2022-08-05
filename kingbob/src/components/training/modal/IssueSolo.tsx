@@ -12,6 +12,9 @@ const IssueSolo = () => {
     const [loading, setLoading] = useState(false);
     const [studentData, setStudentData] = useState<StudentData>();
 
+    // For demo
+    const [position, setPosition] = useState('');
+
     const submitApplication = () => {
         // Set loading
         setLoading(true)
@@ -52,7 +55,9 @@ const IssueSolo = () => {
         body: <>
             <Flex direction={"column"} gap={2} mb={4}>
                 <Text>Position</Text>
-                <Input placeholder='WIII_TWR' />
+                <Input placeholder='Use WADD_TWR to show maximum 3 solo/position error' value={position} onChange={(e) => setPosition(e.target.value)} />
+
+                {position == "WADD_TWR" && <Text color={'red'}>{`${studentData?.name} already have 3 ${position} solo. No more solo for ${position} can be issued.`}</Text>}
             </Flex>
             <Flex direction={"column"} gap={2} mb={4}>
                 <Text>Start</Text>
@@ -69,6 +74,7 @@ const IssueSolo = () => {
             onClick={submitApplication}
             isLoading={loading}
             loadingText="Submitting"
+            isDisabled={position === "WADD_TWR"}
         >
             Submit
         </Button>
