@@ -2,6 +2,8 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwildangunawan%2Fheadquarter&project-name=hq-frontend&root-directory=kingbob)
 
+Demo of `kingbob` can be viewed [here](https://headquarter.vercel.app).
+
 ### Getting Started
 
 #### 1. Installing packages
