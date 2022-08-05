@@ -42,17 +42,6 @@ const Training = () => {
                     <CPTInformation />
                 </SimpleGrid>
             </VStack>
-
-            {/* Mentor */}
-            <VStack spacing={"20px"} align="stretch" mt="45px">
-                <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
-                    Instructor / Mentor
-                </Text>
-                <FutureTraining />
-                <TrainingRequest />
-                <CPTRequest />
-                <MyStudent />
-            </VStack>
         </AdminLayout>
     );
 };

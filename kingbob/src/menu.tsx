@@ -408,32 +408,26 @@ const routes: Menu[] = [
         path: "/training",
       },
       {
-        name: "Solo & Endorsement",
+        name: "Solo, Endorsement, and FSS",
         layout: "/admin",
         icon: MdPlaylistAddCheck,
-        path: "/training/solo-and-endorsement",
+        path: "/training/solo-endorsement-and-fss",
       },
       {
-        name: "FSS Roster",
-        layout: "/admin",
-        icon: MdList,
-        path: "/training/fss",
-      },
-      {
-        name: "Instructors/Mentors & Examiner",
+        name: "Instructors/Mentors and Examiner",
         layout: "/admin",
         icon: MdGroups,
         path: "/training/mentor-and-examiner",
       },
       {
-        name: "Staff & Mentor",
+        name: "Staff",
         dropdown: true,
         items: [
           {
-            name: "Training Records",
+            name: "Member Training Records",
             layout: "/admin",
             icon: MdList,
-            path: "/training/records",
+            path: "/training/staff/member-records",
           },
         ],
       },
