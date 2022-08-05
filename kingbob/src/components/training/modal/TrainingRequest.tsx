@@ -1,4 +1,4 @@
-import { Flex, Select, Textarea, Button, Text } from "@chakra-ui/react";
+import { Flex, Select, Button, Text, Input } from "@chakra-ui/react";
 import useModal from "@hooks/useModal";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ const TrainingRequest = () => {
             // Show toast that application was submitted
             toast({
                 title: 'Request submitted',
-                description: "Respective staff be in touch with you ASAP",
+                description: "Respective staff/mentor be in touch with you ASAP",
                 status: 'success',
                 position: 'bottom-right',
                 duration: 5000,
@@ -57,8 +57,8 @@ const TrainingRequest = () => {
                 </Select>
             </Flex>
             <Flex direction={"column"} gap={2}>
-                <Text>Any preferred date?</Text>
-                <Textarea placeholder={`Tell your mentor when you're able to do the training`}></Textarea>
+                <Text>Any preferred date and time?</Text>
+                <Input type={"datetime-local"} />
             </Flex>
         </>,
         footer: <Button
