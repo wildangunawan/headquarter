@@ -7,10 +7,23 @@ type MemberData = {
     name: string;
 }
 
+type MentorPermission = {
+    s1: boolean;
+    s2: boolean;
+    s3: boolean;
+    solo: boolean;
+}
+
 const PromoteAsMentor = () => {
     // Request state
     const [loading, setLoading] = useState(false);
     const [memberData, setMemberData] = useState<MemberData>();
+    const [permissions, setPermissions] = useState<MentorPermission>({
+        s1: false,
+        s2: false,
+        s3: false,
+        solo: false,
+    });
 
     const submitApplication = () => {
         // Set loading
@@ -54,7 +67,7 @@ const PromoteAsMentor = () => {
                 <Flex>
                     {/* S1 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s1' colorScheme='green' />
+                        <Switch id='can-mentor-s1' colorScheme='green' isChecked={permissions?.s1} />
                         <FormLabel htmlFor='can-mentor-s1' mb='0' fontSize={"sm"} fontWeight={400}>
                             S1
                         </FormLabel>
@@ -62,7 +75,7 @@ const PromoteAsMentor = () => {
 
                     {/* S2 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s2' colorScheme='green' />
+                        <Switch id='can-mentor-s2' colorScheme='green' isChecked={permissions?.s2} />
                         <FormLabel htmlFor='can-mentor-s2' mb='0' fontSize={"sm"} fontWeight={400}>
                             S2
                         </FormLabel>
@@ -70,7 +83,7 @@ const PromoteAsMentor = () => {
 
                     {/* S3 */}
                     <FormControl display='flex' alignItems='center' gap={2}>
-                        <Switch id='can-mentor-s3' colorScheme='green' />
+                        <Switch id='can-mentor-s3' colorScheme='green' isChecked={permissions?.s3} />
                         <FormLabel htmlFor='can-mentor-s3' mb='0' fontSize={"sm"} fontWeight={400}>
                             S3
                         </FormLabel>
@@ -79,7 +92,7 @@ const PromoteAsMentor = () => {
             </Flex>
 
             <FormControl display='flex' alignItems='center' gap={2}>
-                <Switch id='can-issue-solo' colorScheme='green' />
+                <Switch id='can-issue-solo' colorScheme='green' isChecked={permissions?.solo} />
                 <FormLabel htmlFor='can-issue-solo' mb='0' fontSize={"sm"} fontWeight={400}>
                     {memberData?.name} can issue solo
                 </FormLabel>
@@ -96,7 +109,7 @@ const PromoteAsMentor = () => {
         </Button>
     })
 
-    return { onOpen, modal, setMemberData };
+    return { onOpen, modal, setMemberData, setPermissions };
 };
 
 export default PromoteAsMentor;

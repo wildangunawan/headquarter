@@ -7,10 +7,21 @@ type MemberData = {
     name: string;
 }
 
+type ExaminerPermission = {
+    s2: boolean;
+    s3: boolean;
+    c1: boolean;
+}
+
 const PromoteAsExaminer = () => {
     // Request state
     const [loading, setLoading] = useState(false);
     const [memberData, setMemberData] = useState<MemberData>();
+    const [permissions, setPermissions] = useState<ExaminerPermission>({
+        s2: false,
+        s3: false,
+        c1: false,
+    });
 
     const submitApplication = () => {
         // Set loading
@@ -53,7 +64,7 @@ const PromoteAsExaminer = () => {
             <Flex>
                 {/* S2 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-s2' colorScheme='green' />
+                    <Switch id='can-examine-s2' colorScheme='green' isChecked={permissions?.s2} />
                     <FormLabel htmlFor='can-examine-s2' mb='0' fontSize={"sm"} fontWeight={400}>
                         S2 CPT
                     </FormLabel>
@@ -61,7 +72,7 @@ const PromoteAsExaminer = () => {
 
                 {/* S3 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-s3' colorScheme='green' />
+                    <Switch id='can-examine-s3' colorScheme='green' isChecked={permissions?.s3} />
                     <FormLabel htmlFor='can-examine-s3' mb='0' fontSize={"sm"} fontWeight={400}>
                         S3 CPT
                     </FormLabel>
@@ -69,7 +80,7 @@ const PromoteAsExaminer = () => {
 
                 {/* C1 */}
                 <FormControl display='flex' alignItems='center' gap={2}>
-                    <Switch id='can-examine-c1' colorScheme='green' />
+                    <Switch id='can-examine-c1' colorScheme='green' isChecked={permissions?.c1} />
                     <FormLabel htmlFor='can-examine-c1' mb='0' fontSize={"sm"} fontWeight={400}>
                         C1 CPT
                     </FormLabel>
@@ -88,7 +99,7 @@ const PromoteAsExaminer = () => {
         </Button>
     })
 
-    return { onOpen, modal, setMemberData };
+    return { onOpen, modal, setMemberData, setPermissions };
 };
 
 export default PromoteAsExaminer;
