@@ -8,14 +8,13 @@ const SoloAndEndorsement = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Solo, Endorsement, and FSS Roster">
+        <AdminLayout title="Solo and Endorsement">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
-                    Solo, Endorsement, and FSS Roster
+                    Solo and Endorsement
                 </Text>
                 <SoloList />
                 <EndorsementList />
-                <FSSRoster />
             </VStack>
         </AdminLayout>
     );

@@ -67,6 +67,12 @@ const routes: Menu[] = [
             path: "/profile",
             icon: MdFeedback,
           },
+          {
+            name: "FSS roster",
+            layout: "/admin",
+            path: "/profile",
+            icon: MdGroups,
+          },
         ],
       },
       {
@@ -408,10 +414,10 @@ const routes: Menu[] = [
         path: "/training",
       },
       {
-        name: "Solo, Endorsement, and FSS",
+        name: "Solo and Endorsement",
         layout: "/admin",
         icon: MdPlaylistAddCheck,
-        path: "/training/solo-endorsement-and-fss",
+        path: "/training/solo-and-endorsement",
       },
       {
         name: "Instructors/Mentors and Examiner",
@@ -421,7 +427,7 @@ const routes: Menu[] = [
       },
       {
         name: "Staff Center",
-            layout: "/admin",
+        layout: "/admin",
         icon: FaClipboardList,
         path: "/training/staff-center",
       },
