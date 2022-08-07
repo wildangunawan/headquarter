@@ -28,14 +28,14 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   let brandColor = useColorModeValue("brand.500", "brand.400");
   
   // State
-  const [activeMenu, setActiveMenu] = useState<string[]>([]);
+  const [activeMenu, setActiveMenu] = useState<Menu[]>([]);
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
     return location.pathname.includes(routeName);
   };
 
-  const selectMenu = (selectedMenu: string) => {
+  const selectMenu = (selectedMenu: Menu) => {
     if (activeMenu.includes(selectedMenu)) {
       setActiveMenu(activeMenu.filter(menu => menu !== selectedMenu))
     } else {
@@ -44,37 +44,34 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   }
 
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
-  const createLinks: any = (routes: Menu[]) => {
+  const createLinks: any = (routes: Menu[], level: number) => {
     return routes.map((route: Menu, index: number) => {
       if (route.category || route.dropdown) {
         return (
           <span key={index}>
             <Text
+              ml={level*5}
               fontSize={"md"}
               color={activeColor}
               fontWeight="bold"
-              mx="auto"
-              ps={{
-                sm: "10px",
-                xl: "16px",
-              }}
-              pt="18px"
-              pb="12px"
+              ps="10px"
+              py="10px"
               key={index}
-              onClick={() => {selectMenu(route.name)}}
+              onClick={() => {selectMenu(route)}}
               style={{cursor: "pointer"}}
             >
               {route.name}
-              {activeMenu.includes(route.name) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
+              {activeMenu.includes(route) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
             </Text>
-            {activeMenu.includes(route.name) && createLinks(route.items)}
+            {activeMenu.includes(route) && createLinks(route.items, level+1)}
           </span>
         );
       } else if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
         return (
           <NavLink key={index} href={route.layout + route.path} passHref>
-            <Link>
+            <Link >
               <HStack
+                ml={level*5}
                 spacing={
                   activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
                 }
@@ -131,7 +128,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
     });
   };
   //  BRAND
-  return createLinks(routes);
+  return createLinks(routes, 0);
 }
 
 export default SidebarLinks;
