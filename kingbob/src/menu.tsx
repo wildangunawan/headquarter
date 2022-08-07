@@ -22,7 +22,7 @@ import {
 import { IoMdAirplane, IoMdStats } from "react-icons/io";
 import { TbReportAnalytics } from "react-icons/tb";
 import { IoNewspaper } from "react-icons/io5";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import { FaChalkboardTeacher, FaClipboardList } from "react-icons/fa";
 
 /**
  * Variable below consists routes that's shown in the sidebar menu
@@ -420,16 +420,10 @@ const routes: Menu[] = [
         path: "/training/mentor-and-examiner",
       },
       {
-        name: "Staff",
-        dropdown: true,
-        items: [
-          {
-            name: "Member Training Records",
+        name: "Staff Center",
             layout: "/admin",
-            icon: MdList,
-            path: "/training/staff/member-records",
-          },
-        ],
+        icon: FaClipboardList,
+        path: "/training/staff-center",
       },
       {
         name: "Mentor Center",
