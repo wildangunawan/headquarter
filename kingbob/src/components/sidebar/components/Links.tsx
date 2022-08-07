@@ -28,7 +28,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   let brandColor = useColorModeValue("brand.500", "brand.400");
   
   // State
-  const [activeMenu, setActiveMenu] = useState("");
+  const [activeMenu, setActiveMenu] = useState<string[]>([]);
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
@@ -36,72 +36,10 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   };
 
   const selectMenu = (selectedMenu: string) => {
-    if (selectedMenu === activeMenu) {
-      setActiveMenu("");
+    if (activeMenu.includes(selectedMenu)) {
+      setActiveMenu(activeMenu.filter(menu => menu !== selectedMenu))
     } else {
-      setActiveMenu(selectedMenu);
-    }
-  }
-
-
-  const renderMenu = (route: Menu, index: any) => {
-    if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
-      return (
-        <NavLink key={index} href={route.layout + route.path} passHref>
-          <Link>
-            <HStack
-              spacing={
-                activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-              }
-              py="5px"
-              ps="10px"
-            >
-              <Flex w="100%" align="center" justify="center" gap={2}>
-                {
-                  route.icon
-                  && <Icon
-                    as={route.icon}
-                    width='20px'
-                    height='20px'
-                    color={
-                      activeRoute(route.path.toLowerCase())
-                        ? activeIcon
-                        : textColor
-                    }
-                  />
-                }
-
-                <Text
-                  me="auto"
-                  color={
-                    activeRoute(route.path.toLowerCase())
-                      ? activeColor
-                      : textColor
-                  }
-                  fontWeight={
-                    activeRoute(route.path.toLowerCase())
-                      ? "bold"
-                      : "normal"
-                  }
-                >
-                  {route.name}
-                </Text>
-              </Flex>
-
-              <Box
-                h="36px"
-                w="4px"
-                bg={
-                  activeRoute(route.path.toLowerCase())
-                    ? brandColor
-                    : "transparent"
-                }
-                borderRadius="5px"
-              />
-            </HStack>
-          </Link>
-        </NavLink>
-      );
+      setActiveMenu(prevActiveMenu => [...prevActiveMenu, selectedMenu]);
     }
   }
 
@@ -127,15 +65,68 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               style={{cursor: "pointer"}}
             >
               {route.name}
-              {activeMenu === route.name ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
+              {activeMenu.includes(route.name) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
             </Text>
-            {activeMenu === route.name && route.items.map((subRoute: Menu, j: number) => {
-              return renderMenu(subRoute, j)
-            })}
+            {activeMenu.includes(route.name) && createLinks(route.items)}
           </span>
         );
-      } else {
-        return renderMenu(route, index)
+      } else if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
+        return (
+          <NavLink key={index} href={route.layout + route.path} passHref>
+            <Link>
+              <HStack
+                spacing={
+                  activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                }
+                py="5px"
+                ps="10px"
+              >
+                <Flex w="100%" align="center" justify="center" gap={2}>
+                  {
+                    route.icon
+                    && <Icon
+                      as={route.icon}
+                      width='20px'
+                      height='20px'
+                      color={
+                        activeRoute(route.path.toLowerCase())
+                          ? activeIcon
+                          : textColor
+                      }
+                    />
+                  }
+  
+                  <Text
+                    me="auto"
+                    color={
+                      activeRoute(route.path.toLowerCase())
+                        ? activeColor
+                        : textColor
+                    }
+                    fontWeight={
+                      activeRoute(route.path.toLowerCase())
+                        ? "bold"
+                        : "normal"
+                    }
+                  >
+                    {route.name}
+                  </Text>
+                </Flex>
+  
+                <Box
+                  h="36px"
+                  w="4px"
+                  bg={
+                    activeRoute(route.path.toLowerCase())
+                      ? brandColor
+                      : "transparent"
+                  }
+                  borderRadius="5px"
+                />
+              </HStack>
+            </Link>
+          </NavLink>
+        );
       }
     });
   };
