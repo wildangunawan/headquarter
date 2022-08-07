@@ -6,7 +6,7 @@ const AddNews = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="News List">
+        <AdminLayout title="Add news">
             <VStack spacing={"20px"} align="stretch">
                 {/* Header */}
                 <Flex align="center" justify="space-between">
