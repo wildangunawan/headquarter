@@ -1,5 +1,6 @@
 import NavLink from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 // chakra imports
 import {
@@ -12,6 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Menu } from "types/menu";
+import { ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
 
 export function SidebarLinks({ routes }: { routes: Menu[] }) {
   //   Chakra color mode
@@ -24,11 +26,84 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   let activeIcon = useColorModeValue("brand.500", "white");
   let textColor = useColorModeValue("secondaryGray.500", "white");
   let brandColor = useColorModeValue("brand.500", "brand.400");
+  
+  // State
+  const [activeMenu, setActiveMenu] = useState("");
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
     return location.pathname.includes(routeName);
   };
+
+  const selectMenu = (selectedMenu: string) => {
+    if (selectedMenu === activeMenu) {
+      setActiveMenu("");
+    } else {
+      setActiveMenu(selectedMenu);
+    }
+  }
+
+
+  const renderMenu = (route: Menu, index: any) => {
+    if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
+      return (
+        <NavLink key={index} href={route.layout + route.path} passHref>
+          <Link>
+            <HStack
+              spacing={
+                activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+              }
+              py="5px"
+              ps="10px"
+            >
+              <Flex w="100%" align="center" justify="center" gap={2}>
+                {
+                  route.icon
+                  && <Icon
+                    as={route.icon}
+                    width='20px'
+                    height='20px'
+                    color={
+                      activeRoute(route.path.toLowerCase())
+                        ? activeIcon
+                        : textColor
+                    }
+                  />
+                }
+
+                <Text
+                  me="auto"
+                  color={
+                    activeRoute(route.path.toLowerCase())
+                      ? activeColor
+                      : textColor
+                  }
+                  fontWeight={
+                    activeRoute(route.path.toLowerCase())
+                      ? "bold"
+                      : "normal"
+                  }
+                >
+                  {route.name}
+                </Text>
+              </Flex>
+
+              <Box
+                h="36px"
+                w="4px"
+                bg={
+                  activeRoute(route.path.toLowerCase())
+                    ? brandColor
+                    : "transparent"
+                }
+                borderRadius="5px"
+              />
+            </HStack>
+          </Link>
+        </NavLink>
+      );
+    }
+  }
 
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks: any = (routes: Menu[]) => {
@@ -48,73 +123,19 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               pt="18px"
               pb="12px"
               key={index}
+              onClick={() => {selectMenu(route.name)}}
+              style={{cursor: "pointer"}}
             >
               {route.name}
+              {activeMenu === route.name ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
             </Text>
-            {createLinks(route.items)}
+            {activeMenu === route.name && route.items.map((subRoute: Menu, j: number) => {
+              return renderMenu(subRoute, j)
+            })}
           </span>
         );
-      } else if (
-        route.layout === "/admin" ||
-        route.layout === "/auth" ||
-        route.layout === "/rtl"
-      ) {
-        return (
-          <NavLink key={index} href={route.layout + route.path} passHref>
-            <Link>
-              <HStack
-                spacing={
-                  activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
-                }
-                py="5px"
-                ps="10px"
-              >
-                <Flex w="100%" align="center" justify="center" gap={2}>
-                  {
-                    route.icon
-                    && <Icon
-                      as={route.icon}
-                      width='20px'
-                      height='20px'
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? activeIcon
-                          : textColor
-                      }
-                    />
-                  }
-
-                  <Text
-                    me="auto"
-                    color={
-                      activeRoute(route.path.toLowerCase())
-                        ? activeColor
-                        : textColor
-                    }
-                    fontWeight={
-                      activeRoute(route.path.toLowerCase())
-                        ? "bold"
-                        : "normal"
-                    }
-                  >
-                    {route.name}
-                  </Text>
-                </Flex>
-
-                <Box
-                  h="36px"
-                  w="4px"
-                  bg={
-                    activeRoute(route.path.toLowerCase())
-                      ? brandColor
-                      : "transparent"
-                  }
-                  borderRadius="5px"
-                />
-              </HStack>
-            </Link>
-          </NavLink>
-        );
+      } else {
+        return renderMenu(route, index)
       }
     });
   };
