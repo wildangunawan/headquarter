@@ -452,8 +452,8 @@ const routes: Menu[] = [
   {
     name: "Divisions/vACCs",
     layout: "/admin",
+    path: "/system/division-and-vacc",
     icon: MdLayers,
-    path: "/default",
   },
 ];
 
