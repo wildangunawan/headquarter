@@ -57,7 +57,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               color={textColor}
             >
               <Text
-                ml={level * 5}
+                ms={level * 5}
                 fontSize={"md"}
                 ps="10px"
                 py="10px"
@@ -67,8 +67,8 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               </Text>
               {
                 activeMenu.includes(route)
-                  ? <CloseIcon boxSize={2} me="1rem" />
-                  : <ChevronDownIcon me="0.8rem" />
+                  ? <CloseIcon boxSize={2} me={6} />
+                  : <ChevronDownIcon me={5} />
               }
             </Flex>
             {activeMenu.includes(route) && createLinks(route.items, level + 1)}
