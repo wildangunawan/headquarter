@@ -6,6 +6,7 @@ import CPTInformation from "@components/training/student/CPTInformation";
 import SoloInformation from "@components/training/student/SoloInformation";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
+import FeedbackFromOtherMembers from "@components/training/Feedbacks";
 
 const Training = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -37,6 +38,7 @@ const Training = () => {
                     <SoloInformation />
                     <CPTInformation />
                 </SimpleGrid>
+                <FeedbackFromOtherMembers />
             </VStack>
         </AdminLayout>
     );

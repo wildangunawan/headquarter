@@ -1,6 +1,7 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Flex, Link, Text, useColorModeValue, VStack, HStack } from "@chakra-ui/react";
 import CPTHistory from "@components/training/CPTHistory";
+import FeedbackFromOtherMembers from "@components/training/Feedbacks";
 import MentorNotes from "@components/training/MentorNotes";
 import SoloHistory from "@components/training/SoloHistory";
 import StudentInformation from "@components/training/StudentInformation";
@@ -35,6 +36,7 @@ const StudentSpecificView = () => {
                 <MentorNotes viewingMyself />
                 <SoloHistory viewingMyself />
                 <CPTHistory viewingMyself />
+                <FeedbackFromOtherMembers />
             </VStack>
         </AdminLayout >
     );
