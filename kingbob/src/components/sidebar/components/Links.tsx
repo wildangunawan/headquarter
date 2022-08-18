@@ -26,13 +26,12 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
   let activeIcon = useColorModeValue("brand.500", "white");
   let textColor = useColorModeValue("secondaryGray.500", "white");
   let brandColor = useColorModeValue("brand.500", "brand.400");
-  
+
   // State
   const [activeMenu, setActiveMenu] = useState<Menu[]>([]);
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
-    console.log(location.pathname)
     return location.pathname === routeName;
   };
 
@@ -51,20 +50,20 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
         return (
           <span key={index}>
             <Text
-              ml={level*5}
+              ml={level * 5}
               fontSize={"md"}
               color={activeColor}
               fontWeight="bold"
               ps="10px"
               py="10px"
               key={index}
-              onClick={() => {selectMenu(route)}}
-              style={{cursor: "pointer"}}
+              onClick={() => { selectMenu(route) }}
+              style={{ cursor: "pointer" }}
             >
               {route.name}
-              {activeMenu.includes(route) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px"}} /> : <ChevronDownIcon style={{ marginLeft: "10px"}}/>}
+              {activeMenu.includes(route) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px" }} /> : <ChevronDownIcon style={{ marginLeft: "10px" }} />}
             </Text>
-            {activeMenu.includes(route) && createLinks(route.items, level+1)}
+            {activeMenu.includes(route) && createLinks(route.items, level + 1)}
           </span>
         );
       } else if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
@@ -72,7 +71,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
           <NavLink key={index} href={route.layout + route.path} passHref>
             <Link >
               <HStack
-                ml={level*5}
+                ml={level * 5}
                 spacing={
                   activeRoute(route.layout + route.path.toLowerCase()) ? "22px" : "26px"
                 }
@@ -93,7 +92,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
                       }
                     />
                   }
-  
+
                   <Text
                     me="auto"
                     color={
@@ -110,7 +109,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
                     {route.name}
                   </Text>
                 </Flex>
-  
+
                 <Box
                   h="36px"
                   w="4px"
