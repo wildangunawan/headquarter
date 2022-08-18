@@ -8,9 +8,9 @@ import Links from "components/sidebar/components/Links";
 // FUNCTIONS
 function SidebarContent({ routes }: { routes: Menu[] }) {
   return (
-    <Flex direction="column" height="100%" pt="25px" borderRadius="30px">
+    <Flex direction="column" height="100%" pt={2} borderRadius="30px">
       <Brand />
-      <Stack direction="column" mb="auto" mt="8px">
+      <Stack direction="column" mb="auto">
         <Box ps="20px" pe={{ md: "16px", "2xl": "1px" }} mb="2rem">
           <Links routes={routes} />
         </Box>
