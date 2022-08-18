@@ -107,8 +107,8 @@ const routes: Menu[] = [
       },
       {
         name: "Notifications",
-        layout: "/auth",
-        path: "/sign-in",
+        layout: "/admin",
+        path: "/notifications",
         icon: MdNotifications,
       },
       {
@@ -180,7 +180,7 @@ const routes: Menu[] = [
           {
             name: "System Log",
             layout: "/admin",
-            path: "/profile",
+            path: "/system/log",
             icon: MdList,
           },
           {
@@ -284,7 +284,7 @@ const routes: Menu[] = [
           {
             name: "System Log",
             layout: "/admin",
-            path: "/profile",
+            path: "/system/log",
             icon: MdList,
           },
         ],
@@ -364,7 +364,7 @@ const routes: Menu[] = [
           {
             name: "System Log",
             layout: "/admin",
-            path: "/profile",
+            path: "/system/log",
             icon: MdList,
           },
         ],
