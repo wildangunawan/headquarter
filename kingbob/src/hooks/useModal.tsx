@@ -19,7 +19,7 @@ const useModal = ({ title, body, footer, withCloseButton = true, size = "xl" }: 
         modal: <Modal isOpen={isOpen} onClose={onClose} isCentered size={size}>
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>{title}</ModalHeader>
+                <ModalHeader pb={0}>{title}</ModalHeader>
                 {withCloseButton && <ModalCloseButton />}
                 <ModalBody>{body}</ModalBody>
                 {footer && <ModalFooter>{footer}</ModalFooter>}
