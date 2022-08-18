@@ -49,20 +49,28 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
       if (route.category || route.dropdown) {
         return (
           <span key={index}>
-            <Text
-              ml={level * 5}
-              fontSize={"md"}
-              color={activeColor}
-              fontWeight="bold"
-              ps="10px"
-              py="10px"
-              key={index}
+            <Flex
+              align={"center"}
+              justify={"space-between"}
+              cursor="pointer"
               onClick={() => { selectMenu(route) }}
-              style={{ cursor: "pointer" }}
+              color={textColor}
             >
-              {route.name}
-              {activeMenu.includes(route) ? <CloseIcon boxSize={2} style={{ marginLeft: "10px" }} /> : <ChevronDownIcon style={{ marginLeft: "10px" }} />}
-            </Text>
+              <Text
+                ml={level * 5}
+                fontSize={"md"}
+                ps="10px"
+                py="10px"
+                key={index}
+              >
+                {route.name}
+              </Text>
+              {
+                activeMenu.includes(route)
+                  ? <CloseIcon boxSize={2} me="1rem" />
+                  : <ChevronDownIcon me="0.8rem" />
+              }
+            </Flex>
             {activeMenu.includes(route) && createLinks(route.items, level + 1)}
           </span>
         );
