@@ -36,7 +36,9 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} VATSIM South East Asia. All Rights Reserved.
         </Text>
         <Text as='span' ms='4px'>
-          HQ made by <NavLink href='/admin/profile/1300014' passHref>
+          HQ made with{" "}
+          <span role='img' aria-label='tears'>😭</span> and <span role='img' aria-label='#?!'>🤬</span>
+          {" "}by <NavLink href='/admin/profile/1300014' passHref>
             <Link color={'brand.400'}>
               Wildan Gunawan
             </Link>
