@@ -1,14 +1,10 @@
 import { Button, Flex, SimpleGrid, Text, useColorModeValue, VStack } from "@chakra-ui/react";
-import FutureTraining from "@components/training/mentor/FutureTraining";
-import MyStudent from "@components/training/mentor/MyStudent";
-import TrainingRequest from "@components/training/mentor/TrainingRequest";
 import LastTraining from "@components/training/student/LastTraining";
 import MentorNotes from "@components/training/MentorNotes";
 import NextTraining from "@components/training/student/NextTraining";
 import CPTInformation from "@components/training/student/CPTInformation";
 import SoloInformation from "@components/training/student/SoloInformation";
 import AdminLayout from "@layouts/admin";
-import CPTRequest from "@components/training/mentor/CPTRequest";
 import NavLink from "next/link";
 
 const Training = () => {
