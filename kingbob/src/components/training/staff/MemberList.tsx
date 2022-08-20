@@ -20,6 +20,7 @@ import {
 import Card from "@components/card/Card";
 import NavLink from "next/link"
 import { useState } from 'react';
+import ControllingApproval from '../modal/ControllingApproval';
 import EndorsePosition from '../modal/EndorsePosition';
 import PromoteAsExaminer from '../modal/PromoteAsExaminer';
 import PromoteAsMentor from '../modal/PromoteAsMentor';
@@ -34,10 +35,15 @@ const MemberList = () => {
     const { onOpen: openEndorseModal, modal: EndorseModal, setMemberData: setEndorseData } = EndorsePosition();
     const { onOpen: openMentorModal, modal: MentorModal, setMemberData: setMentorData } = PromoteAsMentor();
     const { onOpen: openExaminerModal, modal: ExaminerModal, setMemberData: setExaminerData } = PromoteAsExaminer();
+    const { onOpen: openControllingApprovalModal, modal: ControllingApprovalModal, setMemberData: setControllingApprovalData } = ControllingApproval();
 
     // Helper
     const openModal = (studentData: any, type: string) => {
         switch (type) {
+            case "controlling_approval":
+                setControllingApprovalData(studentData);
+                openControllingApprovalModal();
+                break;
             case "endorse":
                 setEndorseData(studentData);
                 openEndorseModal();
@@ -76,7 +82,8 @@ const MemberList = () => {
                             <Tr>
                                 <Th>Name (CID)</Th>
                                 <Th>Current Rating</Th>
-                                <Th rowSpan={2} textTransform={"inherit"}>vACC</Th>
+                                <Th textTransform="unset">vACC</Th>
+                                <Th>Status</Th>
                                 <Th>Actions</Th>
                             </Tr>
                         </Thead>
@@ -92,6 +99,7 @@ const MemberList = () => {
                                         </Td>
                                         <Td>Student 1 (S1)</Td>
                                         <Td>Indonesia vACC</Td>
+                                        <Td>Resident</Td>
                                         <Td>
                                             <Menu>
                                                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -103,6 +111,12 @@ const MemberList = () => {
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => openModal({
+                                                            id: "1000000",
+                                                            name: "Kevin",
+                                                        }, 'controlling_approval')}
+                                                    >Edit controlling approval</MenuItem>
                                                     <MenuItem
                                                         onClick={() => openModal({
                                                             id: "1000000",
@@ -133,6 +147,7 @@ const MemberList = () => {
                                         </Td>
                                         <Td>Student 2 (S2)</Td>
                                         <Td>Indonesia vACC</Td>
+                                        <Td>Visitor</Td>
                                         <Td>
                                             <Menu>
                                                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -144,6 +159,12 @@ const MemberList = () => {
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => openModal({
+                                                            id: "1000000",
+                                                            name: "Kevin",
+                                                        }, 'controlling_approval')}
+                                                    >Edit controlling approval</MenuItem>
                                                     <MenuItem
                                                         onClick={() => openModal({
                                                             id: "1000001",
@@ -174,6 +195,7 @@ const MemberList = () => {
                                         </Td>
                                         <Td>Student 1 (S1)</Td>
                                         <Td>Indonesia vACC</Td>
+                                        <Td>Resident</Td>
                                         <Td>
                                             <Menu>
                                                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -185,6 +207,12 @@ const MemberList = () => {
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => openModal({
+                                                            id: "1000000",
+                                                            name: "Kevin",
+                                                        }, 'controlling_approval')}
+                                                    >Edit controlling approval</MenuItem>
                                                     <MenuItem
                                                         onClick={() => openModal({
                                                             id: "1000002",
@@ -215,6 +243,7 @@ const MemberList = () => {
                                         </Td>
                                         <Td>Enroute Controller (C1)</Td>
                                         <Td>Indonesia vACC</Td>
+                                        <Td>Resident</Td>
                                         <Td>
                                             <Menu>
                                                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -226,6 +255,12 @@ const MemberList = () => {
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => openModal({
+                                                            id: "1000000",
+                                                            name: "Kevin",
+                                                        }, 'controlling_approval')}
+                                                    >Edit controlling approval</MenuItem>
                                                     <MenuItem
                                                         onClick={() => openModal({
                                                             id: "1000005",
@@ -256,6 +291,7 @@ const MemberList = () => {
             </Card>
 
             {/* Show modal */}
+            {ControllingApprovalModal}
             {EndorseModal}
             {MentorModal}
             {ExaminerModal}
