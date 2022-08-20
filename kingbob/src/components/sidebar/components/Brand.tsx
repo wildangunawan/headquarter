@@ -8,7 +8,7 @@ import Image from "next/image";
 export function SidebarBrand() {
   return (
     <Flex align='center' direction='column'>
-      <Box px="2rem">
+      <Box px="2rem" py="0.5rem">
         <Image
           src="https://hq.vatwa.net/images/VATWA_Color_Tag_Right_563_221.png"
           alt="VATSEA Logo"
