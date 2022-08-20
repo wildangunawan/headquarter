@@ -1,7 +1,6 @@
-import { VStack, Text, useColorModeValue, Link, Button, Table, Tbody, Td, Th, Thead, Tr, Box, Flex, Textarea, Input } from "@chakra-ui/react";
+import { VStack, Text, useColorModeValue, Button, Flex, Textarea, Input } from "@chakra-ui/react";
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
-import NavLink from "next/link"
 
 const AddNews = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
