@@ -43,7 +43,7 @@ import { FaChalkboardTeacher, FaClipboardList } from "react-icons/fa";
 const routes: Menu[] = [
   {
     name: "Dashboard",
-    layout: "/admin",
+    layout: "",
     icon: MdHome,
     path: "/dashboard",
   },
@@ -59,19 +59,19 @@ const routes: Menu[] = [
         items: [
           {
             name: "Create a booking",
-            layout: "/admin",
+            layout: "",
             icon: MdEvent,
             path: "/atc/booking",
           },
           {
             name: "Send a feedback",
-            layout: "/admin",
+            layout: "",
             path: "/atc/feedback",
             icon: MdFeedback,
           },
           {
             name: "FSS roster",
-            layout: "/admin",
+            layout: "",
             path: "/atc/fss",
             icon: MdGroups,
           },
@@ -83,9 +83,9 @@ const routes: Menu[] = [
         items: [
           {
             name: "Pilot Resource Center",
-            layout: "/admin",
+            external: true,
             icon: IoMdAirplane,
-            path: "https://www.vatsim.net/pilot-resource-centre",
+            link: "https://www.vatsim.net/pilot-resource-centre",
           },
         ],
       },
@@ -95,25 +95,25 @@ const routes: Menu[] = [
         items: [
           {
             name: "Change my email",
-            layout: "/admin",
+            external: true,
             icon: MdEdit,
-            path: "https://cert.vatsim.net/vatsimnet/newmail.php",
+            link: "https://cert.vatsim.net/vatsimnet/newmail.php",
           },
           {
             name: "Email subscription",
-            layout: "/admin",
+            layout: "",
             icon: MdEmail,
             path: "/my/email-subscription",
           },
           {
             name: "Membership help",
-            layout: "/admin",
+            external: true,
             icon: MdHelpCenter,
-            path: "https://www.vatsim.net/members/member-help",
+            link: "https://www.vatsim.net/members/member-help",
           },
           {
             name: "My data",
-            layout: "/admin",
+            layout: "",
             icon: IoMdAirplane,
             path: "/my/data",
           },
@@ -121,13 +121,13 @@ const routes: Menu[] = [
       },
       {
         name: "HQ Changelog",
-        layout: "/admin",
+        layout: "",
         icon: MdList,
         path: "/datatables",
       },
       {
         name: "My Profile",
-        layout: "/admin",
+        layout: "",
         path: "/my/profile",
         icon: MdPerson,
       },
@@ -139,7 +139,7 @@ const routes: Menu[] = [
       },
       {
         name: "Notifications",
-        layout: "/admin",
+        layout: "",
         path: "/notifications",
         icon: MdNotifications,
       },
@@ -169,13 +169,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Feedback List",
-            layout: "/admin",
+            layout: "",
             icon: MdComment,
             path: "/staff/atc/feedback-list",
           },
           {
             name: "Leave of Absence (LOA)",
-            layout: "/admin",
+            layout: "",
             icon: MdList,
             path: "/staff/atc/leave-of-absence",
           },
@@ -187,13 +187,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Add News",
-            layout: "/admin",
+            layout: "",
             icon: IoNewspaper,
             path: "/news/add",
           },
           {
             name: "Add Event",
-            layout: "/admin",
+            layout: "",
             path: "/profile",
             icon: MdEvent,
           },
@@ -205,13 +205,13 @@ const routes: Menu[] = [
           },
           {
             name: "Staff List",
-            layout: "/admin",
+            layout: "",
             icon: MdPerson,
             path: "/datatables",
           },
           {
             name: "System Log",
-            layout: "/admin",
+            layout: "",
             path: "/system/log",
             icon: MdList,
           },
@@ -235,13 +235,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Email members",
-            layout: "/admin",
+            layout: "",
             icon: MdEmail,
             path: "/staff/membership/email-members",
           },
           {
             name: "Visitors",
-            layout: "/admin",
+            layout: "",
             path: "/staff/membership/visitor",
             icon: MdGroups,
           },
@@ -249,13 +249,13 @@ const routes: Menu[] = [
       },
       {
         name: "Policies",
-        layout: "/admin",
+        layout: "",
         icon: MdPolicy,
         path: "/datatables",
       },
       {
         name: "Tasks",
-        layout: "/admin",
+        layout: "",
         icon: MdTask,
         path: "/datatables",
       },
@@ -273,13 +273,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Feedback List",
-            layout: "/admin",
+            layout: "",
             icon: MdComment,
             path: "/staff/atc/feedback-list",
           },
           {
             name: "Statistics",
-            layout: "/admin",
+            layout: "",
             icon: IoMdStats,
             path: "/profile",
           },
@@ -291,13 +291,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Add News",
-            layout: "/admin",
+            layout: "",
             icon: IoNewspaper,
             path: "/news/add",
           },
           {
             name: "Add Event",
-            layout: "/admin",
+            layout: "",
             path: "/profile",
             icon: MdEvent,
           },
@@ -309,13 +309,13 @@ const routes: Menu[] = [
           },
           {
             name: "Staff List",
-            layout: "/admin",
+            layout: "",
             icon: MdPerson,
             path: "/datatables",
           },
           {
             name: "System Log",
-            layout: "/admin",
+            layout: "",
             path: "/system/log",
             icon: MdList,
           },
@@ -327,13 +327,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Email members",
-            layout: "/admin",
+            layout: "",
             icon: MdEmail,
             path: "/staff/membership/email-members",
           },
           {
             name: "Visitors",
-            layout: "/admin",
+            layout: "",
             path: "/staff/membership/visitor",
             icon: MdGroups,
           },
@@ -341,13 +341,13 @@ const routes: Menu[] = [
       },
       {
         name: "Policies",
-        layout: "/admin",
+        layout: "",
         icon: MdPolicy,
         path: "/datatables",
       },
       {
         name: "Tasks",
-        layout: "/admin",
+        layout: "",
         icon: MdTask,
         path: "/datatables",
       },
@@ -365,13 +365,13 @@ const routes: Menu[] = [
         items: [
           {
             name: "Feedback List",
-            layout: "/admin",
+            layout: "",
             icon: MdComment,
             path: "/staff/atc/feedback-list",
           },
           {
             name: "Statistics",
-            layout: "/admin",
+            layout: "",
             icon: IoMdStats,
             path: "/profile",
           },
@@ -383,19 +383,19 @@ const routes: Menu[] = [
         items: [
           {
             name: "Add News",
-            layout: "/admin",
+            layout: "",
             icon: IoNewspaper,
             path: "/news/add",
           },
           {
             name: "Staff List",
-            layout: "/admin",
+            layout: "",
             icon: MdPerson,
             path: "/datatables",
           },
           {
             name: "System Log",
-            layout: "/admin",
+            layout: "",
             path: "/system/log",
             icon: MdList,
           },
@@ -407,7 +407,7 @@ const routes: Menu[] = [
         items: [
           {
             name: "Email members",
-            layout: "/admin",
+            layout: "",
             icon: MdEmail,
             path: "/staff/membership/email-members",
           }
@@ -415,13 +415,13 @@ const routes: Menu[] = [
       },
       {
         name: "Policies",
-        layout: "/admin",
+        layout: "",
         icon: MdPolicy,
         path: "/datatables",
       },
       {
         name: "Tasks",
-        layout: "/admin",
+        layout: "",
         icon: MdTask,
         path: "/datatables",
       },
@@ -435,37 +435,37 @@ const routes: Menu[] = [
     items: [
       {
         name: "Request to be an ATC",
-        layout: "/admin",
+        layout: "",
         icon: MdSchool,
         path: "/training/request",
       },
       {
         name: "My Training",
-        layout: "/admin",
+        layout: "",
         icon: MdSchool,
         path: "/training",
       },
       {
         name: "Solo and Endorsement",
-        layout: "/admin",
+        layout: "",
         icon: MdPlaylistAddCheck,
         path: "/training/solo-and-endorsement",
       },
       {
         name: "Instructors/Mentors and Examiner",
-        layout: "/admin",
+        layout: "",
         icon: MdGroups,
         path: "/training/mentor-and-examiner",
       },
       {
         name: "Staff Center",
-        layout: "/admin",
+        layout: "",
         icon: FaClipboardList,
         path: "/training/staff-center",
       },
       {
         name: "Mentor Center",
-        layout: "/admin",
+        layout: "",
         icon: FaChalkboardTeacher,
         path: "/training/mentor-center",
       },
@@ -475,7 +475,7 @@ const routes: Menu[] = [
   // Support center
   {
     name: "Support Center",
-    layout: "/admin",
+    layout: "",
     icon: MdSupportAgent,
     path: "/support",
   },
@@ -483,7 +483,7 @@ const routes: Menu[] = [
   // List of divisions and vACCs
   {
     name: "Divisions/vACCs",
-    layout: "/admin",
+    layout: "",
     path: "/system/division-and-vacc",
     icon: MdLayers,
   },

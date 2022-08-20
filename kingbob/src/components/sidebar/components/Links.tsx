@@ -14,7 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Menu } from "types/menu";
-import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
 export function SidebarLinks({ routes }: { routes: Menu[] }) {
   //   Chakra color mode
@@ -81,10 +81,60 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
             </Collapse>
           </span>
         );
-      } else if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
+      } else if (route.external) {
         return (
-          <NavLink key={index} href={route.layout + route.path} passHref>
-            <Link >
+          <NavLink
+            key={index}
+            href={route.link}
+            passHref
+          >
+            <Link isExternal>
+              <HStack
+                ml={level * 5}
+                spacing="26px"
+                py="5px"
+                ps="10px"
+              >
+                <Flex w="100%" align="center" justify="center" gap={2}>
+                  {
+                    route.icon
+                    && <Icon
+                      as={route.icon}
+                      width='20px'
+                      height='20px'
+                      color={textColor}
+                    />
+                  }
+
+                  <Text
+                    me="auto"
+                    color={textColor}
+                    fontWeight={"normal"}
+                  >
+                    {route.name}
+                    {route.external && <ExternalLinkIcon mx='5px' />}
+                  </Text>
+
+                </Flex>
+
+                <Box
+                  h="36px"
+                  w="4px"
+                  bg={"transparent"}
+                  borderRadius="5px"
+                />
+              </HStack>
+            </Link>
+          </NavLink>
+        );
+      } else {
+        return (
+          <NavLink
+            key={index}
+            href={route.layout + route.path}
+            passHref
+          >
+            <Link isExternal={route.external}>
               <HStack
                 ml={level * 5}
                 spacing={
@@ -123,6 +173,8 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
                   >
                     {route.name}
                   </Text>
+
+                  {route.external && <ExternalLinkIcon mx='2px' />}
                 </Flex>
 
                 <Box

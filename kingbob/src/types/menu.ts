@@ -1,9 +1,21 @@
 import { IconType } from "react-icons";
 
+// Type when menu is external link
+type ExternalLink = {
+    category?: never;
+    dropdown?: never;
+    external?: boolean;
+    layout?: never;
+    path?: never;
+    icon?: IconType;
+    link: string;
+}
+
 // Type when a menu is an actual item or not
 type IsMenuItem = {
     category?: never;
     dropdown?: never;
+    external?: never;
     layout: string;
     path: string;
     icon?: IconType;
@@ -19,12 +31,14 @@ type IsNotMenuItem = {
 type IsCategory = {
     category?: boolean;
     dropdown?: never;
+    external?: never;
     items: Menu[];
 } & IsNotMenuItem;
 
 type IsDropdown = {
     category?: never;
     dropdown?: boolean;
+    external?: never;
     items: Menu[]
 } & IsNotMenuItem;
 
@@ -37,4 +51,7 @@ type Name = {
 // - category
 // - dropdown
 // - normal menu item
-export type Menu = (Name & IsMenuItem) | (Name & IsCategory) | (Name & IsDropdown);
+export type Menu = (Name & IsMenuItem)
+    | (Name & IsCategory)
+    | (Name & IsDropdown)
+    | (Name & ExternalLink);
