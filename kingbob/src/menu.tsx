@@ -171,7 +171,7 @@ const routes: Menu[] = [
             name: "Feedback List",
             layout: "/admin",
             icon: MdComment,
-            path: "/datatables",
+            path: "/staff/atc/feedback-list",
           },
           {
             name: "Leave of Absence (LOA)",
@@ -275,7 +275,7 @@ const routes: Menu[] = [
             name: "Feedback List",
             layout: "/admin",
             icon: MdComment,
-            path: "/datatables",
+            path: "/staff/atc/feedback-list",
           },
           {
             name: "Statistics",
@@ -367,7 +367,7 @@ const routes: Menu[] = [
             name: "Feedback List",
             layout: "/admin",
             icon: MdComment,
-            path: "/datatables",
+            path: "/staff/atc/feedback-list",
           },
           {
             name: "Statistics",
