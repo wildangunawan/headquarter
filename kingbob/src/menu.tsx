@@ -237,7 +237,7 @@ const routes: Menu[] = [
             name: "Email members",
             layout: "/admin",
             icon: MdEmail,
-            path: "/datatables",
+            path: "/staff/membership/email-members",
           },
           {
             name: "Visitors",
@@ -329,7 +329,7 @@ const routes: Menu[] = [
             name: "Email members",
             layout: "/admin",
             icon: MdEmail,
-            path: "/datatables",
+            path: "/staff/membership/email-members",
           },
           {
             name: "Visitors",
@@ -409,7 +409,7 @@ const routes: Menu[] = [
             name: "Email members",
             layout: "/admin",
             icon: MdEmail,
-            path: "/datatables",
+            path: "/staff/membership/email-members",
           }
         ],
       },
