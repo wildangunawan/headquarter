@@ -1,8 +1,7 @@
 import { Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import AdminLayout from "@layouts/admin";
-import SoloList from "@components/training/solo-endorsement-and-fss/SoloList";
-import EndorsementList from "@components/training/solo-endorsement-and-fss/EndorsementList";
-import FSSRoster from "@components/training/solo-endorsement-and-fss/FSSRoster";
+import SoloList from "@components/training/solo-and-endorsement/SoloList";
+import EndorsementList from "@components/training/solo-and-endorsement/EndorsementList";
 
 const SoloAndEndorsement = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
