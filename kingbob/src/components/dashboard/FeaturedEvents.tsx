@@ -31,7 +31,7 @@ const FeaturedEvents = () => {
                     style={{ borderRadius: '16px' }}
                 />
                 <Box>
-                    <NavLink href="/event/jakarta-turn-around-1" passHref>
+                    <NavLink href="/events/jakarta-turn-around-1" passHref>
                         <Link
                             color={textColor}
                             fontSize="lg"
@@ -52,7 +52,7 @@ const FeaturedEvents = () => {
                                 Starting in 3 days!
                             </Highlight>
                         </Box>
-                        <NavLink href="/event/jakarta-turn-around-1" passHref>
+                        <NavLink href="/events/jakarta-turn-around-1" passHref>
                             <Button as="a" colorScheme={"blue"}>Check it out</Button>
                         </NavLink>
                     </Flex>

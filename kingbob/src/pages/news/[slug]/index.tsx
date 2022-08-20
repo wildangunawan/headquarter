@@ -21,7 +21,7 @@ const NewsDetail = () => {
                         <Flex align={"center"} gap={1} color={"gray.400"} fontSize="sm">
                             <Icon as={FiClock} />
                             <Text>20 August 2022 13:00 UTC by {" "}
-                                <NavLink href="/event/jakarta-turn-around-1" passHref>
+                                <NavLink href="/events/jakarta-turn-around-1" passHref>
                                     <Link color={"blue.400"}>Mel (1000005)</Link>
                                 </NavLink>
                             </Text>

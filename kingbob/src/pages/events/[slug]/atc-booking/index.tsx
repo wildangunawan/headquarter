@@ -1,7 +1,7 @@
 import { useColorModeValue, Text, VStack } from "@chakra-ui/react";
-import BookingPositions from "@components/event/atc-booking/BookingPositions";
-import BookingEventWideNotes from "@components/event/atc-booking/BookingEventWideNotes";
-import BookingList from "@components/event/atc-booking/BookingList";
+import BookingPositions from "@components/events/atc-booking/BookingPositions";
+import BookingEventWideNotes from "@components/events/atc-booking/BookingEventWideNotes";
+import BookingList from "@components/events/atc-booking/BookingList";
 import AdminLayout from "@layouts/admin";
 
 const ATCBooking = () => {

@@ -61,7 +61,7 @@ const CPTInformation = () => {
                                         <Badge colorScheme={"blue"}>30 Aug 2022</Badge>
                                     </HStack>
                                 </VStack>
-                                <NavLink href={"/event/s2-cpt-wiii-twr"} passHref>
+                                <NavLink href={"/events/s2-cpt-wiii-twr"} passHref>
                                     <Link color={"blue.500"}>
                                         Check my CPT event
                                         <ArrowForwardIcon ml={1} />
