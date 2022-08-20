@@ -5,6 +5,7 @@ import { useState } from "react";
 // chakra imports
 import {
   Box,
+  Collapse,
   Flex,
   HStack,
   Icon,
@@ -13,7 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Menu } from "types/menu";
-import { ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon, CloseIcon } from "@chakra-ui/icons";
 
 export function SidebarLinks({ routes }: { routes: Menu[] }) {
   //   Chakra color mode
@@ -65,13 +66,19 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               >
                 {route.name}
               </Text>
-              {
-                activeMenu.includes(route)
-                  ? <CloseIcon boxSize={2} me={6} />
-                  : <ChevronDownIcon me={5} />
-              }
+
+              <ChevronDownIcon
+                me={5}
+                style={{
+                  transform: activeMenu.includes(route) ? "rotate(-180deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s ease-in-out",
+                }}
+              />
             </Flex>
-            {activeMenu.includes(route) && createLinks(route.items, level + 1)}
+
+            <Collapse in={activeMenu.includes(route)} animateOpacity>
+              {createLinks(route.items, level + 1)}
+            </Collapse>
           </span>
         );
       } else if (route.layout === "/admin" || route.layout === "/auth" || route.layout === "/rtl") {
