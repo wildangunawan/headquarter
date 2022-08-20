@@ -17,7 +17,9 @@ import {
   MdSettings,
   MdEmail,
   MdPolicy,
-  MdTask
+  MdTask,
+  MdHelpCenter,
+  MdEdit
 } from "react-icons/md";
 import { IoMdAirplane, IoMdStats } from "react-icons/io";
 import { TbReportAnalytics } from "react-icons/tb";
@@ -88,6 +90,36 @@ const routes: Menu[] = [
         ],
       },
       {
+        name: "Membership",
+        dropdown: true,
+        items: [
+          {
+            name: "Change my email",
+            layout: "/admin",
+            icon: MdEdit,
+            path: "https://cert.vatsim.net/vatsimnet/newmail.php",
+          },
+          {
+            name: "Email subscription",
+            layout: "/admin",
+            icon: MdEmail,
+            path: "/my/email-subscription",
+          },
+          {
+            name: "Membership help",
+            layout: "/admin",
+            icon: MdHelpCenter,
+            path: "https://www.vatsim.net/members/member-help",
+          },
+          {
+            name: "My data",
+            layout: "/admin",
+            icon: IoMdAirplane,
+            path: "/my/data",
+          },
+        ],
+      },
+      {
         name: "HQ Changelog",
         layout: "/admin",
         icon: MdList,
@@ -96,7 +128,7 @@ const routes: Menu[] = [
       {
         name: "My Profile",
         layout: "/admin",
-        path: "/profile",
+        path: "/my/profile",
         icon: MdPerson,
       },
       {
