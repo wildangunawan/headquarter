@@ -127,7 +127,7 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
             </Link>
           </NavLink>
         );
-      } else {
+      } else if (route.layout || route.layout == '') {
         return (
           <NavLink
             key={index}
