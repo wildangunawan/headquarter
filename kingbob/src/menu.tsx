@@ -241,8 +241,8 @@ const routes: Menu[] = [
           },
           {
             name: "Visitors",
-            layout: "/auth",
-            path: "/sign-in",
+            layout: "/admin",
+            path: "/staff/membership/visitor",
             icon: MdGroups,
           },
         ],
@@ -333,8 +333,8 @@ const routes: Menu[] = [
           },
           {
             name: "Visitors",
-            layout: "/auth",
-            path: "/sign-in",
+            layout: "/admin",
+            path: "/staff/membership/visitor",
             icon: MdGroups,
           },
         ],
