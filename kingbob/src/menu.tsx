@@ -177,7 +177,7 @@ const routes: Menu[] = [
             name: "Leave of Absence (LOA)",
             layout: "/admin",
             icon: MdList,
-            path: "/profile",
+            path: "/staff/atc/leave-of-absence",
           },
         ],
       },
