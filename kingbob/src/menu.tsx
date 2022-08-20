@@ -61,12 +61,12 @@ const routes: Menu[] = [
             name: "Create a booking",
             layout: "/admin",
             icon: MdEvent,
-            path: "/atc-booking",
+            path: "/atc/booking",
           },
           {
             name: "Send a feedback",
             layout: "/admin",
-            path: "/atc-feedback",
+            path: "/atc/feedback",
             icon: MdFeedback,
           },
           {

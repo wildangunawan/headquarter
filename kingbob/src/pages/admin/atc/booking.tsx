@@ -1,7 +1,7 @@
 // This is non-event ATC booking
-import { VStack, Flex, Button, Box, Text, useColorModeValue, Alert, AlertIcon } from "@chakra-ui/react";
-import CreateBooking from "@components/atc-booking/CreateBooking";
-import UpcomingBookings from "@components/atc-booking/UpcomingBookings";
+import { VStack, Flex, Button, Text, useColorModeValue, Alert, AlertIcon } from "@chakra-ui/react";
+import CreateBooking from "@components/atc/booking/CreateBooking";
+import UpcomingBookings from "@components/atc/booking/UpcomingBookings";
 import AdminLayout from "@layouts/admin";
 
 const ATCBooking = () => {

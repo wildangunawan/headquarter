@@ -1,6 +1,6 @@
 import { VStack, Text, useColorModeValue } from '@chakra-ui/react';
-import Part1 from '@components/atc-feedback/Part1';
-import Part2 from '@components/atc-feedback/Part2';
+import Part1 from '@components/atc/feedback/Part1';
+import Part2 from '@components/atc/feedback/Part2';
 import AdminLayout from '@layouts/admin';
 import { useState } from 'react';
 
