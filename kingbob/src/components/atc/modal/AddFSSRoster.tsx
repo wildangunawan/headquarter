@@ -1,16 +1,10 @@
-import { Button, Text, Flex, Input } from "@chakra-ui/react";
+import { Button, Flex, Input, FormControl, FormLabel } from "@chakra-ui/react";
 import useModal from "@hooks/useModal";
 import { useState } from "react";
 
-type MemberData = {
-    id: string;
-    name: string;
-}
-
-const AddToFSSRoster = () => {
+const AddFSSRoster = () => {
     // Request state
     const [loading, setLoading] = useState(false);
-    const [memberData, setMemberData] = useState<MemberData>();
 
     const submitApplication = () => {
         // Set loading
@@ -27,8 +21,7 @@ const AddToFSSRoster = () => {
 
             // Show toast that application was submitted
             toast({
-                title: `${memberData?.name} (${memberData?.id}) added to ASEA_FSS roster`,
-                description: "We have notified Bob via email as well about this",
+                title: `1000005 added to ASEA_FSS roster`,
                 status: 'success',
                 position: 'bottom-right',
                 duration: 5000,
@@ -48,13 +41,18 @@ const AddToFSSRoster = () => {
     }
 
     const { onOpen, onClose, modal, toast } = useModal({
-        title: `Endorse a position for ${memberData?.name} (${memberData?.id})`,
-        body: <>
-            <Flex direction={"column"} gap={2} mb={4}>
-                <Text>Position</Text>
-                <Input placeholder='ASEA_FSS' />
-            </Flex>
-        </>,
+        title: `Add new FSS roster`,
+        body: <Flex direction="column" gap={4}>
+            <FormControl>
+                <FormLabel>CID</FormLabel>
+                <Input />
+            </FormControl>
+
+            <FormControl>
+                <FormLabel>Position</FormLabel>
+                <Input />
+            </FormControl>
+        </Flex>,
         footer: <Button
             colorScheme='blue'
             size={"md"}
@@ -66,7 +64,7 @@ const AddToFSSRoster = () => {
         </Button>
     })
 
-    return { onOpen, modal, setMemberData };
+    return { onOpen, modal };
 };
 
-export default AddToFSSRoster;
+export default AddFSSRoster;

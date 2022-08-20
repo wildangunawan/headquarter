@@ -72,7 +72,7 @@ const routes: Menu[] = [
           {
             name: "FSS roster",
             layout: "/admin",
-            path: "/profile",
+            path: "/atc/fss",
             icon: MdGroups,
           },
         ],
