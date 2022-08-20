@@ -85,7 +85,7 @@ const routes: Menu[] = [
             name: "Pilot Resource Center",
             external: true,
             icon: IoMdAirplane,
-            link: "https://www.vatsim.net/pilot-resource-centre",
+            link: "https://my.vatsim.net/pilots/train",
           },
         ],
       },
@@ -97,7 +97,7 @@ const routes: Menu[] = [
             name: "Change my email",
             external: true,
             icon: MdEdit,
-            link: "https://cert.vatsim.net/vatsimnet/newmail.php",
+            link: "https://my.vatsim.net/user/email",
           },
           {
             name: "Email subscription",
@@ -109,7 +109,7 @@ const routes: Menu[] = [
             name: "Membership help",
             external: true,
             icon: MdHelpCenter,
-            link: "https://www.vatsim.net/members/member-help",
+            link: "https://my.vatsim.net/membership-support",
           },
           {
             name: "My data",
@@ -133,8 +133,8 @@ const routes: Menu[] = [
       },
       {
         name: "My Stats",
-        layout: "/auth",
-        path: "/sign-in",
+        external: true,
+        link: "https://stats.vatsim.net/stats/1300014",
         icon: MdQueryStats,
       },
       {
@@ -145,8 +145,8 @@ const routes: Menu[] = [
       },
       {
         name: "VATSIM Forum",
-        layout: "/auth",
-        path: "/sign-in",
+        external: true,
+        link: "https://forums.vatsim.net/",
         icon: MdForum,
       },
       {
