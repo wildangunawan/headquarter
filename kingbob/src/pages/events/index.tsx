@@ -14,7 +14,7 @@ const EventsList = () => {
                     <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                         Events List
                     </Text>
-                    <NavLink href="/admin/events/add" passHref>
+                    <NavLink href="/events/add" passHref>
                         <Button as="a" colorScheme="blue">Add Events</Button>
                     </NavLink>
                 </Flex>
@@ -37,7 +37,7 @@ const EventsList = () => {
                                     <Td>Lorem, ipsum dolor.</Td>
                                     <Td>30 Aug 2022 12:00</Td>
                                     <Td>
-                                        <NavLink href="/admin/events/abcd" passHref>
+                                        <NavLink href="/events/abcd" passHref>
                                             <Button as="a" colorScheme="blue">View</Button>
                                         </NavLink>
                                     </Td>
@@ -48,10 +48,10 @@ const EventsList = () => {
                                     <Td>30 Aug 2022 12:00</Td>
                                     <Td>
                                         <HStack spacing={1}>
-                                            <NavLink href="/admin/events/abcd" passHref>
+                                            <NavLink href="/events/abcd" passHref>
                                                 <Button as="a" colorScheme="blue">View</Button>
                                             </NavLink>
-                                            <NavLink href="/admin/events/abcd/edit" passHref>
+                                            <NavLink href="/events/abcd/edit" passHref>
                                                 <Button as="a" colorScheme="yellow">Edit</Button>
                                             </NavLink>
                                             <Button colorScheme="red">Delete</Button>
@@ -63,7 +63,7 @@ const EventsList = () => {
                                     <Td>Lorem, ipsum dolor.</Td>
                                     <Td>30 Aug 2022 12:00</Td>
                                     <Td>
-                                        <NavLink href="/admin/events/abcd" passHref>
+                                        <NavLink href="/events/abcd" passHref>
                                             <Button as="a" colorScheme="blue">View</Button>
                                         </NavLink>
                                     </Td>

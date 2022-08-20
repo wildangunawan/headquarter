@@ -29,7 +29,7 @@ const SystemLog = () => {
                                         <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, delectus!</Text>
                                     </Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000005" passHref>
+                                        <NavLink href="/profile/1000005" passHref>
                                             <Link color="brand.500">Gru (1000005)</Link>
                                         </NavLink>
                                     </Td>
@@ -40,7 +40,7 @@ const SystemLog = () => {
                                         <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, delectus!</Text>
                                     </Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000005" passHref>
+                                        <NavLink href="/profile/1000005" passHref>
                                             <Link color="brand.500">Gru (1000005)</Link>
                                         </NavLink>
                                     </Td>

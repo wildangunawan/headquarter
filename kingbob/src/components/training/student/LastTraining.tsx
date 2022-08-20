@@ -37,7 +37,7 @@ const LastTraining = () => {
                                 <Badge colorScheme={"blue"}>WIII_TWR</Badge>
                                 <Text>Your instructor/mentor gave 2 comments for this session.</Text>
                             </VStack>
-                            <NavLink href={"/admin/training/me"} passHref>
+                            <NavLink href={"/training/me"} passHref>
                                 <Link color={"blue.500"}>
                                     Check my training history
                                     <ArrowForwardIcon ml={1} />

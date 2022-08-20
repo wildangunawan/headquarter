@@ -36,7 +36,7 @@ const SoloInformation = () => {
                                 <Badge colorScheme={"blue"}>WIII_TWR</Badge>
                                 <Text>until 30 Aug 2022</Text>
                             </VStack>
-                            <NavLink href={"/admin/training/me"} passHref>
+                            <NavLink href={"/training/me"} passHref>
                                 <Link color={"blue.500"}>
                                     Check my solo history
                                     <ArrowForwardIcon ml={1} />

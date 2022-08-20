@@ -75,14 +75,14 @@ const StudentList = () => {
                                 && <>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/admin/profile/1000000" passHref>
+                                            <NavLink href="/profile/1000000" passHref>
                                                 <Link color="brand.500">Kevin (1000000)</Link>
                                             </NavLink>
                                         </Td>
                                         <Td>Student 1 (S1)</Td>
                                         <Td>WIII_TWR until 30 Aug 2022</Td>
                                         <Td>
-                                            <NavLink href="/admin/profile/1000005" passHref>
+                                            <NavLink href="/profile/1000005" passHref>
                                                 <Link color="brand.500">Gru (1000005)</Link>
                                             </NavLink>
                                         </Td>
@@ -93,7 +93,7 @@ const StudentList = () => {
                                                 </MenuButton>
                                                 <MenuList>
                                                     <MenuItem>
-                                                        <NavLink href="/admin/training/1000000" passHref>
+                                                        <NavLink href="/training/1000000" passHref>
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
@@ -109,7 +109,7 @@ const StudentList = () => {
                                     </Tr>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/admin/profile/1000001" passHref>
+                                            <NavLink href="/profile/1000001" passHref>
                                                 <Link color="brand.500">Stuart (1000001)</Link>
                                             </NavLink>
                                         </Td>
@@ -123,7 +123,7 @@ const StudentList = () => {
                                                 </MenuButton>
                                                 <MenuList>
                                                     <MenuItem>
-                                                        <NavLink href="/admin/training/1000001" passHref>
+                                                        <NavLink href="/training/1000001" passHref>
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>
@@ -139,14 +139,14 @@ const StudentList = () => {
                                     </Tr>
                                     <Tr>
                                         <Td>
-                                            <NavLink href="/admin/profile/1000002" passHref>
+                                            <NavLink href="/profile/1000002" passHref>
                                                 <Link color="brand.500">King Bob (1000002)</Link>
                                             </NavLink>
                                         </Td>
                                         <Td>Student 1 (S1)</Td>
                                         <Td>-</Td>
                                         <Td>
-                                            <NavLink href="/admin/profile/1000005" passHref>
+                                            <NavLink href="/profile/1000005" passHref>
                                                 <Link color="brand.500">Gru (1000005)</Link>
                                             </NavLink>
                                         </Td>
@@ -157,7 +157,7 @@ const StudentList = () => {
                                                 </MenuButton>
                                                 <MenuList>
                                                     <MenuItem>
-                                                        <NavLink href="/admin/training/1000002" passHref>
+                                                        <NavLink href="/training/1000002" passHref>
                                                             <Link>View training record</Link>
                                                         </NavLink>
                                                     </MenuItem>

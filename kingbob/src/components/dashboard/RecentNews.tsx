@@ -42,7 +42,7 @@ const RecentNews = () => {
                     </Text>
 
                     {/* Title */}
-                    <NavLink href={"/admin/news/lorem-ipsum-dolor"} passHref>
+                    <NavLink href={"/news/lorem-ipsum-dolor"} passHref>
                         <Link fontWeight={600} color={textColor}>Lorem, ipsum dolor.</Link>
                     </NavLink>
 
@@ -50,7 +50,7 @@ const RecentNews = () => {
                     <Text fontSize={"sm"} noOfLines={2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aperiam voluptatibus? Nesciunt saepe ex veritatis ducimus voluptatibus perferendis eum doloribus, soluta aliquid! Voluptate quidem dolorum aspernatur corporis adipisci? Odio facere provident recusandae esse, nihil corrupti fugit molestiae quisquam voluptate animi inventore eos tempora porro nesciunt ipsa eveniet, id numquam beatae.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/news/lorem-ipsum-dolor"} passHref>
+                    <NavLink href={"/news/lorem-ipsum-dolor"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Box>
@@ -60,7 +60,7 @@ const RecentNews = () => {
                     </Text>
 
                     {/* Title */}
-                    <NavLink href={"/admin/lorem-ipsum-dolor"} passHref>
+                    <NavLink href={"/lorem-ipsum-dolor"} passHref>
                         <Link fontWeight={600} color={textColor}>Lorem, ipsum dolor.</Link>
                     </NavLink>
 
@@ -68,13 +68,13 @@ const RecentNews = () => {
                     <Text fontSize={"sm"} noOfLines={2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aperiam voluptatibus? Nesciunt saepe ex veritatis ducimus voluptatibus perferendis eum doloribus, soluta aliquid! Voluptate quidem dolorum aspernatur corporis adipisci? Odio facere provident recusandae esse, nihil corrupti fugit molestiae quisquam voluptate animi inventore eos tempora porro nesciunt ipsa eveniet, id numquam beatae.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/lorem-ipsum-dolor"} passHref>
+                    <NavLink href={"/lorem-ipsum-dolor"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Box>
 
                 {/* Read more */}
-                <NavLink href={"/admin/news"} passHref>
+                <NavLink href={"/news"} passHref>
                     <Link color={"blue.500"} textAlign="center">
                         Check all news
                         <ArrowForwardIcon ml={1} />

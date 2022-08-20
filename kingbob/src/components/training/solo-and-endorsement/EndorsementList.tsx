@@ -54,7 +54,7 @@ const EndorsementList = () => {
                             && <>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -64,7 +64,7 @@ const EndorsementList = () => {
                                 </Tr>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -74,7 +74,7 @@ const EndorsementList = () => {
                                 </Tr>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>

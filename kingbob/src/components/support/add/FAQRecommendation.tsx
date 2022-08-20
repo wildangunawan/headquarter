@@ -43,27 +43,27 @@ const FAQRecommendation = ({ subject }: IProps) => {
                 <Text>Below is some FAQs based on &quot;{subject}&quot;. You may find some that&apos;s useful before you open a new ticket.</Text>
 
                 <Flex direction={"column"} gap={1}>
-                    <NavLink href={"/admin/faq/lorem-ipsum-dolor-sit"} passHref>
+                    <NavLink href={"/faq/lorem-ipsum-dolor-sit"} passHref>
                         <Link fontWeight={700}>Lorem ipsum dolor sit.</Link>
                     </NavLink>
 
                     <Text noOfLines={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis saepe asperiores sint sapiente blanditiis odit officiis vitae qui veniam! Ab accusantium numquam ipsa ratione consequuntur harum excepturi eius magni neque.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/faq/lorem-ipsum-dolor-sit"} passHref>
+                    <NavLink href={"/faq/lorem-ipsum-dolor-sit"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Flex>
 
                 <Flex direction={"column"} gap={1}>
-                    <NavLink href={"/admin/faq/lorem-ipsum-dolor-sit"} passHref>
+                    <NavLink href={"/faq/lorem-ipsum-dolor-sit"} passHref>
                         <Link fontWeight={700}>Lorem ipsum dolor sit.</Link>
                     </NavLink>
 
                     <Text noOfLines={3}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis saepe asperiores sint sapiente blanditiis odit officiis vitae qui veniam! Ab accusantium numquam ipsa ratione consequuntur harum excepturi eius magni neque.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/faq/lorem-ipsum-dolor-sit"} passHref>
+                    <NavLink href={"/faq/lorem-ipsum-dolor-sit"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Flex>

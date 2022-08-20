@@ -39,7 +39,7 @@ const AddTrainingHistory = () => {
                 isClosable: true,
             })
 
-            Router.push("/admin/training/detail/abcd")
+            Router.push("/training/detail/abcd")
         }, 2000)
     }
 

@@ -11,9 +11,9 @@ import {
 } from "@chakra-ui/react";
 
 // Custom components
-import Banner from "../../../components/marketplace/components/Banner";
-import TableTopCreators from "../../../components/marketplace/components/TableTopCreators";
-import HistoryItem from "../../../components/marketplace/components/HistoryItem";
+import Banner from "../../components/marketplace/components/Banner";
+import TableTopCreators from "../../components/marketplace/components/TableTopCreators";
+import HistoryItem from "../../components/marketplace/components/HistoryItem";
 import NFT from "components/card/NFT";
 import Card from "components/card/Card";
 
@@ -28,8 +28,8 @@ import Avatar1 from "assets/img/avatars/avatar1.png";
 import Avatar2 from "assets/img/avatars/avatar2.png";
 import Avatar3 from "assets/img/avatars/avatar3.png";
 import Avatar4 from "assets/img/avatars/avatar4.png";
-import tableDataTopCreators from "../../../components/marketplace/variables/tableDataTopCreators.json";
-import { tableColumnsTopCreators } from "../../../components/marketplace/variables/tableColumnsTopCreators";
+import tableDataTopCreators from "../../components/marketplace/variables/tableDataTopCreators.json";
+import { tableColumnsTopCreators } from "../../components/marketplace/variables/tableColumnsTopCreators";
 import AdminLayout from "layouts/admin";
 
 export default function Marketplace() {

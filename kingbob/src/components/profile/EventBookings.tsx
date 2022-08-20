@@ -32,7 +32,7 @@ const EventBookings = () => {
                     <Tbody>
                         <Tr>
                             <Td>
-                                <NavLink href="/admin/event/jakarta-turn-around-1" passHref>
+                                <NavLink href="/event/jakarta-turn-around-1" passHref>
                                     <Link color={'blue'}>Jakarta Turn Around 1</Link>
                                 </NavLink>
                             </Td>
@@ -41,7 +41,7 @@ const EventBookings = () => {
                         </Tr>
                         <Tr>
                             <Td>
-                                <NavLink href="/admin/event/jakarta-turn-around-2" passHref>
+                                <NavLink href="/event/jakarta-turn-around-2" passHref>
                                     <Link color={'blue'}>Jakarta Turn Around 2</Link>
                                 </NavLink>
                             </Td>

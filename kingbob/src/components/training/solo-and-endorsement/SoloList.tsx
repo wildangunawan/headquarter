@@ -56,7 +56,7 @@ const SoloList = () => {
                             && <>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -64,7 +64,7 @@ const SoloList = () => {
                                     <Td>1 Aug 2022</Td>
                                     <Td>30 Aug 2022</Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000005" passHref>
+                                        <NavLink href="/profile/1000005" passHref>
                                             <Link color="brand.500">Gru (1000005)</Link>
                                         </NavLink>
                                     </Td>
@@ -72,7 +72,7 @@ const SoloList = () => {
                                 </Tr>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -80,7 +80,7 @@ const SoloList = () => {
                                     <Td>1 Aug 2022</Td>
                                     <Td>30 Aug 2022</Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000005" passHref>
+                                        <NavLink href="/profile/1000005" passHref>
                                             <Link color="brand.500">Gru (1000005)</Link>
                                         </NavLink>
                                     </Td>
@@ -88,7 +88,7 @@ const SoloList = () => {
                                 </Tr>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -96,7 +96,7 @@ const SoloList = () => {
                                     <Td>1 Aug 2022</Td>
                                     <Td>30 Aug 2022</Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000005" passHref>
+                                        <NavLink href="/profile/1000005" passHref>
                                             <Link color="brand.500">Gru (1000005)</Link>
                                         </NavLink>
                                     </Td>

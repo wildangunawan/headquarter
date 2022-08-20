@@ -52,13 +52,13 @@ const FSSRoster = () => {
                         <Tbody>
                             <Tr>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000000" passHref>
+                                    <NavLink href="/profile/1000000" passHref>
                                         <Link color="brand.500">Kevin (1000000)</Link>
                                     </NavLink>
                                 </Td>
                                 <Td>ASEA_FSS</Td>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000005" passHref>
+                                    <NavLink href="/profile/1000005" passHref>
                                         <Link color="brand.500">Gru (1000005)</Link>
                                     </NavLink>
                                 </Td>
@@ -66,13 +66,13 @@ const FSSRoster = () => {
                             </Tr>
                             <Tr>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000000" passHref>
+                                    <NavLink href="/profile/1000000" passHref>
                                         <Link color="brand.500">Kevin (1000000)</Link>
                                     </NavLink>
                                 </Td>
                                 <Td>ASEA_FSS</Td>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000005" passHref>
+                                    <NavLink href="/profile/1000005" passHref>
                                         <Link color="brand.500">Gru (1000005)</Link>
                                     </NavLink>
                                 </Td>
@@ -80,13 +80,13 @@ const FSSRoster = () => {
                             </Tr>
                             <Tr>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000000" passHref>
+                                    <NavLink href="/profile/1000000" passHref>
                                         <Link color="brand.500">Kevin (1000000)</Link>
                                     </NavLink>
                                 </Td>
                                 <Td>ASEA_FSS</Td>
                                 <Td>
-                                    <NavLink href="/admin/profile/1000005" passHref>
+                                    <NavLink href="/profile/1000005" passHref>
                                         <Link color="brand.500">Gru (1000005)</Link>
                                     </NavLink>
                                 </Td>

@@ -60,7 +60,7 @@ const ExaminerList = () => {
                             && <>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
@@ -72,7 +72,7 @@ const ExaminerList = () => {
                                 </Tr>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000001" passHref>
+                                        <NavLink href="/profile/1000001" passHref>
                                             <Link color="brand.500">King Bob (1000003)</Link>
                                         </NavLink>
                                     </Td>

@@ -38,11 +38,11 @@ export default function Footer() {
         <Text as='span' ms='4px'>
           HQ made with{" "}
           <span role='img' aria-label='tears'>😭</span> and <span role='img' aria-label='#?!'>🤬</span>
-          {" "}by <NavLink href='/admin/profile/1300014' passHref>
+          {" "}by <NavLink href='/profile/1300014' passHref>
             <Link color={'brand.400'}>
               Wildan Gunawan
             </Link>
-          </NavLink> and <NavLink href='/admin/profile/1300014' passHref>
+          </NavLink> and <NavLink href='/profile/1300014' passHref>
             <Link color={'brand.400'}>
               Frederick Arisandi
             </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
           </NavLink>
         </ListItem>
         <ListItem>
-          <NavLink href='/admin/support' passHref>
+          <NavLink href='/support' passHref>
             <Link color={textColor}>
               Support
             </Link>

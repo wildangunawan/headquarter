@@ -45,7 +45,7 @@ const routes: Menu[] = [
     name: "Dashboard",
     layout: "",
     icon: MdHome,
-    path: "/dashboard",
+    path: "/",
   },
 
   // Membership

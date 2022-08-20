@@ -59,7 +59,7 @@ const Information = () => {
                             <Text>
                                 : {
                                     ticketAssigned
-                                        ? <NavLink href={"/admin/profile/1000006"} passHref>
+                                        ? <NavLink href={"/profile/1000006"} passHref>
                                             <Link color={"blue.500"}>
                                                 Mel (1000006)
                                             </Link>

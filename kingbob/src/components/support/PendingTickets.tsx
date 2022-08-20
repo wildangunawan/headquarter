@@ -33,7 +33,7 @@ const PendingTickets = () => {
                     <Tbody>
                         <Tr>
                             <Td>
-                                <NavLink href="/admin/support/help" passHref>
+                                <NavLink href="/support/help" passHref>
                                     <Link color="brand.500">Help! I&apos;m under the water</Link>
                                 </NavLink>
                             </Td>
@@ -47,7 +47,7 @@ const PendingTickets = () => {
                         </Tr>
                         <Tr>
                             <Td>
-                                <NavLink href="/admin/support/help" passHref>
+                                <NavLink href="/support/help" passHref>
                                     <Link color="brand.500">Help! I&apos;m under the water</Link>
                                 </NavLink>
                             </Td>
@@ -61,7 +61,7 @@ const PendingTickets = () => {
                         </Tr>
                         <Tr>
                             <Td>
-                                <NavLink href="/admin/support/help" passHref>
+                                <NavLink href="/support/help" passHref>
                                     <Link color="brand.500">Help! I&apos;m under the water</Link>
                                 </NavLink>
                             </Td>

@@ -44,7 +44,7 @@ const FutureEvents = ({ ...rest }: IProps) => {
                     </Flex>
 
                     {/* Title */}
-                    <NavLink href={"/admin/events/jakarta-turn-around-1"} passHref>
+                    <NavLink href={"/events/jakarta-turn-around-1"} passHref>
                         <Link fontWeight={600} color={textColor}>Jakarta Turn Around 1</Link>
                     </NavLink>
 
@@ -52,7 +52,7 @@ const FutureEvents = ({ ...rest }: IProps) => {
                     <Text fontSize={"sm"} noOfLines={2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aperiam voluptatibus? Nesciunt saepe ex veritatis ducimus voluptatibus perferendis eum doloribus, soluta aliquid! Voluptate quidem dolorum aspernatur corporis adipisci? Odio facere provident recusandae esse, nihil corrupti fugit molestiae quisquam voluptate animi inventore eos tempora porro nesciunt ipsa eveniet, id numquam beatae.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/events/jakarta-turn-around-1"} passHref>
+                    <NavLink href={"/events/jakarta-turn-around-1"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Box>
@@ -66,7 +66,7 @@ const FutureEvents = ({ ...rest }: IProps) => {
                     </Flex>
 
                     {/* Title */}
-                    <NavLink href={"/admin/events/jakarta-turn-around-1"} passHref>
+                    <NavLink href={"/events/jakarta-turn-around-1"} passHref>
                         <Link fontWeight={600} color={textColor}>Jakarta Turn Around 2</Link>
                     </NavLink>
 
@@ -74,14 +74,14 @@ const FutureEvents = ({ ...rest }: IProps) => {
                     <Text fontSize={"sm"} noOfLines={2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aperiam voluptatibus? Nesciunt saepe ex veritatis ducimus voluptatibus perferendis eum doloribus, soluta aliquid! Voluptate quidem dolorum aspernatur corporis adipisci? Odio facere provident recusandae esse, nihil corrupti fugit molestiae quisquam voluptate animi inventore eos tempora porro nesciunt ipsa eveniet, id numquam beatae.</Text>
 
                     {/* CTA */}
-                    <NavLink href={"/admin/events/jakarta-turn-around-1"} passHref>
+                    <NavLink href={"/events/jakarta-turn-around-1"} passHref>
                         <Link color={"blue.500"} fontSize="xs">Read more</Link>
                     </NavLink>
                 </Box>
 
 
                 {/* Read more */}
-                <NavLink href={"/admin/events"} passHref>
+                <NavLink href={"/events"} passHref>
                     <Link color={"blue.500"} textAlign="center">
                         Check all events
                         <ArrowForwardIcon ml={1} />

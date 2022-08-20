@@ -69,7 +69,7 @@ const TrainingHistory = ({ viewingMyself = false }: { viewingMyself?: boolean })
                                         <Td>30 Aug 2022 12:00</Td>
                                         <Td>Indonesia vACC (IDN)</Td>
                                         <Td>
-                                            <NavLink href="/admin/training/detail/abcd" passHref>
+                                            <NavLink href="/training/detail/abcd" passHref>
                                                 <Button as="a" colorScheme="blue">View</Button>
                                             </NavLink>
                                         </Td>
@@ -84,7 +84,7 @@ const TrainingHistory = ({ viewingMyself = false }: { viewingMyself?: boolean })
                                         <Td>30 Aug 2022 12:00</Td>
                                         <Td>Indonesia vACC (IDN)</Td>
                                         <Td>
-                                            <NavLink href="/admin/training/detail/abcd" passHref>
+                                            <NavLink href="/training/detail/abcd" passHref>
                                                 <Button as="a" colorScheme="blue">View</Button>
                                             </NavLink>
                                         </Td>
@@ -99,7 +99,7 @@ const TrainingHistory = ({ viewingMyself = false }: { viewingMyself?: boolean })
                                         <Td>30 Aug 2022 12:00</Td>
                                         <Td>Indonesia vACC (IDN)</Td>
                                         <Td>
-                                            <NavLink href="/admin/training/detail/abcd" passHref>
+                                            <NavLink href="/training/detail/abcd" passHref>
                                                 <Button as="a" colorScheme="blue">View</Button>
                                             </NavLink>
                                         </Td>

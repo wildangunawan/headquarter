@@ -40,7 +40,7 @@ const TransferTicket = () => {
             })
 
             // Go to tickets list since the ticket was transfered
-            router.push("/admin/support")
+            router.push("/support")
         }, 2000)
     }
 

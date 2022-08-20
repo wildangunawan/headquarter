@@ -34,31 +34,31 @@ const DivisionAndvACCList = () => {
                                     spacing={4}
                                     divider={<StackDivider />}
                                 >
-                                    <NavLink href="/admin/division/SEA" passHref>
+                                    <NavLink href="/division/SEA" passHref>
                                         <Link color="brand.500">South East Asia Division</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/HK" passHref>
+                                    <NavLink href="/vacc/HK" passHref>
                                         <Link color="brand.500">Hong Kong vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/IDN" passHref>
+                                    <NavLink href="/vacc/IDN" passHref>
                                         <Link color="brand.500">Indonesia vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/MYS" passHref>
+                                    <NavLink href="/vacc/MYS" passHref>
                                         <Link color="brand.500">Malaysia vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/MYR" passHref>
+                                    <NavLink href="/vacc/MYR" passHref>
                                         <Link color="brand.500">Myanmar vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/PHL" passHref>
+                                    <NavLink href="/vacc/PHL" passHref>
                                         <Link color="brand.500">Phillipines vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/SGP" passHref>
+                                    <NavLink href="/vacc/SGP" passHref>
                                         <Link color="brand.500">Singapore vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/THA" passHref>
+                                    <NavLink href="/vacc/THA" passHref>
                                         <Link color="brand.500">Thailand vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/VCL" passHref>
+                                    <NavLink href="/vacc/VCL" passHref>
                                         <Link color="brand.500">Vietnam - Cambodia - Laos vACC</Link>
                                     </NavLink>
                                 </VStack>
@@ -79,28 +79,28 @@ const DivisionAndvACCList = () => {
                                     spacing={4}
                                     divider={<StackDivider />}
                                 >
-                                    <NavLink href="/admin/division/WA" passHref>
+                                    <NavLink href="/division/WA" passHref>
                                         <Link color="brand.500">West Asia Division</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/AFG" passHref>
+                                    <NavLink href="/vacc/AFG" passHref>
                                         <Link color="brand.500">Afghanistan vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/BGD" passHref>
+                                    <NavLink href="/vacc/BGD" passHref>
                                         <Link color="brand.500">Bangladesh vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/BTN" passHref>
+                                    <NavLink href="/vacc/BTN" passHref>
                                         <Link color="brand.500">Bhutan vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/IND" passHref>
+                                    <NavLink href="/vacc/IND" passHref>
                                         <Link color="brand.500">India vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/NPL" passHref>
+                                    <NavLink href="/vacc/NPL" passHref>
                                         <Link color="brand.500">Nepal vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/PAK" passHref>
+                                    <NavLink href="/vacc/PAK" passHref>
                                         <Link color="brand.500">Pakistan vACC</Link>
                                     </NavLink>
-                                    <NavLink href="/admin/vacc/SRM" passHref>
+                                    <NavLink href="/vacc/SRM" passHref>
                                         <Link color="brand.500">Sri Lanka & Maldives vACC</Link>
                                     </NavLink>
                                 </VStack>

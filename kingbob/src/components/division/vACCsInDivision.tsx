@@ -32,7 +32,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Hong Kong vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -40,7 +40,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Indonesia vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -48,7 +48,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Malaysia vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -56,7 +56,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Myanmar vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -64,7 +64,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Phillipines vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -72,7 +72,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Singapore vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -80,7 +80,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Thailand vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>
@@ -88,7 +88,7 @@ const VACCsInDivision = () => {
                         <Tr>
                             <Td>Vietnam - Cambodia - Laos vACC</Td>
                             <Td>
-                                <NavLink href="/admin/vacc/HK" passHref>
+                                <NavLink href="/vacc/HK" passHref>
                                     <Link color="brand.500">View vACC</Link>
                                 </NavLink>
                             </Td>

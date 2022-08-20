@@ -55,19 +55,19 @@ const FutureTraining = () => {
                             && <>
                                 <Tr>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
                                     <Td>Student 1 (S1)</Td>
                                     <Td>
-                                        <NavLink href="/admin/profile/1000000" passHref>
+                                        <NavLink href="/profile/1000000" passHref>
                                             <Link color="brand.500">Kevin (1000000)</Link>
                                         </NavLink>
                                     </Td>
                                     <Td>31 Aug 2022 13:00 UTC</Td>
                                     <Td>
-                                        <NavLink href={"/admin/training/detail/training-30-aug-2022"} passHref>
+                                        <NavLink href={"/training/detail/training-30-aug-2022"} passHref>
                                             <Button colorScheme="blue" as="a">View</Button>
                                         </NavLink>
                                     </Td>

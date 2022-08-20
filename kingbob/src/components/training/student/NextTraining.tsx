@@ -70,14 +70,14 @@ const NextTraining = () => {
                                     </HStack>
                                     <Text>
                                         with{" "}
-                                        <NavLink href={"/admin/profile/1000005"} passHref>
+                                        <NavLink href={"/profile/1000005"} passHref>
                                             <Link color={"blue.500"}>
                                                 Gru (1000005)
                                             </Link>
                                         </NavLink>
                                     </Text>
                                 </VStack>
-                                <NavLink href={"/admin/training/detail/training-30-aug-2022"} passHref>
+                                <NavLink href={"/training/detail/training-30-aug-2022"} passHref>
                                     <Link color={"blue.500"}>
                                         Check training detail
                                         <ArrowForwardIcon ml={1} />
@@ -97,7 +97,7 @@ const NextTraining = () => {
                                             <Badge colorScheme={"blue"}>365 day(s)</Badge>
                                             <Text>
                                                 with{" "}
-                                                <NavLink href={"/admin/profile/1000005"} passHref>
+                                                <NavLink href={"/profile/1000005"} passHref>
                                                     <Link color={"blue.500"}>
                                                         Gru (1000005)
                                                     </Link>
