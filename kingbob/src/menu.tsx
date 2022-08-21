@@ -151,8 +151,8 @@ const routes: Menu[] = [
       },
       {
         name: "Staff List",
-        layout: "/auth",
-        path: "/sign-in",
+        layout: "",
+        path: "/staff/list",
         icon: MdGroups,
       },
     ],
@@ -207,7 +207,7 @@ const routes: Menu[] = [
             name: "Staff List",
             layout: "",
             icon: MdPerson,
-            path: "/datatables",
+            path: "/staff/list",
           },
           {
             name: "System Log",
@@ -311,7 +311,7 @@ const routes: Menu[] = [
             name: "Staff List",
             layout: "",
             icon: MdPerson,
-            path: "/datatables",
+            path: "/staff/list",
           },
           {
             name: "System Log",
@@ -391,7 +391,7 @@ const routes: Menu[] = [
             name: "Staff List",
             layout: "",
             icon: MdPerson,
-            path: "/datatables",
+            path: "/staff/list",
           },
           {
             name: "System Log",
