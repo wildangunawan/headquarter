@@ -109,7 +109,7 @@ const CreateFaq = () => {
           <FormLabel>Answer</FormLabel>
           <Input value={answer.value} onChange={(e) =>changeHandler("answer", e)}
                   onBlur={(e) => blurHandler("answer", e)} placeholder='Answer' />
-          {question.isError && <FormErrorMessage>Answer is required.</FormErrorMessage>}
+          {answer.isError && <FormErrorMessage>Answer is required.</FormErrorMessage>}
         </FormControl>
     </Flex>,
     footer: <Button
