@@ -19,12 +19,12 @@ import {
   MdPolicy,
   MdTask,
   MdHelpCenter,
-  MdEdit
+  MdEdit,
 } from "react-icons/md";
 import { IoMdAirplane, IoMdStats } from "react-icons/io";
 import { TbReportAnalytics } from "react-icons/tb";
 import { IoNewspaper } from "react-icons/io5";
-import { FaChalkboardTeacher, FaClipboardList } from "react-icons/fa";
+import { FaChalkboardTeacher, FaClipboardList, FaQuestionCircle } from "react-icons/fa";
 
 /**
  * Variable below consists routes that's shown in the sidebar menu
@@ -480,6 +480,14 @@ const routes: Menu[] = [
     layout: "",
     path: "/system/division-and-vacc",
     icon: MdLayers,
+  },
+
+  // List of divisions and vACCs
+  {
+    name: "Frequently Asked Questions",
+    layout: "",
+    path: "/support/faq",
+    icon: FaQuestionCircle,
   },
 ];
 
