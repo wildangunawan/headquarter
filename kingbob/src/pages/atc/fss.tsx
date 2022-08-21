@@ -1,12 +1,7 @@
 import FSSRoster from "@components/atc/FSSRoster";
 import AdminLayout from "@layouts/admin";
+import { ReactElement } from "react";
 
-const FSSList = () => {
-    return (
-        <AdminLayout title="FSS Roster">
-            <FSSRoster />
-        </AdminLayout>
-    );
-};
-
+const FSSList = () => <FSSRoster />
+FSSList.getLayout = (page: ReactElement) => <AdminLayout title="FSS Roster">{page}</AdminLayout>
 export default FSSList;

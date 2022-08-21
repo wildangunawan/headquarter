@@ -21,6 +21,16 @@ export default function AdminLayout(props: IProps) {
     const [fixed] = useState(false);
 
     const { onOpen } = useDisclosure();
+
+    // Console log for fun
+    console.log(`(っ◔◡◔)っ ♥ Headquarter ♥
+
+Hello fellow devs! What do you want to see, huh?
+Anyway, do you want to help us to improve HQ?
+We're actually open source. Come check our code at https://github.com/wildangunawan/headquarter.
+    
+See ya at pull request section ♥`);
+
     return (
         <>
             <Head>

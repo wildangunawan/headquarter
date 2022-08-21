@@ -223,8 +223,8 @@ const routes: Menu[] = [
           },
           {
             name: "vACC Settings",
-            layout: "/auth",
-            path: "/sign-in",
+            layout: "",
+            path: "/staff/vacc/settings",
             icon: MdSettings,
           },
         ],

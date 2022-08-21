@@ -1,9 +1,10 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { VStack, Flex, Button, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text, Link, useColorModeValue, Alert, AlertIcon, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { VStack, Flex, Button, TableContainer, Table, Thead, Tr, Th, Tbody, Td, Text, Link, useColorModeValue, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import Card from "@components/card/Card";
 import AddOrEditStaff from "@components/staff/modal/AddOrEditStaff";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
+import { ReactElement } from "react";
 
 const StaffList = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -12,7 +13,7 @@ const StaffList = () => {
     const { onOpen, modal, setPosition } = AddOrEditStaff();
 
     return (
-        <AdminLayout title="Staff List">
+        <>
             <VStack spacing={"20px"} align="stretch">
                 <Flex align="center" justify={"space-between"}>
                     <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
@@ -131,8 +132,9 @@ const StaffList = () => {
 
             {/* Modal */}
             {modal}
-        </AdminLayout>
+        </>
     );
 };
 
+StaffList.getLayout = (page: ReactElement) => <AdminLayout title="Staff List">{page}</AdminLayout>
 export default StaffList;

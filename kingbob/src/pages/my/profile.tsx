@@ -7,16 +7,18 @@ import ExtraInformation from "@components/profile/ExtraInformation";
 import UserDetail from "@components/profile/UserDetail";
 import ControllingApproval from "@components/profile/ControllingApproval";
 import EventBookings from "@components/profile/EventBookings";
+import { ReactElement } from "react";
 
 export default function MyProfile() {
     return (
-        <AdminLayout title="My Profile">
+        <>
             {/* Main Fields */}
             <Grid
                 templateColumns={{
                     base: "1fr",
                     lg: "1.5fr 0.5fr",
-                }}
+                }
+                }
                 gap="20px"
                 mb="20px"
             >
@@ -39,6 +41,8 @@ export default function MyProfile() {
                 <ControllingApproval />
                 <EventBookings />
             </Grid>
-        </AdminLayout>
+        </>
     );
 }
+
+MyProfile.getLayout = (page: ReactElement) => <AdminLayout title="My Profile">{page}</AdminLayout>

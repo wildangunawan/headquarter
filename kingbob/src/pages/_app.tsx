@@ -8,20 +8,24 @@ import '@fullcalendar/daygrid/main.css'
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme/theme";
+import { NextPage } from "next";
+import { ReactElement, ReactNode } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  // Console log for fun
-  console.log(`(っ◔◡◔)っ ♥ Headquarter ♥
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
-Hello fellow devs! What do you want to see, huh?
-Anyway, do you want to help us to improve HQ?
-We're actually open source. Come check our code at https://github.com/wildangunawan/headquarter.
-  
-See ya at pull request section ♥`);
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </ChakraProvider>
   );
 }
