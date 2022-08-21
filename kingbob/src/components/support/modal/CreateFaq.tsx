@@ -1,9 +1,6 @@
 import { Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Text } from '@chakra-ui/react';
 import useModal from '@hooks/useModal';
 import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { eventDragMutationMassager } from '@fullcalendar/react';
 
 const CreateFaq = () => {
   const [loading, setLoading] = useState(false)
