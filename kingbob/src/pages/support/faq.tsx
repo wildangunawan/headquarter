@@ -1,8 +1,6 @@
 import { Button, Flex, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import PendingTickets from '@components/support/PendingTickets';
-import ResolvedTickets from '@components/support/ResolvedTickets';
 import AdminLayout from '@layouts/admin';
-import NavLink from "next/link"
 import { ReactElement } from 'react';
 import CreateFaq from "../../components/support/modal/CreateFaq";
 
