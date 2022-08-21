@@ -87,7 +87,7 @@ const AddOrEditStaff = () => {
     }
 
     const { onOpen, onClose, modal, toast } = useModal({
-        title: position == undefined ? "Add new position" : `Edit ${position.callsign}`,
+        title: position.callsign == "" ? "Add new position" : `Edit ${position.callsign}`,
         body: <VStack spacing={2}>
             <FormControl>
                 <FormLabel htmlFor="region">Region</FormLabel>
@@ -103,6 +103,7 @@ const AddOrEditStaff = () => {
                             region: e.value,
                         })
                     }
+                    isSearchable={false}
                 />
             </FormControl>
 
@@ -120,6 +121,7 @@ const AddOrEditStaff = () => {
                             division: e.value,
                         })
                     }
+                    isSearchable={false}
                 />
             </FormControl>
 
@@ -137,6 +139,7 @@ const AddOrEditStaff = () => {
                             vACC: e.value,
                         })
                     }
+                    isSearchable={false}
                 />
             </FormControl>
 
@@ -184,6 +187,7 @@ const AddOrEditStaff = () => {
                             group: e.value,
                         })
                     }
+                    isSearchable={false}
                 />
             </FormControl>
 
