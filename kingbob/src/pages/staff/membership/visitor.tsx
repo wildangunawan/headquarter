@@ -3,6 +3,7 @@ import Card from "@components/card/Card";
 import AddVisitor from "@components/staff/modal/AddVisitor";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
+import { ReactElement } from "react";
 
 const VisitorList = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -11,7 +12,7 @@ const VisitorList = () => {
     const { onOpen, modal } = AddVisitor();
 
     return (
-        <AdminLayout title="Visitors List">
+        <>
             <VStack spacing={"20px"} align="stretch">
                 <Flex align="center" justify={"space-between"}>
                     <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
@@ -70,8 +71,9 @@ const VisitorList = () => {
 
             {/* Modal */}
             {modal}
-        </AdminLayout>
+        </>
     );
 };
 
+VisitorList.getLayout = (page: ReactElement) => <AdminLayout title="Visitors List">{page}</AdminLayout>
 export default VisitorList;

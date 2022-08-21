@@ -8,13 +8,14 @@ import StudentInformation from "@components/training/StudentInformation";
 import TrainingHistory from "@components/training/TrainingHistory";
 import AdminLayout from "@layouts/admin";
 import { useRouter } from 'next/router'
+import { ReactElement } from 'react';
 
 const StudentSpecificView = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
     const router = useRouter()
 
     return (
-        <AdminLayout title="Training Detail - Mel (1000005)">
+        <>
             {/* My own training */}
             <VStack spacing={"20px"} align="stretch">
                 {/* Header */}
@@ -38,8 +39,9 @@ const StudentSpecificView = () => {
                 <CPTHistory viewingMyself />
                 <FeedbackFromOtherMembers />
             </VStack>
-        </AdminLayout >
+        </>
     );
 };
 
+StudentSpecificView.getLayout = (page: ReactElement) => <AdminLayout title="Training Detail - Mel (1000005)">{page}</AdminLayout>
 export default StudentSpecificView;

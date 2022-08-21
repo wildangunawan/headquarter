@@ -1,6 +1,7 @@
 // Chakra imports
 import { Grid } from "@chakra-ui/react";
 import AdminLayout from "layouts/admin";
+import { ReactElement } from "react";
 
 // Custom components
 import ExtraInformation from "@components/profile/ExtraInformation";
@@ -10,7 +11,7 @@ import EventBookings from "@components/profile/EventBookings";
 
 export default function Overview() {
   return (
-    <AdminLayout title="Profile">
+    <>
       {/* Main Fields */}
       <Grid
         templateColumns={{
@@ -47,6 +48,9 @@ export default function Overview() {
         <ControllingApproval />
         <EventBookings />
       </Grid>
-    </AdminLayout>
+    </>
   );
 }
+
+
+Overview.getLayout = (page: ReactElement) => <AdminLayout title="Profile">{page}</AdminLayout>

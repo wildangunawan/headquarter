@@ -4,6 +4,7 @@ import AddLOA from "@components/staff/modal/AddLOA";
 import ViewLOA from "@components/staff/modal/ViewLOA";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
+import { ReactElement } from "react";
 
 const LeaveOfAbsence = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -13,7 +14,7 @@ const LeaveOfAbsence = () => {
     const { onOpen: onViewLOAModal, modal: viewLOAModal } = ViewLOA();
 
     return (
-        <AdminLayout title="Leave of Absence List">
+        <>
             <VStack spacing={"20px"} align="stretch">
                 <Flex align="center" justify={"space-between"}>
                     <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
@@ -73,8 +74,9 @@ const LeaveOfAbsence = () => {
             {/* Modal */}
             {createLOAModal}
             {viewLOAModal}
-        </AdminLayout>
+        </>
     );
 };
 
+LeaveOfAbsence.getLayout = (page: ReactElement) => <AdminLayout title="Leave of Absence List">{page}</AdminLayout>
 export default LeaveOfAbsence;

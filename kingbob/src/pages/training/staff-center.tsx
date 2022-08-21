@@ -7,12 +7,12 @@ import MentorList from "@components/training/staff/MentorList";
 import PastTraining from "@components/training/staff/PastTraining";
 import StudentList from "@components/training/staff/StudentList";
 import AdminLayout from "@layouts/admin";
+import { ReactElement } from 'react';
 
 const StaffCenter = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Staff Center">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                     Staff Center
@@ -26,8 +26,8 @@ const StaffCenter = () => {
                 <MentorList />
                 <ExaminerList />
             </VStack>
-        </AdminLayout>
     );
 };
 
+StaffCenter.getLayout = (page: ReactElement) => <AdminLayout title="Staff Center">{page}</AdminLayout>
 export default StaffCenter;

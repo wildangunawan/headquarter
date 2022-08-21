@@ -4,12 +4,13 @@ import MyStudent from "@components/training/mentor/MyStudent";
 import TrainingRequest from "@components/training/mentor/TrainingRequest";
 import AdminLayout from "@layouts/admin";
 import CPTRequest from "@components/training/mentor/CPTRequest";
+import { ReactElement } from 'react';
 
 const MentorCenter = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Mentor Center">
+        <>
             {/* Mentor */}
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
@@ -20,8 +21,9 @@ const MentorCenter = () => {
                 <CPTRequest />
                 <MyStudent />
             </VStack>
-        </AdminLayout>
+        </>
     );
 };
 
+MentorCenter.getLayout = (page: ReactElement) => <AdminLayout title="Mentor Center">{page}</AdminLayout>
 export default MentorCenter;

@@ -7,12 +7,13 @@ import SoloInformation from "@components/training/student/SoloInformation";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
 import FeedbackFromOtherMembers from "@components/training/Feedbacks";
+import { ReactElement } from 'react';
 
 const Training = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Training">
+        <>
             {/* My own training */}
             <VStack spacing={"20px"} align="stretch">
                 <Flex align="center" justify={"space-between"} gap={"20px"}>
@@ -40,8 +41,9 @@ const Training = () => {
                 </SimpleGrid>
                 <FeedbackFromOtherMembers />
             </VStack>
-        </AdminLayout>
+        </>
     );
 };
 
+Training.getLayout = (page: ReactElement) => <AdminLayout title="Training">{page}</AdminLayout>
 export default Training;

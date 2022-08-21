@@ -1,12 +1,12 @@
 import { VStack, Button, Text, useColorModeValue, FormControl, FormLabel, Input, Select, Textarea } from "@chakra-ui/react";
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
+import { ReactElement } from "react";
 
 const EmailMembers = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Mass Email Members">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                     Mass Email Members
@@ -38,8 +38,8 @@ const EmailMembers = () => {
                     </VStack>
                 </Card>
             </VStack>
-        </AdminLayout>
     );
 };
 
+EmailMembers.getLayout = (page: ReactElement) => <AdminLayout title="Mass Email Members">{page}</AdminLayout>
 export default EmailMembers;

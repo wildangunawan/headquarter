@@ -2,12 +2,12 @@ import { useColorModeValue, VStack, Text, Box, Link, Table, Tbody, Td, Th, Thead
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
 import NavLink from 'next/link';
+import { ReactElement } from "react";
 
 const FeedbackList = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Feedback List">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                     Feedback list
@@ -79,8 +79,8 @@ const FeedbackList = () => {
                 </Card>
 
             </VStack>
-        </AdminLayout>
     );
 };
 
+FeedbackList.getLayout = (page: ReactElement) => <AdminLayout title="Feedback List">{page}</AdminLayout>
 export default FeedbackList;

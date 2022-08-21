@@ -5,12 +5,12 @@ import React from 'react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { VStack, Flex, Link, HStack, useColorModeValue, Text } from '@chakra-ui/react';
 import router from 'next/router';
+import { ReactElement } from "react";
 
 const TicketDetail = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Support Center">
             <VStack spacing={"20px"} align="stretch">
                 {/* Header */}
                 <Flex align="center" justify="space-between">
@@ -29,8 +29,8 @@ const TicketDetail = () => {
                 <Information />
                 <Comment />
             </VStack>
-        </AdminLayout>
     );
 };
 
+TicketDetail.getLayout = (page: ReactElement) => <AdminLayout title="Support Center">{page}</AdminLayout>
 export default TicketDetail;

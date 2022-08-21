@@ -3,12 +3,12 @@ import { Box, Accordion, AccordionItem, AccordionButton, AccordionIcon, Accordio
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link"
+import { ReactElement } from 'react';
 
 const DivisionAndvACCList = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Division and vACC List">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                     Divisions and vACCs List
@@ -110,8 +110,8 @@ const DivisionAndvACCList = () => {
                     </Accordion>
                 </Card>
             </VStack>
-        </AdminLayout>
     );
 };
 
+DivisionAndvACCList.getLayout = (page: ReactElement) => <AdminLayout title="Division and vACC List">{page}</AdminLayout>
 export default DivisionAndvACCList;

@@ -3,12 +3,12 @@ import PendingTickets from '@components/support/PendingTickets';
 import ResolvedTickets from '@components/support/ResolvedTickets';
 import AdminLayout from '@layouts/admin';
 import NavLink from "next/link"
+import { ReactElement } from 'react';
 
 const Tickets = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="Ticket #123">
             <VStack spacing={"20px"} align="stretch">
                 {/* Header */}
                 <Flex justify={"space-between"}>
@@ -24,8 +24,8 @@ const Tickets = () => {
                 <PendingTickets />
                 <ResolvedTickets />
             </VStack>
-        </AdminLayout>
     );
 };
 
+Tickets.getLayout = (page: ReactElement) => <AdminLayout title="Ticket #123">{page}</AdminLayout>
 export default Tickets;

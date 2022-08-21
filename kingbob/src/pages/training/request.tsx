@@ -9,12 +9,13 @@ import {
 } from "@chakra-ui/react";
 import ATCRequestModal from "@components/training/modal/ATCRequest";
 import AdminLayout from "@layouts/admin";
+import { ReactElement } from 'react';
 
 const Training = () => {
     const { onOpen, modal, requestSubmitted } = ATCRequestModal()
 
     return (
-        <AdminLayout title="Training System">
+        <>
             <Flex
                 width={{ base: "90vw", xl: "75vw" }}
                 align="center"
@@ -52,8 +53,9 @@ const Training = () => {
 
             {/* Show modal */}
             {modal}
-        </AdminLayout >
+        </>
     );
 };
 
+Training.getLayout = (page: ReactElement) => <AdminLayout title="Training System">{page}</AdminLayout>
 export default Training;

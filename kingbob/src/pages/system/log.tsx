@@ -2,12 +2,12 @@ import { Link, Table, Thead, Tr, Th, Tbody, Td, Box, Text, useColorModeValue, VS
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
 import NavLink from "next/link";
+import { ReactElement } from 'react';
 
 const SystemLog = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
     return (
-        <AdminLayout title="System Log">
             <VStack spacing={"20px"} align="stretch">
                 <Text color={textColor} fontSize="2xl" ms="24px" fontWeight="700">
                     System Log
@@ -51,8 +51,8 @@ const SystemLog = () => {
                     </Box>
                 </Card>
             </VStack>
-        </AdminLayout>
     );
 };
 
+SystemLog.getLayout = (page: ReactElement) => <AdminLayout title="System Log">{page}</AdminLayout>
 export default SystemLog;
