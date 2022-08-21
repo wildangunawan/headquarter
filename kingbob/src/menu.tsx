@@ -78,18 +78,6 @@ const routes: Menu[] = [
         ],
       },
       {
-        name: "Pilot",
-        dropdown: true,
-        items: [
-          {
-            name: "Pilot Resource Center",
-            external: true,
-            icon: IoMdAirplane,
-            link: "https://my.vatsim.net/pilots/train",
-          },
-        ],
-      },
-      {
         name: "Membership",
         dropdown: true,
         items: [
@@ -120,10 +108,16 @@ const routes: Menu[] = [
         ],
       },
       {
+        name: "Pilot Resource Center",
+        external: true,
+        icon: IoMdAirplane,
+        link: "https://my.vatsim.net/pilots/train",
+      },
+      {
         name: "HQ Changelog",
-        layout: "",
+        external: true,
         icon: MdList,
-        path: "/datatables",
+        link: "https://github.com/wildangunawan/headquarter/CHANGELOG.md",
       },
       {
         name: "My Profile",
