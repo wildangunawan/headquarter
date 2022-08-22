@@ -57,7 +57,7 @@ const CreateFaq = () => {
           <FormLabel>Question</FormLabel>
           <Input defaultValue="" {...register("question", { required: true })} placeholder='Question' />
           {questionInvalid && <FormErrorMessage>Question is required.</FormErrorMessage>}
-        </FormControl><>{getFieldState("question").isTouched}</>
+        </FormControl>
         <FormControl isRequired isInvalid={answerInvalid}>
           <FormLabel>Answer</FormLabel>
           <Input defaultValue="" {...register("answer", { required: true })} placeholder='Answer' />
