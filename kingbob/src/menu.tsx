@@ -75,6 +75,12 @@ const routes: Menu[] = [
             path: "/atc/fss",
             icon: MdGroups,
           },
+          {
+            name: "Statistics",
+            layout: "",
+            icon: IoMdStats,
+            path: "/profile",
+          },
         ],
       },
       {
@@ -188,7 +194,7 @@ const routes: Menu[] = [
           {
             name: "Add Event",
             layout: "",
-            path: "/profile",
+            path: "/events/add",
             icon: MdEvent,
           },
           {
@@ -292,7 +298,7 @@ const routes: Menu[] = [
           {
             name: "Add Event",
             layout: "",
-            path: "/profile",
+            path: "/events/add",
             icon: MdEvent,
           },
           {
