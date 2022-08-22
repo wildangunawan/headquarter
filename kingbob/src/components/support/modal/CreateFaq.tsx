@@ -1,62 +1,16 @@
 import { Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Text } from '@chakra-ui/react';
 import useModal from '@hooks/useModal';
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
 
 const CreateFaq = () => {
   const [loading, setLoading] = useState(false)
   const [newQuestionAdded, setNewQuestionAdded] = useState(false)
-  const [question, setQuestion] = useState({
-    value: "",
-    isError: false,
-    touched: false
-  })
-  const [answer, setAnswer] = useState({
-    value: "",
-    isError: false,
-    touched: false
-  })
+  const { register, getFieldState, handleSubmit, formState: { errors } } = useForm({mode: "onChange"});
 
-  const handleQuestionOnChange = (event: any) => setQuestion(event.target.value)
-  const handleAnswerOnChange = (event: any) => setAnswer(event.target.value)
+  const questionInvalid = getFieldState("question").isTouched && errors.question !== undefined
+  const answerInvalid = getFieldState("answer").isTouched && errors.answer !== undefined
 
-  const changeHandler = (type: string, event: any) => {
-    const inputValue = event.target.value.trim()
-    let isError = inputValue.length === 0
-    
-    if (type === "question") {
-      setQuestion(currentValue => ({
-        ...currentValue,
-      value: event.target.value,
-      isError,
-      }))
-    }
-
-    if (type === "answer") {
-      setAnswer(currentValue => ({
-        ...currentValue,
-      value: event.target.value,
-      isError,
-      }))
-    }
-  }
-
-  const blurHandler = (type: string, event: any) => {
-    if (type === "question") {
-      setQuestion(currentValue => ({
-        ...currentValue,
-      value: event.target.value,
-      touched: true,
-      }))
-    }
-
-    if (type === "answer") {
-      setAnswer(currentValue => ({
-        ...currentValue,
-      value: event.target.value,
-      touched: true,
-      }))
-    }
-  }
 
   const submitApplication = () => {
     // Set loading
@@ -99,24 +53,21 @@ const CreateFaq = () => {
     title: 'Create new FAQ',
     body: 
     <Flex direction={"column"} gap={3} mb={4}>
-        <FormControl isRequired isInvalid={question.touched && question.isError}>
+        <FormControl isRequired isInvalid={questionInvalid}>
           <FormLabel>Question</FormLabel>
-          <Input value={question.value} onChange={(e) =>changeHandler("question", e)} 
-                  onBlur={(e) => blurHandler("question", e)} placeholder='Question' />
-          {question.isError && <FormErrorMessage>Question is required.</FormErrorMessage>}
-        </FormControl>
-        <FormControl isRequired isInvalid={answer.touched && answer.isError}>
+          <Input defaultValue="" {...register("question", { required: true })} placeholder='Question' />
+          {questionInvalid && <FormErrorMessage>Question is required.</FormErrorMessage>}
+        </FormControl><>{getFieldState("question").isTouched}</>
+        <FormControl isRequired isInvalid={answerInvalid}>
           <FormLabel>Answer</FormLabel>
-          <Input value={answer.value} onChange={(e) =>changeHandler("answer", e)}
-                  onBlur={(e) => blurHandler("answer", e)} placeholder='Answer' />
-          {answer.isError && <FormErrorMessage>Answer is required.</FormErrorMessage>}
+          <Input defaultValue="" {...register("answer", { required: true })} placeholder='Answer' />
+          {answerInvalid && <FormErrorMessage>Answer is required.</FormErrorMessage>}
         </FormControl>
     </Flex>,
     footer: <Button
         colorScheme='blue'
         size={"md"}
-        onClick={submitApplication}
-        isDisabled={question.value === "" || answer.value === ""}
+        onClick={handleSubmit(submitApplication)}
         isLoading={loading}
         loadingText="Submitting"
     >
