@@ -463,6 +463,12 @@ const routes: Menu[] = [
         icon: FaChalkboardTeacher,
         path: "/training/mentor-center",
       },
+      {
+        name: "Examiner Center",
+        layout: "",
+        icon: TbReportAnalytics,
+        path: "/training/examiner-center",
+      },
     ],
   },
 
