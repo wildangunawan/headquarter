@@ -18,13 +18,13 @@ const DivisionAndvACCList = () => {
                     <Accordion
                         allowMultiple
                         allowToggle
-                        defaultIndex={0} // to open first item by default
+                        defaultIndex={[0]} // to open first item by default
                     >
                         <AccordionItem>
                             <h2>
                                 <AccordionButton>
                                     <Box flex='1' textAlign='left'>
-                                        South East Asia (SEA)
+                                        <b>South East Asia (SEA)</b>
                                     </Box>
                                     <AccordionIcon />
                                 </AccordionButton>
@@ -69,7 +69,7 @@ const DivisionAndvACCList = () => {
                             <h2>
                                 <AccordionButton>
                                     <Box flex='1' textAlign='left'>
-                                        West Asia (WA)
+                                        <b>West Asia (WA)</b>
                                     </Box>
                                     <AccordionIcon />
                                 </AccordionButton>
@@ -101,7 +101,7 @@ const DivisionAndvACCList = () => {
                                         <Link color="brand.500">Pakistan vACC</Link>
                                     </NavLink>
                                     <NavLink href="/vacc/SRM" passHref>
-                                        <Link color="brand.500">Sri Lanka & Maldives vACC</Link>
+                                        <Link color="brand.500">Sri Lanka &#38; Maldives vACC</Link>
                                     </NavLink>
                                 </VStack>
                             </AccordionPanel>
