@@ -199,8 +199,8 @@ const routes: Menu[] = [
           },
           {
             name: "CharSceCtor",
-            layout: "/auth",
-            path: "/sign-in",
+            layout: "",
+            path: "/staff/general/charscector",
             icon: MdList,
           },
           {
@@ -304,7 +304,7 @@ const routes: Menu[] = [
           {
             name: "CharSceCtor",
             layout: "/auth",
-            path: "/sign-in",
+            path: "/staff/general/charscector",
             icon: MdList,
           },
           {
