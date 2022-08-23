@@ -1,4 +1,4 @@
-import { Button, Input, FormControl, FormLabel, Select, Flex, VStack, Switch } from "@chakra-ui/react";
+import { Button, Input, FormControl, FormLabel, Select, Flex, VStack, Switch, Textarea } from "@chakra-ui/react";
 import useModal from "@hooks/useModal";
 import { useState } from "react";
 
@@ -73,7 +73,7 @@ const CreatevACCTransferRequest = () => {
             </FormControl>
             : <VStack spacing={2}>
                 <FormControl>
-                    <FormLabel>CID</FormLabel>
+                    <FormLabel>Member&apos;s CID</FormLabel>
                     <Input
                         value={formData.cid}
                         onChange={(e) => setFormData({ ...formData, cid: Number(e.target.value) })}
@@ -84,26 +84,21 @@ const CreatevACCTransferRequest = () => {
                     formData.type === 2 &&
                     <>
                         <FormControl>
-                            <FormLabel>Reason</FormLabel>
-                            <Input
+                            <FormLabel>Member&apos;s Reason</FormLabel>
+                            <Textarea
                                 value={formData.reason}
                                 onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
                             />
                         </FormControl>
-                        <FormControl>
-                            <FormLabel>Would you like to request for training data?</FormLabel>
-                            <Select
-                                onChange={(e) => setFormData({ ...formData, would_like_to_request_for_training_data: e.target.value === "true" })}
-                            >
-                                <option
-                                    value={"false"}
-                                    selected={formData.would_like_to_request_for_training_data === false}
-                                >No</option>
-                                <option
-                                    value={"true"}
-                                    selected={formData.would_like_to_request_for_training_data === true}
-                                >Yes</option>
-                            </Select>
+
+                        <FormControl display='flex' alignItems='center' gap={2}>
+                            <Switch
+                                id='request-training-data'
+                                onChange={(e) => setFormData({ ...formData, would_like_to_request_for_training_data: e.target.checked })}
+                            />
+                            <FormLabel htmlFor='request-training-data' mb='0'>
+                                I would like to request for training data.
+                            </FormLabel>
                         </FormControl>
                     </>
                 }
