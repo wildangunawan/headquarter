@@ -22,6 +22,11 @@ const VACCTransfer = () => {
                     <Button colorScheme={"blue"} onClick={onOpen}>Create new request</Button>
                 </Flex>
 
+                <Alert status="info">
+                    <AlertIcon />
+                    Only vACC Director, Deputy Director, or Training Director or in cases of some vACCs, the membership director may request a transfer.
+                </Alert>
+
                 <Card>
                     <TableContainer>
                         <Table variant='simple'>
