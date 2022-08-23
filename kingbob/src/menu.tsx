@@ -23,6 +23,7 @@ import {
 } from "react-icons/md";
 import { IoMdAirplane, IoMdStats } from "react-icons/io";
 import { TbReportAnalytics } from "react-icons/tb";
+import { BiTransfer } from "react-icons/bi";
 import { IoNewspaper } from "react-icons/io5";
 import { FaChalkboardTeacher, FaClipboardList, FaQuestionCircle } from "react-icons/fa";
 
@@ -240,6 +241,12 @@ const routes: Menu[] = [
             path: "/staff/membership/email-members",
           },
           {
+            name: "Request for transfer",
+            layout: "",
+            icon: BiTransfer,
+            path: "/staff/membership/vacc-transfer",
+          },
+          {
             name: "Visitors",
             layout: "",
             path: "/staff/membership/visitor",
@@ -330,6 +337,12 @@ const routes: Menu[] = [
             layout: "",
             icon: MdEmail,
             path: "/staff/membership/email-members",
+          },
+          {
+            name: "vACC transfer requests",
+            layout: "",
+            icon: BiTransfer,
+            path: "/staff/membership/vacc-transfer",
           },
           {
             name: "Visitors",
