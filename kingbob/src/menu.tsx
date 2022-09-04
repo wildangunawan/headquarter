@@ -49,9 +49,9 @@ const routes: Menu[] = [
     path: "/",
   },
 
-  // Membership
+  // Member
   {
-    name: "Membership",
+    name: "Member",
     dropdown: true,
     items: [
       {
