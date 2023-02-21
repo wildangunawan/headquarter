@@ -17,26 +17,36 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        // Generate fake data from VATSIM Data Gen
+        $generator = new VATSIMDataGenerator();
+        [
+            $atc_rating_id,
+            $atc_rating_name,
+            $pilot_rating_id,
+            $pilot_rating_name,
+            $subdivision_name,
+            $subdivision_code,
+            $division_name,
+            $division_code,
+            $region_name,
+            $region_code
+        ] = $generator->randomCompleteData();
+
         return [
+            'id' => fake()->numberBetween(1000000, 9999999),
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'atc_rating_id' => $atc_rating_id,
+            'atc_rating_name' => $atc_rating_name,
+            'pilot_rating_id' => $pilot_rating_id,
+            'pilot_rating_name' => $pilot_rating_name,
+            'region_name' => $region_name,
+            'region_code' => $region_code,
+            'division_name' => $division_name,
+            'division_code' => $division_code,
+            'subdivision_name' => $subdivision_name,
+            'subdivision_code' => $subdivision_code,
             'remember_token' => Str::random(10),
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return static
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
     }
 }
