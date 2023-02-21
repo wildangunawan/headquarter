@@ -188,7 +188,7 @@ class VATSIMDataGenerator
         return [$pilot_rating_id, $pilot_rating_name];
     }
 
-    public function randomCompleteData(): array
+    public function randomCompleteData($available_in_data = false): array
     {
         [
             $subdivision_name,
@@ -197,7 +197,7 @@ class VATSIMDataGenerator
             $division_code,
             $region_name,
             $region_code
-        ] = $this->randomSubdivision();
+        ] = $this->randomSubdivision($available_in_data);
 
         $atc_rating_id = array_rand($this->atc_rating);
         $atc_rating_name = $this->atc_rating[$atc_rating_id];
