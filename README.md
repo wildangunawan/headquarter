@@ -7,7 +7,7 @@ Headquarter is an application used for VATSIM division(s) to do their housekeepi
 | Folder name | Description                    |
 |-------------|--------------------------------|
 | Kingbob     | Frontend. Powered by NextJS 12 |
-| Stuart      | Backend. Powered by Laravel 9  |
+| Stuart      | Backend. Powered by Laravel 10 |
 | Kevin       | Currently not used             |
 
 Ps. Yes, this is inspired by Minion. 
