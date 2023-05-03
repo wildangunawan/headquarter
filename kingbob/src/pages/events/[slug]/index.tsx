@@ -2,7 +2,7 @@ import { VStack, Text, useColorModeValue, Icon, Flex, HStack, Button, Box, Selec
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
 import { GiControlTower, GiAirplaneDeparture } from "react-icons/gi";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { MdEdit, MdSave } from "react-icons/md";
 import { ReactElement } from "react";
 
@@ -46,7 +46,10 @@ const EventDetail = () => {
                         alt="Swagatam Singapore"
                         height="1080"
                         width="1920"
-                    />
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
 
                     <Text>
                         Nepal vACC in collaboration with Singapore vACC are pleased to announce “Swagatam Singapore”. Depart from the beautiful City of Singapore and enjoy ATC all the way to Kathmandu. Make sure to bring some extra fuel in case of holdings.

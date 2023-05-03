@@ -3,7 +3,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 // Custom components
 import { HSeparator } from "components/separator/Separator";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export function SidebarBrand() {
   return (
@@ -14,8 +14,11 @@ export function SidebarBrand() {
           alt="VATSEA Logo"
           width="1080"
           height="400"
-          objectFit="contain"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            objectFit: "contain"
+          }} />
       </Box>
       <HSeparator mb='15px' />
     </Flex>

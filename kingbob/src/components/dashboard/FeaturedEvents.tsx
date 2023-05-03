@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Highlight, Link, Text, VStack } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/system";
 import Card from "@components/card/Card";
-import Image from "next/legacy/image"
+import Image from "next/image"
 import NavLink from "next/link"
 
 const FeaturedEvents = () => {
@@ -28,8 +28,11 @@ const FeaturedEvents = () => {
                     alt={"Nanti dulu ya"}
                     width="1920"
                     height="1080"
-                    style={{ borderRadius: '16px' }}
-                />
+                    style={{
+                        borderRadius: '16px',
+                        maxWidth: "100%",
+                        height: "auto"
+                    }} />
                 <Box>
                     <NavLink href="/events/jakarta-turn-around-1" passHref>
                         <Link

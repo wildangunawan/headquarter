@@ -1,6 +1,6 @@
 import { Text, useColorModeValue, Grid, Link, VStack, StackDivider, Box } from '@chakra-ui/react';
 import Card from '@components/card/Card';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import NavLink from "next/link";
 
 const VACCInfo = () => {
@@ -22,8 +22,11 @@ const VACCInfo = () => {
                         alt="VATSEA Logo"
                         width="1080"
                         height="200"
-                        objectFit="contain"
-                    />
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto",
+                            objectFit: "contain"
+                        }} />
                 </Box>
 
                 <Grid
