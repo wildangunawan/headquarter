@@ -18,8 +18,6 @@ yarn
 
 If there is no error message popped up, you should be good to go to next step.
 
-Note: We recommend using yarn instead of npm since it's a lot better than npm. You're free to choose whether you like to use yarn or npm though.
-
 #### 2. Let's go
 
 After all package installed, you can start running the frontend in your local dev environtment.
