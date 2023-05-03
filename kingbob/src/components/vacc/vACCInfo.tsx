@@ -85,9 +85,7 @@ const VACCInfo = () => {
         >
           <Text>Welcome message</Text>
           <Text>
-            <Link as={NextLink} color="brand.500">
-              View
-            </Link>
+            <Link color="brand.500">View</Link>
           </Text>
         </Grid>
       </VStack>

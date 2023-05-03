@@ -66,7 +66,7 @@ export default function Banner() {
         >
           Discover now
         </Button>
-        <Link as={NextLink}>
+        <Link>
           <Text color="white" fontSize="sm" fontWeight="500">
             Watch video
           </Text>

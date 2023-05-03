@@ -24,7 +24,7 @@ const StudentSpecificView = () => {
     <VStack spacing={"20px"} align="stretch">
       {/* Header */}
       <Flex align="center" justify="space-between">
-        <Link as={NextLink} color={"blue.500"} onClick={() => router.back()}>
+        <Link color={"blue.500"} onClick={() => router.back()}>
           <HStack spacing={1}>
             <ArrowBackIcon w={5} h={5} />
             <Text>Back</Text>

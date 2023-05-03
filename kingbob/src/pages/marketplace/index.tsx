@@ -9,7 +9,6 @@ import {
   useColorModeValue,
   SimpleGrid,
 } from "@chakra-ui/react";
-import NextLink from "next/link";
 
 // Custom components
 import Banner from "../../components/marketplace/components/Banner";
@@ -69,7 +68,6 @@ export default function Marketplace() {
                 mt={{ base: "20px", md: "0px" }}
               >
                 <Link
-                  as={NextLink}
                   color={textColorBrand}
                   fontWeight="500"
                   me={{ base: "34px", md: "44px" }}
@@ -78,7 +76,6 @@ export default function Marketplace() {
                   Art
                 </Link>
                 <Link
-                  as={NextLink}
                   color={textColorBrand}
                   fontWeight="500"
                   me={{ base: "34px", md: "44px" }}
@@ -87,7 +84,6 @@ export default function Marketplace() {
                   Music
                 </Link>
                 <Link
-                  as={NextLink}
                   color={textColorBrand}
                   fontWeight="500"
                   me={{ base: "34px", md: "44px" }}
@@ -95,12 +91,7 @@ export default function Marketplace() {
                 >
                   Collectibles
                 </Link>
-                <Link
-                  as={NextLink}
-                  color={textColorBrand}
-                  fontWeight="500"
-                  href="#sports"
-                >
+                <Link color={textColorBrand} fontWeight="500" href="#sports">
                   Sports
                 </Link>
               </Flex>
