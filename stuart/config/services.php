@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'vatsim' => [
+        'client_id' => env('VATSIM_CLIENT_ID'),
+        'client_secret' => env('VATSIM_CLIENT_SECRET'),
+        'redirect' => env('VATSIM_REDIRECT_URI'),
+        'test' => env('VATSIM_TEST'),
+    ],
 ];
