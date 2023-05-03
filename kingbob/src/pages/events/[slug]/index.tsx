@@ -2,7 +2,7 @@ import { VStack, Text, useColorModeValue, Icon, Flex, HStack, Button, Box, Selec
 import Card from "@components/card/Card";
 import AdminLayout from "@layouts/admin";
 import { GiControlTower, GiAirplaneDeparture } from "react-icons/gi";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { MdEdit, MdSave } from "react-icons/md";
 import { ReactElement } from "react";
 

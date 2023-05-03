@@ -1,6 +1,6 @@
 import { Text, useColorModeValue, Grid, Link, VStack, StackDivider, Box } from '@chakra-ui/react';
 import Card from '@components/card/Card';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import NavLink from "next/link";
 
 const VACCInfo = () => {

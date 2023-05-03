@@ -3,7 +3,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 // Custom components
 import { HSeparator } from "components/separator/Separator";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export function SidebarBrand() {
   return (

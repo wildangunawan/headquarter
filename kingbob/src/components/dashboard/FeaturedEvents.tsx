@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Highlight, Link, Text, VStack } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/system";
 import Card from "@components/card/Card";
-import Image from "next/image"
+import Image from "next/legacy/image"
 import NavLink from "next/link"
 
 const FeaturedEvents = () => {
