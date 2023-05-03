@@ -34,7 +34,7 @@ See ya at pull request section ♥`);
   return (
     <>
       <Head>
-        <title>{title} - Headquarter</title>
+        <title>{`${title} - Headquarter` ?? "Headquarter"}</title>
       </Head>
       <Box>
         <Sidebar routes={routes} {...rest} />
