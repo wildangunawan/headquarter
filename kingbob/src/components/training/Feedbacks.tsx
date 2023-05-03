@@ -11,7 +11,7 @@ import {
     Box,
 } from '@chakra-ui/react'
 import Card from "@components/card/Card";
-import NavLink from "next/link"
+import NextLink from "next/link"
 
 const FeedbackFromOtherMembers = () => {
     const textColor = useColorModeValue("secondaryGray.900", "white");

@@ -16,6 +16,7 @@ import Card from "components/card/Card";
 // Assets
 import { useState } from "react";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
+import NextLink from "next/link";
 
 export default function NFT(props: any) {
   const { image, name, author, bidders, download, currentbid } = props;
@@ -132,6 +133,7 @@ export default function NFT(props: any) {
               Current Bid: {currentbid}
             </Text>
             <Link
+              as={NextLink}
               href={download}
               mt={{
                 base: "0px",

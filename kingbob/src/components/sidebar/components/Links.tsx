@@ -1,4 +1,4 @@
-import NavLink from "next/link";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -14,7 +14,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Menu } from "types/menu";
-import { ChevronDownIcon, ChevronUpIcon, CloseIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  CloseIcon,
+  ExternalLinkIcon,
+} from "@chakra-ui/icons";
 
 export function SidebarLinks({ routes }: { routes: Menu[] }) {
   //   Chakra color mode
@@ -38,11 +43,11 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
 
   const selectMenu = (selectedMenu: Menu) => {
     if (activeMenu.includes(selectedMenu)) {
-      setActiveMenu(activeMenu.filter(menu => menu !== selectedMenu))
+      setActiveMenu(activeMenu.filter((menu) => menu !== selectedMenu));
     } else {
-      setActiveMenu(prevActiveMenu => [...prevActiveMenu, selectedMenu]);
+      setActiveMenu((prevActiveMenu) => [...prevActiveMenu, selectedMenu]);
     }
-  }
+  };
 
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks: any = (routes: Menu[], level: number) => {
@@ -54,7 +59,9 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               align={"center"}
               justify={"space-between"}
               cursor="pointer"
-              onClick={() => { selectMenu(route) }}
+              onClick={() => {
+                selectMenu(route);
+              }}
               color={textColor}
             >
               <Text
@@ -70,7 +77,9 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
               <ChevronDownIcon
                 me={5}
                 style={{
-                  transform: activeMenu.includes(route) ? "rotate(-180deg)" : "rotate(0deg)",
+                  transform: activeMenu.includes(route)
+                    ? "rotate(-180deg)"
+                    : "rotate(0deg)",
                   transition: "transform 0.2s ease-in-out",
                 }}
               />
@@ -83,113 +92,91 @@ export function SidebarLinks({ routes }: { routes: Menu[] }) {
         );
       } else if (route.external) {
         return (
-          <NavLink
-            key={index}
-            href={route.link}
-            passHref
-          >
-            <Link isExternal>
-              <HStack
-                ml={level * 5}
-                spacing="26px"
-                py="5px"
-                ps="10px"
-              >
-                <Flex w="100%" align="center" justify="center" gap={2}>
-                  {
-                    route.icon
-                    && <Icon
-                      as={route.icon}
-                      width='20px'
-                      height='20px'
-                      color={textColor}
-                    />
-                  }
-
-                  <Text
-                    me="auto"
+          <Link key={index} as={NextLink} href={route.link} isExternal>
+            <HStack ml={level * 5} spacing="26px" py="5px" ps="10px">
+              <Flex w="100%" align="center" justify="center" gap={2}>
+                {route.icon && (
+                  <Icon
+                    as={route.icon}
+                    width="20px"
+                    height="20px"
                     color={textColor}
-                    fontWeight={"normal"}
-                  >
-                    {route.name}
-                    {route.external && <ExternalLinkIcon mx='5px' />}
-                  </Text>
+                  />
+                )}
 
-                </Flex>
+                <Text me="auto" color={textColor} fontWeight={"normal"}>
+                  {route.name}
+                  {route.external && <ExternalLinkIcon mx="5px" />}
+                </Text>
+              </Flex>
 
-                <Box
-                  h="36px"
-                  w="4px"
-                  bg={"transparent"}
-                  borderRadius="5px"
-                />
-              </HStack>
-            </Link>
-          </NavLink>
+              <Box h="36px" w="4px" bg={"transparent"} borderRadius="5px" />
+            </HStack>
+          </Link>
         );
-      } else if (route.layout || route.layout == '') {
+      } else if (route.layout || route.layout == "") {
         return (
-          <NavLink
+          <Link
             key={index}
             href={route.layout + route.path}
-            passHref
+            as={NextLink}
+            isExternal={route.external}
           >
-            <Link isExternal={route.external}>
-              <HStack
-                ml={level * 5}
-                spacing={
-                  activeRoute(route.layout + route.path.toLowerCase()) ? "22px" : "26px"
-                }
-                py="5px"
-                ps="10px"
-              >
-                <Flex w="100%" align="center" justify="center" gap={2}>
-                  {
-                    route.icon
-                    && <Icon
-                      as={route.icon}
-                      width='20px'
-                      height='20px'
-                      color={
-                        activeRoute(route.layout + route.path.toLowerCase())
-                          ? activeIcon
-                          : textColor
-                      }
-                    />
-                  }
-
-                  <Text
-                    me="auto"
+            <HStack
+              ml={level * 5}
+              spacing={
+                activeRoute(route.layout + route.path.toLowerCase())
+                  ? "22px"
+                  : "26px"
+              }
+              py="5px"
+              ps="10px"
+            >
+              <Flex w="100%" align="center" justify="center" gap={2}>
+                {route.icon && (
+                  <Icon
+                    as={route.icon}
+                    width="20px"
+                    height="20px"
                     color={
                       activeRoute(route.layout + route.path.toLowerCase())
-                        ? activeColor
+                        ? activeIcon
                         : textColor
                     }
-                    fontWeight={
-                      activeRoute(route.layout + route.path.toLowerCase())
-                        ? "bold"
-                        : "normal"
-                    }
-                  >
-                    {route.name}
-                  </Text>
+                  />
+                )}
 
-                  {route.external && <ExternalLinkIcon mx='2px' />}
-                </Flex>
-
-                <Box
-                  h="36px"
-                  w="4px"
-                  bg={
+                <Text
+                  me="auto"
+                  color={
                     activeRoute(route.layout + route.path.toLowerCase())
-                      ? brandColor
-                      : "transparent"
+                      ? activeColor
+                      : textColor
                   }
-                  borderRadius="5px"
-                />
-              </HStack>
-            </Link>
-          </NavLink>
+                  fontWeight={
+                    activeRoute(route.layout + route.path.toLowerCase())
+                      ? "bold"
+                      : "normal"
+                  }
+                >
+                  {route.name}
+                </Text>
+
+                {route.external && <ExternalLinkIcon mx="2px" />}
+              </Flex>
+
+              <Box
+                h="36px"
+                w="4px"
+                bg={
+                  activeRoute(route.layout + route.path.toLowerCase())
+                    ? brandColor
+                    : "transparent"
+                }
+                borderRadius="5px"
+              />
+            </HStack>
+          </Link>
         );
       }
     });

@@ -1,6 +1,6 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Flex, Link, StackDivider, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import Card from '@components/card/Card';
-import NavLink from "next/link"
+import NextLink from "next/link"
 import AdminLayout from '@layouts/admin';
 import { ReactElement } from 'react';
 import CreateFaq from "../../components/support/modal/CreateFaq";

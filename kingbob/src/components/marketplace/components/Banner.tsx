@@ -1,5 +1,6 @@
 // Chakra imports
 import { Button, Flex, Link, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 // Assets
 import banner from "assets/img/nfts/NftBanner1.png";
@@ -65,7 +66,7 @@ export default function Banner() {
         >
           Discover now
         </Button>
-        <Link>
+        <Link as={NextLink}>
           <Text color="white" fontSize="sm" fontWeight="500">
             Watch video
           </Text>
