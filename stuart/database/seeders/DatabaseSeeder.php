@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RegionSeeder::class);
-        $this->call(DivisionSeeder::class);
-        $this->call(SubdivisionSeeder::class);
+        // Only run this seeder if we're in a local environment
+        // or if you're sure it's safe to do so
+        $this->call(HQMemberSeeder::class);
         $this->call(UserSeeder::class);
     }
 }
