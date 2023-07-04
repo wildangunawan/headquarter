@@ -15,6 +15,8 @@ class Subdivision extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
+        'code',
         'website',
         'email',
         'image_link',

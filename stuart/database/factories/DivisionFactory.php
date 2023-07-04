@@ -12,10 +12,10 @@ class DivisionFactory extends Factory
     {
         // Get random data
         $generator = new VATSIMDataGenerator();
-        [$name, $code] = $generator->randomDivision();
+        $region = Region::inRandomOrder()->first();
 
-        // Get random region
-        $region = Region::factory()->create();
+        // Generate random division in that region
+        [$name, $code] = $generator->getRandomDivisionIn($region->code);
 
         return [
             'name' => $name,

@@ -78,8 +78,8 @@ class VATSIMDataGenerator
         "WA" => "West Asia"
     ];
 
-    // list of all subdivision/vACC/ARTCC
-    // i'll only add WA and SEA 😅
+    // List of all subdivision/vACC/ARTCC
+    // Expand as needed, please open a PR to update the main HQ repo as well
     public array $subdivision = [
         "SEA" => [
             "HK" => "Hong Kong",
@@ -209,6 +209,39 @@ class VATSIMDataGenerator
             $atc_rating_name,
             $pilot_rating_id,
             $pilot_rating_name,
+            $subdivision_name,
+            $subdivision_code,
+            $division_name,
+            $division_code,
+            $region_name,
+            $region_code
+        ];
+    }
+
+    public function getRandomDivisionIn(string $region_code): array
+    {
+        $region_name = $this->region[$region_code];
+        $division_code = array_rand($this->division[$region_code]);
+        $division_name = $this->division[$region_code][$division_code];
+
+        return [
+            $division_name,
+            $division_code,
+            $region_name,
+            $region_code
+        ];
+    }
+
+    public function getRandomSubdivisionIn(string $division_code): array
+    {
+        $division_name = $this->division[$division_code];
+        $region_code = array_search($division_name, $this->division);
+        $region_name = $this->region[$region_code];
+
+        $subdivision_code = array_rand($this->subdivision[$division_code]);
+        $subdivision_name = $this->subdivision[$division_code][$subdivision_code];
+
+        return [
             $subdivision_name,
             $subdivision_code,
             $division_name,

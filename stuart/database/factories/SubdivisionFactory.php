@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Division;
-use App\Models\Region;
 use App\Models\Subdivision;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,12 +12,12 @@ class SubdivisionFactory extends Factory
 
     public function definition(): array
     {
-        // Generator
+        // Get random data
         $generator = new VATSIMDataGenerator();
-        [$name, $code] = $generator->randomSubdivision();
+        $division = Division::inRandomOrder()->first();
 
-        // Get random division, region automatically created
-        $division = Division::factory()->create();
+        // Generate random subdivision in that division
+        [$name, $code] = $generator->getRandomSubdivisionIn($division->code);
 
         return [
             'name' => $name,

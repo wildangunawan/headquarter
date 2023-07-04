@@ -13,7 +13,7 @@ class RegionFactory extends Factory
     {
         // Generator
         $generator = new VATSIMDataGenerator();
-        [$name, $code] = $generator->randomRegion();
+        [$name, $code] = $generator->randomRegion(true);
 
         return [
             'name' => $name,
