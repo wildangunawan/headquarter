@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Headquarter API",
+        "description": "Set header Accept: application/json for every request. Otherwise API may not behave correctly. Use HTTPS to ensure secure connection between client and API.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/auth/callback": {
+            "get": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "API to log user in after redirection from VATSIM Connect",
+                "operationId": "login-callback",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Code from VATSIM Connect",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login succeed and returning user data."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/redirect": {
+            "get": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "API to redirect user to VATSIM Connect to login themself",
+                "operationId": "login-redirect",
+                "responses": {
+                    "200": {
+                        "description": "User will be redirected to VATSIM Connect."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                }
+            }
+        }
+    }
+}

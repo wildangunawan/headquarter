@@ -3,17 +3,17 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::group(['prefix' => 'v1'], function () {
+    // Auth -> VATSIM Connect
+    Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
+        Route::get('redirect', \App\Http\Controllers\API\v1\Auth\RedirectToVATSIM::class);
+        Route::get('callback', \App\Http\Controllers\API\v1\Auth\ComingFromVATSIM::class);
+    });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    // Logged-in user only
+    Route::group(['middleware' => 'auth:sanctum'], function () {
+        Route::get('user', function (Request $request) {
+            return $request->user();
+        });
+    });
 });
