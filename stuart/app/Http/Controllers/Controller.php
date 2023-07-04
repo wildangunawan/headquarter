@@ -14,7 +14,7 @@ use Illuminate\Routing\Controller as BaseController;
 use OpenApi\Annotations as OA;
 
 /**
- * @OA\Info(title="Headquarter API", version="1.0.0", description="Set header Accept: application/json for every request. Otherwise API may not behave correctly.\nUse HTTPS to ensure secure connection between client and API.")
+ * @OA\Info(title="Headquarter API", version="1.0.0", description="Set header Accept: application/json for every request. Otherwise API may not behave correctly. Use HTTPS to ensure secure connection between client and API.")
  */
 class Controller extends BaseController
 {
