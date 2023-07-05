@@ -33,7 +33,7 @@ class UserFactory extends Factory
         ] = $generator->randomCompleteData();
 
         return [
-            'id' => fake()->numberBetween(1000001, 1000100),
+            'id' => fake()->numberBetween(10000001, 10001000),
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
             'atc_rating_id' => $atc_rating_id,
