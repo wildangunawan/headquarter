@@ -19,18 +19,14 @@ class Division extends Model
         'code',
         'website',
         'region_code',
-        'created_at',
-        'updated_at',
     ];
 
-    // Relation to region, many to one
-    public function region()
+    public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Region::class, 'region_code', 'code');
     }
 
-    // Relation to subdivisions, one to many
-    public function subdivisions()
+    public function subdivisions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Subdivision::class, 'division_code', 'code');
     }

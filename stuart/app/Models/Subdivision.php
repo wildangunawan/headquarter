@@ -24,14 +24,12 @@ class Subdivision extends Model
         'division_code',
     ];
 
-    // Relation to region, many to one
-    public function region()
+    public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Region::class, 'region_code', 'code');
     }
 
-    // Relation to division, many to one
-    public function division()
+    public function division(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Division::class, 'division_code', 'code');
     }
