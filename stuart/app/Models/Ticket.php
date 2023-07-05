@@ -24,6 +24,11 @@ class Ticket extends Model
         return $this->belongsTo(User::class, 'closed_by', 'id');
     }
 
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(TicketComment::class);
+    }
+
     public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Region::class, 'region_code', 'code');

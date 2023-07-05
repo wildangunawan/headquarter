@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\TicketComment;
+use App\Observers\TicketCommentObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -33,7 +35,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        TicketComment::observe(TicketCommentObserver::class);
     }
 
     /**

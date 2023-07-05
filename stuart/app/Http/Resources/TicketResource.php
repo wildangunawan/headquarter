@@ -13,10 +13,13 @@ class TicketResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'status' => TicketStatus::getKey($this->status),
+
             'subject' => $this->subject,
             'content' => $this->content,
-            'status' => TicketStatus::getKey($this->status),
-            'author_id' => new UserResource($this->whenLoaded('author')),
+            'comments' => TicketCommentResource::collection($this->whenLoaded('comments')),
+
+            'author' => new UserResource($this->whenLoaded('author')),
             'assigned_to' => [
                 'staff' => new UserResource($this->whenLoaded('assignedToStaff')),
                 'team' => new TeamResource($this->whenLoaded('assignedToTeam')),

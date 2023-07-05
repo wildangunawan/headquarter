@@ -82,6 +82,17 @@
                             "type": "string",
                             "default": "1"
                         }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Ticket status",
+                        "required": false,
+                        "schema": {
+                            "description": "0 - Pending, 1 - Resolved/closed",
+                            "type": "string",
+                            "default": "1"
+                        }
                     }
                 ],
                 "responses": {
@@ -270,15 +281,71 @@
                     }
                 ]
             }
+        },
+        "/api/v1/tickets/{ticket}/comment": {
+            "post": {
+                "tags": [
+                    "Tickets - Support Center"
+                ],
+                "summary": "API to post a new comment to a ticket",
+                "operationId": "tickets-comment-store",
+                "parameters": [
+                    {
+                        "name": "ticket",
+                        "in": "path",
+                        "description": "Ticket ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "content"
+                                ],
+                                "properties": {
+                                    "content": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Comment stored. Re-request ticket data to get the newest data"
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
         }
     },
     "components": {
         "securitySchemes": {
             "sanctum": {
-                "type": "apiKey",
-                "description": "Enter token in format (Bearer <token>)",
-                "name": "Authorization",
-                "in": "header"
+                "type": "http",
+                "description": "Laravel Sanctum token authentication",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }

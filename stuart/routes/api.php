@@ -15,9 +15,6 @@ Route::group(['prefix' => 'v1'], function () {
         // Ticket
         Route::apiResource('tickets', \App\Http\Controllers\API\v1\TicketController::class)
             ->except('destroy');
-
-        Route::get('user', function (Request $request) {
-            return $request->user();
-        });
+        Route::post('tickets/{ticket}/comment', \App\Http\Controllers\TicketCommentController::class);
     });
 });
