@@ -21,8 +21,9 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'name',
-        'is_banned',
         'email',
+        'is_banned',
+        'is_admin',
         'atc_rating_id',
         'atc_rating_name',
         'pilot_rating_id',
