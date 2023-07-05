@@ -33,4 +33,9 @@ class Subdivision extends Model
     {
         return $this->belongsTo(Division::class, 'division_code', 'code');
     }
+
+    public function tickets(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Ticket::class, 'subdivision_code', 'code');
+    }
 }

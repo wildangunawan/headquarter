@@ -43,6 +43,7 @@
                     "Login"
                 ],
                 "summary": "API to redirect user to VATSIM Connect to login themself",
+                "description": "Only use this API in the browser.",
                 "operationId": "login-redirect",
                 "responses": {
                     "200": {
@@ -52,6 +53,232 @@
                         "description": "Internal server error."
                     }
                 }
+            }
+        },
+        "/api/v1/tickets": {
+            "get": {
+                "tags": [
+                    "Tickets - Support Center"
+                ],
+                "summary": "API to get all tickets owned by the user and tickets assigned to the user/user's team",
+                "operationId": "tickets",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page #",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return tickets data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Tickets - Support Center"
+                ],
+                "summary": "API to create a new ticket",
+                "description": "Don't forget to read the schema for the request body",
+                "operationId": "tickets-store",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "subject": {
+                                        "type": "string",
+                                        "default": "Ticket subject"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "default": "Ticket content"
+                                    },
+                                    "assigned_to": {
+                                        "properties": {
+                                            "team": {
+                                                "description": "1 - region, 2 - division, 3 - subdivision",
+                                                "type": "integer",
+                                                "default": "1"
+                                            },
+                                            "type": {
+                                                "description": "Code of the respective team",
+                                                "type": "string",
+                                                "default": "SEA"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "subject",
+                                "content",
+                                "assigned_to"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ticket created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/tickets/{ticket}": {
+            "get": {
+                "tags": [
+                    "Tickets - Support Center"
+                ],
+                "summary": "API to get ticket data by ID",
+                "operationId": "tickets-show",
+                "parameters": [
+                    {
+                        "name": "ticket",
+                        "in": "path",
+                        "description": "Ticket ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return ticket data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Tickets - Support Center"
+                ],
+                "summary": "API to update a ticket",
+                "description": "Don't forget to read the schema for the request body",
+                "operationId": "tickets-update",
+                "parameters": [
+                    {
+                        "name": "ticket",
+                        "in": "path",
+                        "description": "Ticket ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "status": {
+                                        "description": "0 - pending (reopen), 1 - resolved",
+                                        "type": "integer",
+                                        "default": "1"
+                                    },
+                                    "assigned_to": {
+                                        "description": "Staff CID",
+                                        "type": "integer",
+                                        "default": "1300014"
+                                    },
+                                    "transfer_to": {
+                                        "properties": {
+                                            "team": {
+                                                "description": "1 - region, 2 - division, 3 - subdivision",
+                                                "type": "integer",
+                                                "default": "1"
+                                            },
+                                            "type": {
+                                                "description": "Code of the respective team",
+                                                "type": "string",
+                                                "default": "SEA"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "status",
+                                "assigned_to",
+                                "transfer_to"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ticket created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }

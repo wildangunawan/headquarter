@@ -12,6 +12,10 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Logged-in user only
     Route::group(['middleware' => 'auth:sanctum'], function () {
+        // Ticket
+        Route::apiResource('tickets', \App\Http\Controllers\API\v1\TicketController::class)
+            ->except('destroy');
+
         Route::get('user', function (Request $request) {
             return $request->user();
         });

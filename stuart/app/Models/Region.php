@@ -19,15 +19,18 @@ class Region extends Model
         'code',
     ];
 
-    // Relation to divisions, one to many
-    public function divisions()
+    public function divisions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Division::class, 'region_code', 'code');
     }
 
-    // Relation to subdivisions, one to many
-    public function subdivisions()
+    public function subdivisions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Subdivision::class, 'region_code', 'code');
+    }
+
+    public function tickets(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Ticket::class, 'region_code', 'code');
     }
 }

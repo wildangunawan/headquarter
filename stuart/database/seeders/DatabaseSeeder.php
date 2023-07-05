@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         // or if you're sure it's safe to do so
         $this->call(HQMemberSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(TicketSeeder::class);
     }
 }
