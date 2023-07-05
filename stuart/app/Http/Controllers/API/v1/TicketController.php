@@ -51,6 +51,17 @@ class TicketController extends Controller
      *             default="1"
      *          ),
      *      ),
+     *      @OA\Parameter(
+     *          name="type",
+     *          in="query",
+     *          description="Ticket status",
+     *          required=false,
+     *          @OA\Schema(
+     *             type="string",
+     *             default="1",
+     *             description="0 - Pending, 1 - Resolved/closed"
+     *          ),
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Return tickets data",
