@@ -168,7 +168,7 @@ class TicketController extends Controller
         $this->authorize('view', $ticket);
 
         return $this->respondSuccess(new TicketResource(
-            $ticket->load('author', 'assignedToStaff', 'assignedToTeam'))
+            $ticket->load('author', 'comments', 'assignedToStaff', 'assignedToTeam'))
         );
     }
 
@@ -245,7 +245,9 @@ class TicketController extends Controller
             $ticket = $this->service->update($ticket, $request->validated());
 
             DB::commit();
-            return $this->respondSuccess(new TicketResource($ticket));
+            return $this->respondSuccess(new TicketResource(
+                $ticket->load('author', 'comments', 'assignedToStaff', 'assignedToTeam')
+            ));
         } catch (\Throwable $th) {
             DB::rollBack();
             return $this->respondError($th);
