@@ -103,13 +103,13 @@ class TicketController extends Controller
      *                      property="assigned_to",
      *                      type="object",
      *                      @OA\Property(
-     *                          property="team",
+     *                          property="type",
      *                          type="integer",
      *                          default="1",
      *                          description="1 - region, 2 - division, 3 - subdivision"
      *                      ),
      *                      @OA\Property(
-     *                          property="type",
+     *                          property="code",
      *                          type="string",
      *                          default="SEA",
      *                          description="Code of the respective team"
@@ -214,13 +214,13 @@ class TicketController extends Controller
      *                      property="transfer_to",
      *                      type="object",
      *                      @OA\Property(
-     *                          property="team",
+     *                          property="type",
      *                          type="integer",
      *                          default="1",
      *                          description="1 - region, 2 - division, 3 - subdivision"
      *                      ),
      *                      @OA\Property(
-     *                          property="type",
+     *                          property="code",
      *                          type="string",
      *                          default="SEA",
      *                          description="Code of the respective team"
