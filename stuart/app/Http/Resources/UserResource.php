@@ -14,6 +14,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'is_banned' => (bool) $this->is_banned,
+            'is_admin' => (bool) $this->is_admin,
 
             // TODO: Check if user accessing this resource has permission to view email
             'email' => $this->email,
