@@ -14,6 +14,7 @@ class UserService
             [
                 'name' => $params['personal']['name_full'],
                 'email' => $params['personal']['email'],
+                'is_admin' => in_array($params['cid'], config('hq.admins')),
                 'atc_rating_id' => $params['vatsim']['rating']['id'],
                 'atc_rating_name' => $params['vatsim']['rating']['long'] . ' (' . $params['vatsim']['rating']['short'] . ')',
                 'pilot_rating_id' => $params['vatsim']['pilotrating']['id'],
