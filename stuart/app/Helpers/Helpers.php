@@ -1,7 +1,10 @@
 <?php
 
+use App\Enums\TeamType;
+use App\Models\Division;
+use App\Models\Region;
+use App\Models\Subdivision;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 
 if (!function_exists('createLog')) {
@@ -65,5 +68,47 @@ if (!function_exists('createLog')) {
                 ],
             ]);
         }
+    }
+}
+
+if (!function_exists('getTeamCodes')) {
+    function getTeamCodes(int $type, string $code): array
+    {
+        switch ($type) {
+            case TeamType::SUBDIVISION:
+                $subdivision = Subdivision::where('code', $code)->first();
+                $result = [
+                    'region_code' => $subdivision->region_code,
+                    'division_code' => $subdivision->division_code,
+                    'subdivision_code' => $subdivision->code,
+                ];
+
+                break;
+            case TeamType::DIVISION:
+                $division = Division::where('code', $code)->first();
+                $result = [
+                    'region_code' => $division->region_code,
+                    'division_code' => $division->code,
+                    'subdivision_code' => null,
+                ];
+                break;
+            case TeamType::REGION:
+                $region = Region::where('code', $code)->first();
+                $result = [
+                    'region_code' => $region->code,
+                    'division_code' => null,
+                    'subdivision_code' => null,
+                ];
+                break;
+            default:
+                $result = [
+                    'region_code' => null,
+                    'division_code' => null,
+                    'subdivision_code' => null,
+                ];
+                break;
+        }
+
+        return $result;
     }
 }
