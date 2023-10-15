@@ -17,8 +17,8 @@ class DivisionResource extends JsonResource
 
             'region' => new RegionResource($this->whenLoaded('region')),
             'counts' => [
-                'subdivisions' => $this->subdivisions_count,
-                'tickets' => $this->tickets_count,
+                'subdivisions' => $this->whenCounted('subdivisions'),
+                'tickets' => $this->whenCounted('tickets'),
             ]
         ];
     }
