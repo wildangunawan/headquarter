@@ -20,6 +20,7 @@ class Subdivision extends Model
         'website',
         'email',
         'image_link',
+        'discord_webhook_url',
         'region_code',
         'division_code',
     ];
