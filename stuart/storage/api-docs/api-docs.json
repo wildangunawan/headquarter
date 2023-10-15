@@ -55,6 +55,202 @@
                 }
             }
         },
+        "/api/v1/housekeeping/region": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Region"
+                ],
+                "summary": "API to get all regions registered in the HQ system",
+                "operationId": "region-index",
+                "responses": {
+                    "200": {
+                        "description": "Return regions data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "[Housekeeping] Region"
+                ],
+                "summary": "API to create a new to be registered in the HQ system",
+                "operationId": "region-store",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Europe, Middle East and Africa"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.facebook.com/vatsimemea/"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "name",
+                                "code",
+                                "website"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Region created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/housekeeping/region/{region}": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Region"
+                ],
+                "summary": "API to get a single region data",
+                "operationId": "region-show",
+                "parameters": [
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "description": "Region's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return region data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "[Housekeeping] Region"
+                ],
+                "summary": "API to update currently registered region in the HQ system",
+                "operationId": "region-update",
+                "parameters": [
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "description": "Region's code",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Europe, Middle East and Africa"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.facebook.com/vatsimemea/"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "name",
+                                "code",
+                                "website"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Region created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "[Housekeeping] Region"
+                ],
+                "summary": "API to delete currently registered region in the HQ system",
+                "operationId": "region-destroy",
+                "parameters": [
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "description": "Region's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Region deleted successfully."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/api/v1/tickets": {
             "get": {
                 "tags": [
@@ -131,12 +327,12 @@
                                     },
                                     "assigned_to": {
                                         "properties": {
-                                            "team": {
+                                            "type": {
                                                 "description": "1 - region, 2 - division, 3 - subdivision",
                                                 "type": "integer",
                                                 "default": "1"
                                             },
-                                            "type": {
+                                            "code": {
                                                 "description": "Code of the respective team",
                                                 "type": "string",
                                                 "default": "SEA"
@@ -237,12 +433,12 @@
                                     },
                                     "transfer_to": {
                                         "properties": {
-                                            "team": {
+                                            "type": {
                                                 "description": "1 - region, 2 - division, 3 - subdivision",
                                                 "type": "integer",
                                                 "default": "1"
                                             },
-                                            "type": {
+                                            "code": {
                                                 "description": "Code of the respective team",
                                                 "type": "string",
                                                 "default": "SEA"

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1'], function () {
@@ -12,6 +11,10 @@ Route::group(['prefix' => 'v1'], function () {
 
     // Logged-in user only
     Route::group(['middleware' => 'auth:sanctum'], function () {
+        Route::group(['prefix' => 'housekeeping', 'middleware' => ['role:admin']], function () {
+            Route::apiResource('region', \App\Http\Controllers\API\v1\Housekeeping\RegionController::class);
+        });
+
         // Ticket
         Route::apiResource('tickets', \App\Http\Controllers\API\v1\TicketController::class)
             ->except('destroy');
