@@ -84,20 +84,25 @@
                 "operationId": "division-store",
                 "requestBody": {
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "code",
+                                    "region"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "default": "Europe Division"
+                                        "default": "Middle East & North Africa"
                                     },
                                     "code": {
                                         "type": "string",
-                                        "default": "EUD"
+                                        "default": "MENA"
                                     },
                                     "website": {
                                         "type": "string",
-                                        "default": "https://www.vateud.net/"
+                                        "default": "https://vatsim.me/"
                                     },
                                     "region": {
                                         "type": "string",
@@ -105,13 +110,7 @@
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "encoding": [
-                                "name",
-                                "code",
-                                "website",
-                                "region"
-                            ]
+                            }
                         }
                     }
                 },
@@ -181,20 +180,25 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "code",
+                                    "region"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "default": "Europe Division"
+                                        "default": "Middle East & North Africa"
                                     },
                                     "code": {
                                         "type": "string",
-                                        "default": "EUD"
+                                        "default": "MENA"
                                     },
                                     "website": {
                                         "type": "string",
-                                        "default": "https://www.vateud.net/"
+                                        "default": "https://vatsim.me/"
                                     },
                                     "region": {
                                         "type": "string",
@@ -202,13 +206,7 @@
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "encoding": [
-                                "name",
-                                "code",
-                                "website",
-                                "region"
-                            ]
+                            }
                         }
                     }
                 },
@@ -290,8 +288,12 @@
                 "operationId": "region-store",
                 "requestBody": {
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "code"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
@@ -307,12 +309,7 @@
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "encoding": [
-                                "name",
-                                "code",
-                                "website"
-                            ]
+                            }
                         }
                     }
                 },
@@ -382,8 +379,12 @@
                 ],
                 "requestBody": {
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "code"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
@@ -399,12 +400,7 @@
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "encoding": [
-                                "name",
-                                "code",
-                                "website"
-                            ]
+                            }
                         }
                     }
                 },
@@ -445,6 +441,252 @@
                 "responses": {
                     "200": {
                         "description": "Region deleted successfully."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/housekeeping/subdivision": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Subdivision"
+                ],
+                "summary": "API to get all subdivisions registered in the HQ system",
+                "operationId": "subdivision-index",
+                "responses": {
+                    "200": {
+                        "description": "Return subdivisions data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "[Housekeeping] Subdivision"
+                ],
+                "summary": "API to create a new to be registered in the HQ system",
+                "operationId": "subdivision-store",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "code",
+                                    "region",
+                                    "division"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Iran"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "IR"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "default": "admin@vatir.ir"
+                                    },
+                                    "welcome_msg": {
+                                        "type": "string",
+                                        "default": "Lorem ipsum dolor sit amet"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.vatir.ir/"
+                                    },
+                                    "logo": {
+                                        "type": "string",
+                                        "default": "https://www.vatir.ir/img/logonew.png"
+                                    },
+                                    "discord_webhook_url": {
+                                        "type": "string",
+                                        "default": "https://discord.com/"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    },
+                                    "division": {
+                                        "type": "string",
+                                        "default": "MENA"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Subdivision created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/housekeeping/subdivision/{subdivision}": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Subdivision"
+                ],
+                "summary": "API to get a single division data",
+                "operationId": "subdivision-show",
+                "parameters": [
+                    {
+                        "name": "subdivision",
+                        "in": "path",
+                        "description": "Subdivision's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return division data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "[Housekeeping] Subdivision"
+                ],
+                "summary": "API to update currently registered division in the HQ system",
+                "operationId": "subdivision-update",
+                "parameters": [
+                    {
+                        "name": "subdivision",
+                        "in": "path",
+                        "description": "Subdivision's code",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "code",
+                                    "region",
+                                    "division"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Iran"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "IR"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "default": "admin@vatir.ir"
+                                    },
+                                    "welcome_msg": {
+                                        "type": "string",
+                                        "default": "Lorem ipsum dolor sit amet"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.vatir.ir/"
+                                    },
+                                    "logo": {
+                                        "type": "string",
+                                        "default": "https://www.vatir.ir/img/logonew.png"
+                                    },
+                                    "discord_webhook_url": {
+                                        "type": "string",
+                                        "default": "https://discord.com/"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    },
+                                    "division": {
+                                        "type": "string",
+                                        "default": "MENA"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Subdivision created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "[Housekeeping] Subdivision"
+                ],
+                "summary": "API to delete currently registered division in the HQ system",
+                "operationId": "subdivision-destroy",
+                "parameters": [
+                    {
+                        "name": "subdivision",
+                        "in": "path",
+                        "description": "Subdivision's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Subdivision deleted successfully."
                     },
                     "500": {
                         "description": "Internal server error."

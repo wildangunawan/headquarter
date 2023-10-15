@@ -53,13 +53,12 @@ class RegionController extends Controller
      *      security={{"sanctum":{}}},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-     *              mediaType="application/json",
-     *              encoding={
-     *                  "name",
-     *                  "code",
-     *                  "website",
-     *              },
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
+     *                  required={
+     *                      "name",
+     *                      "code",
+     *                  },
      *                  type="object",
      *                  @OA\Property(property="name", type="string", default="Europe, Middle East and Africa"),
      *                  @OA\Property(property="code", type="string", default="EMEA"),
@@ -129,7 +128,7 @@ class RegionController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *      path="/api/v1/housekeeping/region/{region}",
      *      tags={"[Housekeeping] Region"},
      *      summary="API to update currently registered region in the HQ system",
@@ -143,13 +142,12 @@ class RegionController extends Controller
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-     *              mediaType="application/json",
-     *              encoding={
-     *                  "name",
-     *                  "code",
-     *                  "website",
-     *              },
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
+     *                  required={
+     *                      "name",
+     *                      "code",
+     *                  },
      *                  type="object",
      *                  @OA\Property(property="name", type="string", default="Europe, Middle East and Africa"),
      *                  @OA\Property(property="code", type="string", default="EMEA"),

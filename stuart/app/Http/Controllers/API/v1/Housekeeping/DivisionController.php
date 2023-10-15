@@ -53,18 +53,17 @@ class DivisionController extends Controller
      *      security={{"sanctum":{}}},
      *      @OA\RequestBody(
      *          @OA\MediaType(
-     *              mediaType="application/json",
-     *              encoding={
-     *                  "name",
-     *                  "code",
-     *                  "website",
-     *                  "region",
-     *              },
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
+     *                  required={
+     *                      "name",
+     *                      "code",
+     *                      "region",
+     *                  },
      *                  type="object",
-     *                  @OA\Property(property="name", type="string", default="Europe Division"),
-     *                  @OA\Property(property="code", type="string", default="EUD"),
-     *                  @OA\Property(property="website", type="string", default="https://www.vateud.net/"),
+     *                  @OA\Property(property="name", type="string", default="Middle East & North Africa"),
+     *                  @OA\Property(property="code", type="string", default="MENA"),
+     *                  @OA\Property(property="website", type="string", default="https://vatsim.me/"),
      *                  @OA\Property(property="region", type="string", default="EMEA"),
      *              ),
      *          ),
@@ -131,7 +130,7 @@ class DivisionController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *      path="/api/v1/housekeeping/division/{division}",
      *      tags={"[Housekeeping] Division"},
      *      summary="API to update currently registered division in the HQ system",
@@ -145,18 +144,17 @@ class DivisionController extends Controller
      *      ),
      *      @OA\RequestBody(
      *          @OA\MediaType(
-     *              mediaType="application/json",
-     *              encoding={
-     *                  "name",
-     *                  "code",
-     *                  "website",
-     *                  "region",
-     *              },
+     *              mediaType="multipart/form-data",
      *              @OA\Schema(
+     *                  required={
+     *                      "name",
+     *                      "code",
+     *                      "region",
+     *                  },
      *                  type="object",
-     *                  @OA\Property(property="name", type="string", default="Europe Division"),
-     *                  @OA\Property(property="code", type="string", default="EUD"),
-     *                  @OA\Property(property="website", type="string", default="https://www.vateud.net/"),
+     *                  @OA\Property(property="name", type="string", default="Middle East & North Africa"),
+     *                  @OA\Property(property="code", type="string", default="MENA"),
+     *                  @OA\Property(property="website", type="string", default="https://vatsim.me/"),
      *                  @OA\Property(property="region", type="string", default="EMEA"),
      *              ),
      *          ),
