@@ -13,10 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Only run this seeder if we're in a local environment
-        // or if you're sure it's safe to do so
-        $this->call(HQMemberSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(TicketSeeder::class);
+        $this->call(HQBotSeeder::class);
+
+        if (config('app.env') !== 'production') {
+            $this->call(HQMemberSeeder::class);
+            $this->call(UserSeeder::class);
+            $this->call(TicketSeeder::class);
+        }
     }
 }
