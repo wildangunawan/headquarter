@@ -16,7 +16,8 @@ class SubdivisionResource extends JsonResource
             'email' => $this->email,
             'welcome_msg' => $this->welcome_msg,
             'website' => $this->website,
-            'image_link' => $this->image_link,
+            'logo' => $this->image_link,
+            'discord_webhook' => $this->when(auth()->user()->is_admin, $this->discord_webhook_url),
 
             'division' => new DivisionResource($this->whenLoaded('division')),
             'region' => new RegionResource($this->whenLoaded('region')),
