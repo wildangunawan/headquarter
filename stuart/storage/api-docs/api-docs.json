@@ -55,6 +55,212 @@
                 }
             }
         },
+        "/api/v1/housekeeping/division": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Division"
+                ],
+                "summary": "API to get all divisions registered in the HQ system",
+                "operationId": "division-index",
+                "responses": {
+                    "200": {
+                        "description": "Return divisions data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "[Housekeeping] Division"
+                ],
+                "summary": "API to create a new to be registered in the HQ system",
+                "operationId": "division-store",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Europe Division"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "EUD"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.vateud.net/"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "name",
+                                "code",
+                                "website",
+                                "region"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Division created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/housekeeping/division/{division}": {
+            "get": {
+                "tags": [
+                    "[Housekeeping] Division"
+                ],
+                "summary": "API to get a single division data",
+                "operationId": "division-show",
+                "parameters": [
+                    {
+                        "name": "division",
+                        "in": "path",
+                        "description": "Division's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return division data"
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "[Housekeeping] Division"
+                ],
+                "summary": "API to update currently registered division in the HQ system",
+                "operationId": "division-update",
+                "parameters": [
+                    {
+                        "name": "division",
+                        "in": "path",
+                        "description": "Division's code",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Europe Division"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "default": "EUD"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "https://www.vateud.net/"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "default": "EMEA"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "encoding": [
+                                "name",
+                                "code",
+                                "website",
+                                "region"
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Division created and returning new data."
+                    },
+                    "422": {
+                        "description": "Validation errors."
+                    },
+                    "400": {
+                        "description": "Bad request."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "[Housekeeping] Division"
+                ],
+                "summary": "API to delete currently registered division in the HQ system",
+                "operationId": "division-destroy",
+                "parameters": [
+                    {
+                        "name": "division",
+                        "in": "path",
+                        "description": "Division's code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Division deleted successfully."
+                    },
+                    "500": {
+                        "description": "Internal server error."
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/api/v1/housekeeping/region": {
             "get": {
                 "tags": [

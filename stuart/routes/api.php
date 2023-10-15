@@ -13,6 +13,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::group(['prefix' => 'housekeeping', 'middleware' => ['role:admin']], function () {
             Route::apiResource('region', \App\Http\Controllers\API\v1\Housekeeping\RegionController::class);
+            Route::apiResource('division', \App\Http\Controllers\API\v1\Housekeeping\DivisionController::class);
         });
 
         // Ticket
