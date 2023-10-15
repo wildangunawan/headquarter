@@ -17,8 +17,8 @@ class RegionResource extends JsonResource
 
             // Count
             'counts' => [
-                'divisions' => $this->divisions_count,
-                'subdivisions' => $this->subdivisions_count,
+                'divisions' => $this->whenCounted('divisions'),
+                'subdivisions' => $this->whenCounted('subdivisions'),
             ]
         ];
     }
