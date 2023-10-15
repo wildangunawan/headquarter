@@ -19,6 +19,11 @@ class Region extends Model
         'code',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'code';
+    }
+
     public function divisions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Division::class, 'region_code', 'code');
