@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ticket\StoreRequest;
 use App\Http\Requests\Ticket\UpdateRequest;
+use App\Http\Resources\TicketCollection;
 use App\Http\Resources\TicketResource;
+use App\Http\Resources\TicketSimpleResource;
 use App\Models\Ticket;
 use App\Repositories\TicketRepository;
 use App\Services\TicketService;
@@ -52,7 +54,7 @@ class TicketController extends Controller
      *          ),
      *      ),
      *      @OA\Parameter(
-     *          name="type",
+     *          name="status",
      *          in="query",
      *          description="Ticket status",
      *          required=false,
@@ -75,7 +77,9 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         return $this->respondSuccess(
-            TicketResource::collection($this->repository->get($request->all()))
+            TicketSimpleResource::collection($this->repository->get($request->all()))
+                ->response()
+                ->getData(true)
         );
     }
 
@@ -93,14 +97,14 @@ class TicketController extends Controller
      *              encoding={
      *                  "subject",
      *                  "content",
-     *                  "assigned_to",
+     *                  "assigned_team",
      *              },
      *              @OA\Schema(
      *                  type="object",
      *                  @OA\Property(property="subject", type="string", default="Ticket subject"),
      *                  @OA\Property(property="content", type="string", default="Ticket content"),
      *                  @OA\Property(
-     *                      property="assigned_to",
+     *                      property="assigned_team",
      *                      type="object",
      *                      @OA\Property(
      *                          property="type",
@@ -179,7 +183,7 @@ class TicketController extends Controller
         $this->authorize('view', $ticket);
 
         return $this->respondSuccess(new TicketResource(
-            $ticket->load('author', 'comments', 'assignedToStaff', 'assignedToTeam'))
+            $ticket->load('author', 'comments', 'comments.sender', 'assignedToStaff'))
         );
     }
 
@@ -257,7 +261,7 @@ class TicketController extends Controller
 
             DB::commit();
             return $this->respondSuccess(new TicketResource(
-                $ticket->load('author', 'comments', 'assignedToStaff', 'assignedToTeam')
+                $ticket->load('author', 'comments', 'comments.sender', 'assignedToStaff')
             ));
         } catch (\Throwable $th) {
             DB::rollBack();

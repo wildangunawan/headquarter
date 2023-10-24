@@ -164,7 +164,7 @@
                     }
                 ]
             },
-            "put": {
+            "post": {
                 "tags": [
                     "[Housekeeping] Division"
                 ],
@@ -363,7 +363,7 @@
                     }
                 ]
             },
-            "put": {
+            "post": {
                 "tags": [
                     "[Housekeeping] Region"
                 ],
@@ -728,7 +728,7 @@
                         }
                     },
                     {
-                        "name": "type",
+                        "name": "status",
                         "in": "query",
                         "description": "Ticket status",
                         "required": false,
@@ -773,7 +773,7 @@
                                         "type": "string",
                                         "default": "Ticket content"
                                     },
-                                    "assigned_to": {
+                                    "assigned_team": {
                                         "properties": {
                                             "type": {
                                                 "description": "1 - region, 2 - division, 3 - subdivision",
@@ -794,7 +794,7 @@
                             "encoding": [
                                 "subject",
                                 "content",
-                                "assigned_to"
+                                "assigned_team"
                             ]
                         }
                     }

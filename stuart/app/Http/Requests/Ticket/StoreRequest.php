@@ -20,14 +20,19 @@ class StoreRequest extends FormRequest
             'content' => ['required'],
 
             /**
-             * assigned_to => [
+             * assigned_team => [
              *   type => 2,
              *   code => 'SEA'
              * ]
              */
-            'assigned_to' => ['required', 'array'],
-            'assigned_to.type' => ['required', 'in:' . $teamType],
-            'assigned_to.code' => ['required', new TeamExistRule()],
+            'assigned_team' => ['required', 'array'],
+            'assigned_team.type' => ['required', 'integer', 'in:' . $teamType],
+            'assigned_team.code' => ['required', 'string', new TeamExistRule($this->input('assigned_team.type'))],
+
+            // Will be filled by `prepareForValidation` method
+            'region_code' => ['nullable', 'exists:regions,code'],
+            'division_code' => ['nullable', 'exists:divisions,code'],
+            'subdivision_code' => ['nullable', 'exists:subdivisions,code'],
         ];
     }
 
@@ -36,14 +41,14 @@ class StoreRequest extends FormRequest
         return true;
     }
 
-    public function passedValidation(): void
+    public function prepareForValidation(): void
     {
-        /// Replace `assigned_to` to `region_code`, `division_code`, `subdivision_code` based on `assigned_to.type`
-        $this->merge([
-            'assigned_to' => getTeamCodes(
-                $this->input('assigned_to.type'),
-                $this->input('assigned_to.code')
+        // Add `region_code`, `division_code`, `subdivision_code` based on `assigned_team.type`
+        $this->merge(
+            getTeamCodes(
+                $this->input('assigned_team.type'),
+                $this->input('assigned_team.code')
             )
-        ]);
+        );
     }
 }

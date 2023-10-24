@@ -48,16 +48,4 @@ class Ticket extends Model
     {
         return $this->belongsTo(User::class, 'assigned_to', 'id');
     }
-
-    public function assignedToTeam(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        // Return subdivision if subdivision exists
-        if ($this->subdivision()->exists()) return $this->subdivision();
-
-        // Return division if subdivision does not exist
-        if ($this->division()->exists()) return $this->division();
-
-        // Return region if division does not exist
-        return $this->region();
-    }
 }

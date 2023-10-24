@@ -4,9 +4,6 @@ namespace App\Http\Requests\Ticket;
 
 use App\Enums\TeamType;
 use App\Enums\TicketStatus;
-use App\Models\Division;
-use App\Models\Region;
-use App\Models\Subdivision;
 use App\Rules\TeamExistRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -15,21 +12,15 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         $status = implode(',', TicketStatus::getValues());
-        $teamType = implode(',', TeamType::getValues());
 
         return [
             'status' => ['nullable', 'integer', 'in:' . $status],
-            'assigned_to' => ['prohibited_if:transfer_to', 'exists:users'],
+            'assigned_to' => ['missing_if:transfer_to,any', 'exists:users,id'],
 
-            /**
-             * transfer_to => [
-             *   type => 2,
-             *   code => 'SEA'
-             * ]
-             */
-            'transfer_to' => ['prohibited_if:assigned_to', 'array'],
-            'transfer_to.type' => ['nullable', 'in:' . $teamType],
-            'transfer_to.code' => ['nullable', new TeamExistRule()],
+            // Will be filled by `prepareForValidation` method
+            'transfer_to.region_code' => ['nullable', 'exists:regions,code'],
+            'transfer_to.division_code' => ['nullable', 'exists:divisions,code'],
+            'transfer_to.subdivision_code' => ['nullable', 'exists:subdivisions,code'],
         ];
     }
 
@@ -38,14 +29,31 @@ class UpdateRequest extends FormRequest
         return true;
     }
 
-    public function passedValidation(): void
+    public function prepareForValidation(): void
     {
-        // Replace `assigned_to` to `region_code`, `division_code`, `subdivision_code` based on `assigned_to.type`
-        $this->merge([
-            'transfer_to' => getTeamCodes(
-                $this->input('transfer_to.type'),
-                $this->input('transfer_to.code')
-            )
-        ]);
+        /**
+         * `transfer_to` from request are formulated below:
+         * transfer_to => [
+         *   type => 2,
+         *   code => 'SEA'
+         * ]
+         */
+        if ($this->has('transfer_to')) {
+            // Check if team is valid
+            $teamType = implode(',', TeamType::getValues());
+            $this->validate([
+                'transfer_to.type' => ['required', 'integer', 'in:'.$teamType],
+                'transfer_to.code' => ['required', 'string', new TeamExistRule($this->input('transfer_to.type'))],
+            ]);
+
+            // Add `region_code`, `division_code`, `subdivision_code`
+            // based on `transfer_to.type` only if `transfer_to` is passed
+            $this->merge([
+                'transfer_to' => getTeamCodes(
+                    $this->input('transfer_to.type'),
+                    $this->input('transfer_to.code')
+                )
+            ]);
+        }
     }
 }
