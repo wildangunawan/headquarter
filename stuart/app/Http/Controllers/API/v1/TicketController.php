@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ticket\StoreRequest;
 use App\Http\Requests\Ticket\UpdateRequest;
-use App\Http\Resources\TicketCollection;
 use App\Http\Resources\TicketResource;
 use App\Http\Resources\TicketSimpleResource;
 use App\Models\Ticket;
