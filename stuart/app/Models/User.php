@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->createToken('api')->plainTextToken;
     }
 
+    public function staffs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Staff::class, 'user_id');
+    }
+
     public function tickets(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Ticket::class, 'author_id');
