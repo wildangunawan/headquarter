@@ -8,6 +8,8 @@ class TicketCommentService
 {
     public function store(Ticket $ticket, array $params): void
     {
-        $ticket->comments()->create($params);
+        $ticket->comments()->create($params + [
+            'sender_id' => auth()->id()
+        ]);
     }
 }
