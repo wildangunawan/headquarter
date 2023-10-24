@@ -22,7 +22,6 @@ class TicketCommentPolicy
 
     public function create(User $user, Ticket $ticket): bool
     {
-        // TODO: Allow staff from whatever level to do this action
-        return $user->id === $ticket->author_id;
+        return $user->id === $ticket->author_id || canStaffDo($user, $ticket);
     }
 }

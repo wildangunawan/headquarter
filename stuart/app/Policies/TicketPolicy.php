@@ -2,13 +2,13 @@
 
 namespace App\Policies;
 
+use App\Enums\TicketStatus;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TicketPolicy
 {
-    // TODO: Implement policy by owner/staff in ticket's department
     use HandlesAuthorization;
 
     /**
@@ -22,17 +22,30 @@ class TicketPolicy
 
     public function view(User $user, Ticket $ticket): bool
     {
-        return $user->id === $ticket->author_id;
+        // Check whether user is the author of the ticket
+        // or is a staff that is assigned to the ticket
+        return $user->id === $ticket->author_id || canStaffDo($user, $ticket);
     }
 
     public function update(User $user, Ticket $ticket): bool
     {
-        return $user->id === $ticket->author_id;
+        // Check whether user is the author of the ticket
+        // or is a staff that is assigned to the ticket
+        return $user->id === $ticket->author_id || canStaffDo($user, $ticket);
     }
 
-    public function staffOnly(User $user, Ticket $ticket): bool
+    public function reopen(User $user, Ticket $ticket): bool
     {
-        // TODO: Only allow staff from whatever level to do this action
-        return true;
+        return canStaffDo($user, $ticket, 3);
+    }
+
+    public function transfer(User $user, Ticket $ticket): bool
+    {
+        return $ticket->status != TicketStatus::RESOLVED && canStaffDo($user, $ticket);
+    }
+
+    public function assignStaff(User $user, Ticket $ticket): bool
+    {
+        return $ticket->status != TicketStatus::RESOLVED && canStaffDo($user, $ticket);
     }
 }
