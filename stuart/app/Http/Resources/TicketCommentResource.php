@@ -15,7 +15,7 @@ class TicketCommentResource extends JsonResource
             'posted_at' => $this->created_at,
 
             'ticket' => new TicketResource($this->whenLoaded('ticket')),
-            'sender' => new UserResource($this->whenLoaded('sender')),
+            'sender' => new UserSimpleResource($this->whenLoaded('sender')),
         ];
     }
 }
