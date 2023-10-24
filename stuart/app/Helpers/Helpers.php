@@ -112,3 +112,36 @@ if (!function_exists('getTeamCodes')) {
         return $result;
     }
 }
+
+if (!function_exists('canStaffDo')) {
+    function canStaffDo(\App\Models\User $user, $resource, int $max_level = 5): bool
+    {
+        foreach ($user->staffs as $position) {
+            $type = match (0) {
+                $position->subdivision_code !== null => TeamType::SUBDIVISION,
+                $position->division_code !== null => TeamType::DIVISION,
+                default => TeamType::REGION,
+            };
+
+            $a_staff_at = match ($type) {
+                TeamType::SUBDIVISION => $position->subdivision_code,
+                TeamType::DIVISION => $position->division_code,
+                default => $position->region_code,
+            };
+
+            if (
+                // Check if user has the ability to edit the resource
+                $position->level >= $max_level &&
+
+                // Check if user is staff at the resource's team
+                (
+                    ($resource->subdivision_code === $a_staff_at && $type === TeamType::SUBDIVISION) ||
+                    ($resource->division_code === $a_staff_at && $type === TeamType::DIVISION) ||
+                    ($resource->region_code === $a_staff_at && $type === TeamType::REGION)
+                )
+            ) return true;
+        }
+
+        return false;
+    }
+}
