@@ -13,8 +13,14 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'is_banned' => (bool) $this->is_banned,
-            'is_admin' => (bool) $this->is_admin,
+
+            $this->mergeWhen(
+                auth()->user()->is_admin || auth()->user()->id == $this->id,
+                [
+                    'is_banned' => (bool) $this->is_banned,
+                    'is_admin' => (bool) $this->is_admin,
+                ]
+            ),
 
             // TODO: Check if user accessing this resource has permission to view email
             'email' => $this->email,
